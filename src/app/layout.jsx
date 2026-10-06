@@ -26,15 +26,25 @@ export const metadata = {
   icons: { icon: { url: '/assets/svgs/brand/favicon.svg', type: 'image/svg+xml' } },
 };
 
+// Back / forward: let the browser restore the previous scroll position instantly instead of
+// animating it through the global `scroll-behavior: smooth`, then turn smooth scrolling back on.
+// Clicking an in-page #link also fires popstate, but with no history state, so it's skipped.
+const HISTORY_SCROLL_SCRIPT =
+  "addEventListener('popstate',function(e){if(!e.state)return;var s=document.documentElement.style;s.scrollBehavior='auto';clearTimeout(window.__restoreSmooth);window.__restoreSmooth=setTimeout(function(){s.scrollBehavior=''},600)})";
+
 export const viewport = {
   themeColor: '#0a0a0b',
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${archivo.variable} ${caveat.variable}`} suppressHydrationWarning>
+    // data-scroll-behavior: Next.js 16 only jumps instantly to the top on page changes when this is set;
+    // without it the global `scroll-behavior: smooth` (base.css) animates the scroll on every navigation.
+    // In-page links (e.g. #process) still scroll smoothly.
+    <html lang="en" className={`${archivo.variable} ${caveat.variable}`} data-scroll-behavior="smooth" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: MOTION_BOOT_SCRIPT }} />
+        <script dangerouslySetInnerHTML={{ __html: HISTORY_SCROLL_SCRIPT }} />
       </head>
       <body>
         {children}

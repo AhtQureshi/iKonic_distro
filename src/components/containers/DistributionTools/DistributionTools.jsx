@@ -14,7 +14,8 @@ export function DistributionTools({ content = tools }) {
             <Button {...content.action} />
           </div>
         </div>
-        <div data-reveal="right" data-reveal-delay="150"><ReleaseManagerMockup {...content.dashboard} /></div>
+        {/* Dashboard shown on a tablet-style device frame */}
+        <div className="distribution-tools__device" data-reveal="right" data-reveal-delay="150"><ReleaseManagerMockup {...content.dashboard} /></div>
       </div>
     </section>
   );

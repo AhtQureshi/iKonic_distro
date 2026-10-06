@@ -1,11 +1,18 @@
+import { image } from '../../../utils/assets.js';
 import { hero } from '../../../data/distribution.js';
-import { Button, Eyebrow, Heading, Text } from '../../atoms/index.js';
+import { Button, Eyebrow, Heading, Img, Text } from '../../atoms/index.js';
 import { MetricCard, ReleaseStatus, StoreStatusList, TitledPoint } from '../../subcomponents/index.js';
 
-/** Distribution hero: headline + CTAs, floating release / store / streams cards, three key points. */
+/** Distribution hero over a full-bleed banner: headline + CTAs, floating release / store / streams cards, three key points. */
 export function DistributionHero({ content = hero }) {
   return (
     <section className="distribution-hero" aria-labelledby="distribution-hero-title">
+      {content.image && (
+        <div className="distribution-hero__media" aria-hidden="true">
+          {/* Not `eager`: React would add a preload hint that other pages pick up when they prefetch /distribution. */}
+          <Img src={image(content.image.file)} width={content.image.width} height={content.image.height} className="distribution-hero__bg" />
+        </div>
+      )}
       <div className="container">
         <div className="distribution-hero__grid">
           <div className="distribution-hero__copy" data-reveal-stagger="up" data-reveal-step="120">

@@ -13,6 +13,8 @@ export const hero = {
   eyebrow: 'Music Without Limits',
   title: 'Distribute Your Music <span class="text-red">Worldwide.</span>',
   text: 'Get your music on 250+ streaming platforms, keep 100% of your rights, and reach new fans everywhere.',
+  // Decorative full-bleed background (public/assets/images/), 1983×793.
+  image: { file: 'distribution-hero.webp', width: 1983, height: 793 },
   actions: [
     { label: 'Start Free', href: '#', variant: 'primary', size: 'lg', iconRight: 'arrow-right' },
     { label: 'Watch Demo', href: '#', variant: 'outline', size: 'lg', iconLeft: 'play-circle' },
@@ -44,7 +46,7 @@ export const features = {
 
 export const audience = {
   eyebrow: 'Reach a Global Audience',
-  title: 'Your Music.<br>Everywhere Fans <span class="text-red">Listen.</span>',
+  title: 'Your Music.<br>Everywhere Fans Listen.',
   text: 'From Spotify to TikTok, Apple Music to Amazon, Ikonic gets your music in front of listeners across the world — with one simple release.',
   phone: {
     title: 'Higher Ground',
@@ -68,8 +70,9 @@ export const audience = {
 
 export const steps = {
   eyebrow: 'How It Works',
-  title: 'Get Your Music <span class="text-red">Live.</span>',
+  title: 'Get Your Music Live.',
   align: 'center',
+  headingAlign: 'left',
   divided: false,
   steps: [
     { icon: 'upload', title: '1. Upload', text: 'Add your music and artwork.' },
@@ -82,7 +85,7 @@ export const steps = {
 
 export const tools = {
   eyebrow: 'Tools to Help You Grow',
-  title: 'More Than Just <span class="text-red">Distribution.</span>',
+  title: 'More Than Just<br>Distribution.',
   text: 'Everything you need to release, manage, and grow your music — all in one place.',
   checklist: [
     'Unlimited Releases',

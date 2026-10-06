@@ -3,9 +3,25 @@
   content: '';
   position: absolute;
   inset: 0;
-  z-index: -1;
+  z-index: -2;
   pointer-events: none;
-  background: radial-gradient(ellipse 46% 60% at 88% 40%, rgba(239, 58, 16, 0.22), transparent 65%);
+  background:
+    radial-gradient(ellipse 40% 60% at 92% 35%, rgba(239, 58, 16, 0.34), transparent 65%),
+    radial-gradient(ellipse 35% 50% at 8% 60%, rgba(239, 58, 16, 0.12), transparent 65%);
+}
+/* Dotted world map glowing red behind the copy, fading out toward the phone */
+.distribution-audience__map {
+  position: absolute;
+  top: 50%;
+  right: -12%;
+  z-index: -1;
+  width: min(1100px, 85%);
+  translate: 0 -50%;
+  opacity: 0.55;
+  filter: sepia(1) saturate(9) hue-rotate(-28deg) brightness(0.85) drop-shadow(0 0 6px rgba(239, 58, 16, 0.6));
+  -webkit-mask-image: radial-gradient(ellipse 60% 70% at 70% 50%, #000 30%, transparent 75%);
+  mask-image: radial-gradient(ellipse 60% 70% at 70% 50%, #000 30%, transparent 75%);
+  pointer-events: none;
 }
 
 .distribution-audience__grid { display: grid; grid-template-columns: 0.95fr 1.05fr; gap: 64px; align-items: center; }
@@ -14,14 +30,14 @@
 .distribution-audience__stats {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2px;
+  max-width: 560px;
   margin-top: 36px;
-  overflow: hidden;
-  background: var(--color-border);
-  border: 1px solid var(--color-border);
-  border-radius: 14px;
 }
-.distribution-audience__stat { gap: 16px; padding: 26px 24px; background: var(--color-bg); border: 0; border-radius: 0; }
+/* Open 2x2 grid split by thin lines (no box) */
+.distribution-audience__stat { gap: 16px; padding: 22px 24px 22px 0; background: none; border: 0; border-radius: 0; }
+.distribution-audience__stat:nth-child(odd) { border-right: 1px solid var(--color-border-strong); }
+.distribution-audience__stat:nth-child(even) { padding-left: 28px; }
+.distribution-audience__stat:nth-child(-n + 2) { border-bottom: 1px solid var(--color-border); }
 .distribution-audience__stat .icon { width: 30px; height: 30px; }
 .distribution-audience__stat .stat-tile__value { font-size: 30px; font-weight: 900; }
 .distribution-audience__stat .stat-tile__label { font-size: 13px; color: var(--color-text-muted); }
@@ -32,7 +48,9 @@
 
 @media (max-width: 560px) {
   .distribution-audience { padding: 64px 0; }
-  .distribution-audience__stat { flex-direction: column; align-items: flex-start; gap: 10px; padding: 20px 16px; }
+  .distribution-audience__stat { flex-direction: column; align-items: flex-start; gap: 10px; padding: 20px 16px 20px 0; }
+  .distribution-audience__stat:nth-child(even) { padding-left: 16px; }
+  .distribution-audience__map { right: -40%; width: 140%; opacity: 0.35; }
   .distribution-audience__stat .stat-tile__value { font-size: 26px; }
 }
 

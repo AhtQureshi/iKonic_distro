@@ -79,8 +79,9 @@
 @import url('../components/containers/AdvanceProcess/AdvanceProcess.css');
 @import url('../components/containers/AdvanceTracking/AdvanceTracking.css');
 @import url('../components/containers/AdvanceUses/AdvanceUses.css');
-@import url('../components/containers/ContactChannels/ContactChannels.css');
+@import url('../components/containers/ContactFaq/ContactFaq.css');
 @import url('../components/containers/ContactHero/ContactHero.css');
+@import url('../components/containers/ContactSupport/ContactSupport.css');
 @import url('../components/containers/CtaBanner/CtaBanner.css');
 @import url('../components/containers/DistributionAudience/DistributionAudience.css');
 @import url('../components/containers/DistributionCta/DistributionCta.css');

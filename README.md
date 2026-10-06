@@ -23,7 +23,7 @@ through [Resend](https://resend.com). Set these environment variables (Vercel â†
 - `CONTACT_FROM_EMAIL` â€” a sender on a domain verified in Resend, e.g. `IKONIC Website <website@your-domain.com>`
 
 Without them, `npm run dev` just logs each message to the terminal, and production shows the form's error message
-(with the contact email) instead of pretending the message was sent. The addresses shown on the page live in `src/data/contact.js`.
+(with the contact email) instead of pretending the message was sent. The support email, FAQ categories and support hours shown on the page live in `src/data/contact.js`.
 
 ## Animations
 
@@ -73,7 +73,8 @@ Every level has an `index.js` that exports everything in it.
 2. **Content goes in `src/data/`.** Change copy, prices or stats there, not in the components. Titles may contain markup
    (`'Own More <span class="text-red">Of Your Music.</span>'`); components render those with `rich()` from `src/utils/cx.js`.
 3. **Server by default.** Components are React Server Components. Only components with state or event handlers start with
-   `'use client'` (Header, NavMenu, Accordion, BillingToggle, PlanCard, LatestReleases, AdvanceEstimator, ContactForm).
+   `'use client'` (Header, NavMenu, Accordion, BillingToggle, PlanCard, LatestReleases, AdvanceEstimator, ContactForm,
+   ContactFaq, ContactSupport).
 4. **Icons:** drop a new `name.svg` into `src/components/atoms/Icon/svgs/`, run `npm run icons` (or restart `npm run dev`), then use `<Icon name="name" />`.
 5. **New component:** create `Folder/Folder.jsx` + `Folder/Folder.css`, export it from that level's `index.js`, and add the CSS to `src/styles/index.css`.
 6. **Internal links** use `/route` hrefs (e.g. `/pricing`); the `Anchor` atom turns them into Next.js client-side links.

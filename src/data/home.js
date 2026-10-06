@@ -71,9 +71,9 @@ export const features = {
   eyebrow: 'Built For Independent Artists',
   title: 'More Than Distribution.',
   items: [
-    { icon: 'globe', title: 'Distribution', text: 'Get your music on 250+ stores worldwide.', href: 'distribution.html' },
-    { icon: 'music', title: 'Publishing', text: 'Collect more from your songs.', href: 'publishing.html' },
-    { icon: 'coins', title: 'Advance', text: 'Turn your royalties into momentum.', href: 'advance.html' },
+    { icon: 'globe', title: 'Distribution', text: 'Get your music on 250+ stores worldwide.', href: '/distribution' },
+    { icon: 'music', title: 'Publishing', text: 'Collect more from your songs.', href: '/publishing' },
+    { icon: 'coins', title: 'Advance', text: 'Turn your royalties into momentum.', href: '/advance' },
     { icon: 'chart-bar', art: 'growth', title: 'Analytics', text: 'Real insights. Real growth.', href: '#' },
   ],
 };
@@ -169,7 +169,7 @@ export const pricing = {
   eyebrow: 'Simple Pricing',
   title: 'Plans for Every<br>Stage.',
   text: 'Start free, upgrade when you grow. Keep 100% of your rights on every plan.',
-  link: { label: 'See All Plans', href: 'pricing.html' },
+  link: { label: 'See All Plans', href: '/pricing' },
   plans: [
     { name: 'Ikonic Basic', price: planPrices.basic.monthly, features: ['Worldwide distribution', 'Keep 100% of your rights', 'Basic analytics'] },
     { name: 'Ikonic Pro', price: planPrices.pro.monthly, featured: true, badge: 'Most Popular', features: ['Everything in Basic', 'Advanced analytics', 'Priority support'] },
@@ -183,7 +183,7 @@ export const cta = {
   text: 'Join thousands of independent artists using Ikonic to take control of their music business.',
   actions: [
     { label: 'Start Free', href: '#', variant: 'primary', size: 'lg', iconRight: 'arrow-right' },
-    { label: 'View Pricing', href: 'pricing.html', variant: 'outline', size: 'lg' },
+    { label: 'View Pricing', href: '/pricing', variant: 'outline', size: 'lg' },
   ],
   proof: { avatars: [1, 5, 3, 7], value: '50K+', label: 'Artists & Labels' },
 };

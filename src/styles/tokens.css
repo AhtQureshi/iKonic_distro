@@ -26,7 +26,7 @@
   --color-success: #3ddc84;
 
   /* Type */
-  --font-sans: 'Archivo', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+  --font-sans: var(--font-archivo), 'Archivo', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
   --fs-xs: 12px;
   --fs-sm: 13.5px;
   --fs-md: 15px;

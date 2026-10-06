@@ -79,7 +79,7 @@ export const audience = [
     title: 'Scalable Plans for<br>Labels &amp; Teams.',
     text: 'Manage multiple artists, releases, permissions, and payouts — all in one place.',
     items: ['Up to 50+ artists', 'Advanced team tools', 'Custom permissions', 'Dedicated support'],
-    action: { label: 'View Label Plans', href: 'labels.html' },
+    action: { label: 'View Label Plans', href: '/labels' },
   },
   {
     icon: 'grid-table',
@@ -87,7 +87,7 @@ export const audience = [
     title: 'Distributor Access<br>Upon Request.',
     text: 'Custom distribution solutions for larger operations, partners, and enterprises.',
     items: ['Custom terms', 'White-label options', 'Dedicated infrastructure', 'Personalized support'],
-    action: { label: 'Request Access', href: 'support.html#contact' },
+    action: { label: 'Request Access', href: '/support#contact' },
   },
 ];
 
@@ -107,7 +107,7 @@ export const faq = {
   eyebrow: 'Frequently asked questions',
   title: 'Quick answers.',
   text: 'Everything you need to know about our pricing.',
-  action: { label: 'View All FAQs', href: 'support.html' },
+  action: { label: 'View All FAQs', href: '/support' },
   items: [
     { q: 'Can I upgrade or downgrade my plan?', a: 'Yes — you can switch plans at any time from your dashboard, and the change takes effect immediately.' },
     { q: 'Are there any setup fees?', a: 'No — there are no setup fees, ever. You only pay the plan price you see.' },

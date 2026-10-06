@@ -13,7 +13,7 @@
 
 /* Connectors draw in after each step appears */
 .motion .journey__steps .journey-step:not(:last-child)::after { scale: 0 1; transition: scale 0.9s var(--ease) calc(var(--reveal-delay, 0ms) + 350ms); }
-.motion .journey__steps .journey-step.is-visible::after { scale: 1 1; }
+.motion .journey__steps .journey-step[data-visible]::after { scale: 1 1; }
 
 /* align: 'center' (distribution page) — centred steps joined by a dashed line */
 .journey--center .journey__steps { margin-top: 56px; }
@@ -30,5 +30,5 @@
   .journey__steps .journey-step { flex-direction: row; align-items: center; }
   .journey__steps .journey-step:not(:last-child)::after { top: 72px; bottom: -24px; left: 31px; right: auto; border-top: 0; border-left: 2px dotted rgba(239, 58, 16, 0.45); transform-origin: center top; }
   .motion .journey__steps .journey-step:not(:last-child)::after { scale: 1 0; }
-  .motion .journey__steps .journey-step.is-visible::after { scale: 1 1; }
+  .motion .journey__steps .journey-step[data-visible]::after { scale: 1 1; }
 }

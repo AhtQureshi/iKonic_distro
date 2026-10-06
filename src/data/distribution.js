@@ -38,7 +38,7 @@ export const features = {
     { icon: 'globe', title: 'Global Distribution', text: 'Get your music on 250+ streaming platforms worldwide.', href: '#', variant: 'plain' },
     { icon: 'bolt-outline', title: 'Fast &amp; Reliable', text: 'Typically live in 1–7 days with real-time delivery updates.', href: '#', variant: 'plain' },
     { icon: 'bar-chart-axis', title: 'Keep 100% Ownership', text: 'You keep your masters, your rights, and your revenue.', href: '#', variant: 'plain' },
-    { icon: 'users', title: 'For Artists &amp; Labels', text: 'Release as an independent artist or manage multiple artists under one label.', href: 'labels.html', variant: 'plain' },
+    { icon: 'users', title: 'For Artists &amp; Labels', text: 'Release as an independent artist or manage multiple artists under one label.', href: '/labels', variant: 'plain' },
   ],
 };
 
@@ -132,7 +132,7 @@ export const faq = {
   eyebrow: 'Frequently Asked Questions',
   title: 'Quick <span class="text-red">answers.</span>',
   text: 'Everything you need to know about distribution on Ikonic.',
-  action: { label: 'View All FAQs', href: 'support.html', variant: 'outline', size: 'md', iconRight: 'arrow-right' },
+  action: { label: 'View All FAQs', href: '/support', variant: 'outline', size: 'md', iconRight: 'arrow-right' },
   items: [
     { question: 'How long does it take to get my music live?', answer: 'Most releases go live within 1–7 days, depending on the store’s review times.' },
     { question: 'Which platforms will my music go to?', answer: 'Your music is delivered to 250+ streaming platforms and stores worldwide, including Spotify, Apple Music, YouTube, TikTok, Amazon Music, TIDAL, Deezer, and Pandora.' },
@@ -147,7 +147,7 @@ export const cta = {
   text: 'Join thousands of independent artists releasing, growing, and owning more with Ikonic.',
   actions: [
     { label: 'Start Free', href: '#', variant: 'primary', size: 'lg', iconRight: 'arrow-right' },
-    { label: 'View Pricing', href: 'pricing.html', variant: 'outline', size: 'lg' },
+    { label: 'View Pricing', href: '/pricing', variant: 'outline', size: 'lg' },
   ],
   stats: [
     { value: '50K+', label: 'Artists &amp; Labels' },

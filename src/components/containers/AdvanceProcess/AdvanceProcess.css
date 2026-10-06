@@ -15,7 +15,7 @@
   transform-origin: left center;
 }
 .motion .advance-process__steps::before { scale: 0 1; transition: scale 1.2s var(--ease) 300ms; }
-.motion .advance-process__steps:has(.is-visible)::before { scale: 1 1; }
+.motion .advance-process__steps:has([data-visible])::before { scale: 1 1; }
 
 .advance-process__steps .journey-step { gap: 0; }
 .advance-process__steps .journey-step__icon { margin-bottom: 18px; }

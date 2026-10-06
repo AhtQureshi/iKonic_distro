@@ -1,26 +1,21 @@
 # IKONIC — Main Site
 
-Component-based static site. No npm: pages are assembled from plain ES modules in `src/`, and a small Python script bundles them.
+Next.js (App Router) site built from reusable React components.
 
-## View it
-
-Double-click `index.html`, or use Live Server. It runs from the bundled files in `dist/`.
-
-## Edit it
-
-Edit files in `src/`, then rebuild:
+## Run it
 
 ```
-python tools/build.py           # build once
-python tools/build.py --watch   # rebuild automatically while you work
+npm install        # first time only
+npm run dev        # http://localhost:3000, reloads as you edit
+npm run build      # production build
+npm start          # serve the production build
 ```
 
-The build writes `dist/home.js` (all components) and `dist/site.css` (all styles), and regenerates
-`src/assets/svgs/icons/index.js` from the icon `.svg` files. Never edit `dist/` by hand.
+Pages: `/`, `/distribution`, `/publishing`, `/advance`, `/pricing`, `/labels`.
 
 ## Animations
 
-Driven by attributes, handled in `src/utils/motion.js` + `src/styles/motion.css`:
+Driven by attributes, handled in `src/utils/motion.js` + `src/styles/motion.css` (wired once in the root layout):
 
 - `data-reveal="up|down|left|right|zoom|fade"` — animate in on scroll (`data-reveal-delay="200"` in ms)
 - `data-reveal-stagger="up"` — reveal each child in turn (`data-reveal-step="100"`)
@@ -31,76 +26,75 @@ Charts inside a revealed element draw themselves. Everything is skipped for user
 ## Structure
 
 ```
-index.html                 Page shell: favicon, fonts, stylesheet, loads dist/home.js
-distribution.html, publishing.html, advance.html, pricing.html, labels.html
-                           Same thin shells for the other pages (dist/<page>.js)
-docs/legacy/               The original hand-written pages, kept for reference only
+public/assets/
+  images/                  Raster images (hero-studio.png, logo.webp)
+  svgs/                    brand/, stores/, flags/, maps/, illustrations/ — served from /assets/...
+scripts/build-icons.mjs    Builds the Icon atom's registry from its .svg files (runs before dev/build)
 src/
-  assets/
-    images/                Raster images (hero-studio.png, logo.webp)
-    svgs/
-      brand/               favicon.svg, eye-mark.svg
-      icons/               Single-colour UI icons (used through the Icon atom, coloured by CSS)
-      stores/              Full-colour streaming store logos
-      flags/               Country flags
-      maps/                world-dots.svg
-      illustrations/       crowd.svg
+  app/                     Routes. layout.jsx (fonts, metadata, global CSS) + one page.jsx per page
+    page.jsx               Home
+    distribution/, publishing/, advance/, pricing/, labels/
   styles/
     tokens.css             Colours, type scale, radii, spacing. Change the brand here.
     base.css, layout.css   Reset + .container / .section
+    motion.css             Scroll-reveal states
     index.css              Imports every stylesheet (add new components here)
   components/
     atoms/                 Smallest pieces: Button, Icon, Logo, Heading, Text, Pill, Cover, Sparkline…
-    subcomponents/         Built from atoms: FeatureCard, PlanCard, ReleaseCard, MetricCard, NavMenu…
+      Icon/svgs/           Single-colour UI icons (inlined by the Icon atom, coloured by CSS)
+    subcomponents/         Built from atoms: FeatureCard, PlanCard, ReleaseCard, Accordion, NavMenu…
     containers/            Full page sections: Header, Hero, Ticker, PlatformShowcase, … Footer
   data/
-    site.js                Navigation, footer, socials, stores (shared by every page)
-    home.js                All home-page copy and numbers
-    distribution.js, publishing.js, advance.js, pricing.js, labels.js   Copy for each page
-  pages/                   One folder per page; each entry composes its page from containers
-    home/home.js
-    distribution/distribution.js
-    publishing/publishing.js
-    advance/advance.js
-    pricing/pricing.js
-    labels/labels.js
-  utils/                   html template helper, asset paths, map projection, DOM helpers
+    site.js                Navigation, footer, socials, stores, plan prices (shared by every page)
+    home.js, distribution.js, publishing.js, advance.js, pricing.js, labels.js   Copy for each page
+  utils/                   cx / rich helpers, asset paths, map projection, motion
+docs/legacy/               The original hand-written pages, kept for reference only
 ```
 
-Each component lives in its own folder with a `.js` file (returns markup) and a `.css` file.
+Each component lives in its own folder with a `.jsx` file and a `.css` file.
 Every level has an `index.js` that exports everything in it.
 
 ## Rules
 
 1. **Reuse, don't recreate.** Pages import containers only. Containers import subcomponents and atoms. Subcomponents import atoms. Atoms import only utils.
-2. **Content goes in `src/data/`.** Change copy, prices or stats there, not in the components.
-3. **Icons:** drop a new `name.svg` into `src/assets/svgs/icons/`, run the build, then use `Icon({ name: 'name' })`.
-4. **New component:** create `Folder/Folder.js` + `Folder/Folder.css`, export it from that level's `index.js`, and add the CSS to `src/styles/index.css`.
+2. **Content goes in `src/data/`.** Change copy, prices or stats there, not in the components. Titles may contain markup
+   (`'Own More <span class="text-red">Of Your Music.</span>'`); components render those with `rich()` from `src/utils/cx.js`.
+3. **Server by default.** Components are React Server Components. Only components with state or event handlers start with
+   `'use client'` (Header, NavMenu, Accordion, BillingToggle, PlanCard, LatestReleases, AdvanceEstimator).
+4. **Icons:** drop a new `name.svg` into `src/components/atoms/Icon/svgs/`, run `npm run icons` (or restart `npm run dev`), then use `<Icon name="name" />`.
+5. **New component:** create `Folder/Folder.jsx` + `Folder/Folder.css`, export it from that level's `index.js`, and add the CSS to `src/styles/index.css`.
+6. **Internal links** use `/route` hrefs (e.g. `/pricing`); the `Anchor` atom turns them into Next.js client-side links.
 
 ## Adding a page
 
-Add the page to `PAGES` in `tools/build.py` (`"pricing": "src/pages/pricing/pricing.js"`), then:
+Create `src/app/<route>/page.jsx`:
 
-```html
-<!-- pricing.html -->
-<link rel="stylesheet" href="dist/site.css">
-<div id="app"></div>
-<script src="dist/pricing.js"></script>
+```jsx
+import { Header, Footer, PricingPreview, CtaBanner } from '../../components/containers/index.js';
+
+export const metadata = { title: 'Page title — IKONIC', description: '…' };
+
+export default function Page() {
+  return (
+    <>
+      <Header active="pricing" />
+      <main id="main">
+        <PricingPreview />
+        <CtaBanner />
+      </main>
+      <Footer />
+    </>
+  );
+}
 ```
 
-```js
-// src/pages/pricing/pricing.js
-import { Header, Footer, PricingPreview, CtaBanner, setupHeader } from '../../components/containers/index.js';
-
-const app = document.getElementById('app');
-app.innerHTML = [Header({ active: 'pricing' }), '<main>', PricingPreview(), CtaBanner(), '</main>', Footer()].join('');
-setupHeader(app);
-setupMotion(app); // import { setupMotion } from '../../utils/motion.js'
-```
+Containers take their copy from `src/data/` by default; pass `content={…}` to reuse one with different copy
+(e.g. `<FeatureGrid content={features} />` on the distribution page).
 
 ## Shared pieces
 
 Every page uses the same `Header` and `Footer` containers; edit nav links and footer content in
 `src/data/site.js` and every page updates. Generic subcomponents shared across pages include
-`AccordionItem` (+ `setupAccordion`), `CheckList`, `SectionIntro`, `IconCard`, `IconPoint`, `TitledPoint`
+`Accordion` / `AccordionItem`, `CheckList`, `SectionIntro`, `IconCard`, `IconPoint`, `TitledPoint`
 and `NumberedStep`. Plan prices live once in `planPrices` in `src/data/site.js` (used by home and pricing).
+On the pricing page, `BillingProvider` links the hero's Monthly / Annual switch to the plan cards.

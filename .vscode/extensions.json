@@ -1,6 +1,5 @@
 {
     "recommendations": [
-        "anthropic.claude-code",
-        "ritwickdey.LiveServer"
+        "anthropic.claude-code"
     ]
 }

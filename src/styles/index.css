@@ -1,4 +1,4 @@
-/* Single stylesheet entry. Add a line here whenever a new component folder is created. */
+/* Single stylesheet entry, imported by src/app/layout.jsx. Add a line here whenever a new component folder is created. */
 @import url('./tokens.css');
 @import url('./base.css');
 @import url('./layout.css');

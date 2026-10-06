@@ -124,7 +124,7 @@ export const faq = {
   eyebrow: 'Frequently Asked Questions',
   title: 'Quick answers.',
   text: 'Everything you need to know about publishing on Ikonic.',
-  action: { label: 'View All FAQs', href: 'support.html', variant: 'outline', size: 'lg', iconRight: 'arrow-right' },
+  action: { label: 'View All FAQs', href: '/support', variant: 'outline', size: 'lg', iconRight: 'arrow-right' },
   items: [
     { question: 'Do I keep 100% of my rights?', answer: 'Yes — you keep full ownership of your songs; Ikonic only collects the publishing royalties on your behalf.' },
     { question: 'What songs can I register?', answer: 'Any original songs you wrote or co-wrote and hold the publishing rights to, including released and unreleased works.' },
@@ -139,6 +139,6 @@ export const cta = {
   text: 'Join thousands of independent artists collecting publishing royalties and owning more of their music.',
   actions: [
     { label: 'Get Started', href: '#', variant: 'primary', size: 'lg', iconRight: 'arrow-right' },
-    { label: 'View Pricing', href: 'pricing.html', variant: 'outline', size: 'lg' },
+    { label: 'View Pricing', href: '/pricing', variant: 'outline', size: 'lg' },
   ],
 };

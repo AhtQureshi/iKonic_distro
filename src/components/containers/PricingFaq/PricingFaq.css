@@ -1,4 +1,4 @@
-﻿.pricing-faq { position: relative; padding: 64px 0; }
+.pricing-faq { position: relative; padding: 64px 0; }
 .pricing-faq__grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 56px; align-items: start; }
 .pricing-faq__copy { display: flex; flex-direction: column; align-items: flex-start; gap: 28px; }
 .pricing-faq__heading .eyebrow { color: var(--color-text-muted); font-size: 12.5px; letter-spacing: 0.32em; margin-bottom: 8px; }

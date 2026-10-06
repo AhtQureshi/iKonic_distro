@@ -1,8 +1,5 @@
-/**
- * Asset path helpers. Paths resolve from the page's location (pages live in the
- * project root), so they work over http and when a page is opened from disk.
- */
-const ASSETS = new URL('src/assets/', document.baseURI).href;
+/** Asset path helpers. Files live in public/assets/ and are served from /assets/. */
+const ASSETS = '/assets/';
 
 export const asset = (path) => ASSETS + path;
 export const image = (file) => asset(`images/${file}`);

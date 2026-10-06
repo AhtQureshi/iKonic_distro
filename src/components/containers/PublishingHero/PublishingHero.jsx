@@ -9,8 +9,7 @@ export function PublishingHero({ content = hero }) {
     <section className="publishing-hero" aria-labelledby="publishing-hero-title">
       {content.image && (
         <div className="publishing-hero__media" aria-hidden="true">
-          {/* Not `eager`: React would add a preload hint that other pages pick up when they prefetch /publishing. */}
-          <Img src={image(content.image.file)} width={content.image.width} height={content.image.height} className="publishing-hero__bg" />
+          <Img src={image(content.image.file)} width={content.image.width} height={content.image.height} priority className="publishing-hero__bg" />
         </div>
       )}
       <div className="container publishing-hero__inner">

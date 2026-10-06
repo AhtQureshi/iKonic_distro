@@ -9,8 +9,7 @@ export function ContactHero({ content = hero }) {
     <section className="contact-hero" aria-labelledby="contact-hero-title">
       {content.image && (
         <div className="contact-hero__media" aria-hidden="true">
-          {/* Not `eager`: React would add a preload hint that other pages pick up when they prefetch /contact. */}
-          <Img src={image(content.image.file)} width={content.image.width} height={content.image.height} className="contact-hero__bg" />
+          <Img src={image(content.image.file)} width={content.image.width} height={content.image.height} priority className="contact-hero__bg" />
         </div>
       )}
       <div className="container">

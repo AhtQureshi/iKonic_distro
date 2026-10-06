@@ -1,27 +1,13 @@
-'use client';
-
-import { useEffect, useRef, useState } from 'react';
 import { cx, rich } from '../../../utils/cx.js';
 import { support } from '../../../data/contact.js';
 import { Button } from '../../atoms/index.js';
 import { ContactForm, IconCard, SectionHeading } from '../../subcomponents/index.js';
 
 /**
- * "Still Need Help? Contact Our Support Team." — copy + button beside three support cards (chat, email, hours).
- * The button opens the contact form underneath.
+ * "Still Need Help? Contact Our Support Team." — copy + button beside three support cards (chat, email, hours),
+ * with the contact form underneath (the button scrolls to it; /contact#message links straight to it).
  */
 export function ContactSupport({ content = support }) {
-  const [formOpen, setFormOpen] = useState(false);
-  const formRef = useRef(null);
-
-  // Bring the form into view when it opens, and open it when someone lands on /contact#message.
-  useEffect(() => {
-    if (formOpen) formRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }, [formOpen]);
-  useEffect(() => {
-    if (window.location.hash === '#message') setFormOpen(true);
-  }, []);
-
   return (
     <section className="section section--divided contact-support" id={content.id}>
       <div className="container">
@@ -29,13 +15,7 @@ export function ContactSupport({ content = support }) {
           <div className="contact-support__copy">
             <SectionHeading eyebrow={content.eyebrow} title={content.title} text={content.text} />
             <div data-reveal="up" data-reveal-delay="300">
-              <Button
-                label={formOpen ? content.action.closeLabel : content.action.label}
-                iconRight={formOpen ? undefined : 'arrow-right'}
-                aria-expanded={formOpen}
-                aria-controls="message"
-                onClick={() => setFormOpen(!formOpen)}
-              />
+              <Button label={content.action.label} href="#message" iconRight="arrow-down" />
             </div>
           </div>
           <div className="contact-support__cards" data-reveal-stagger="up" data-reveal-step="110">
@@ -56,7 +36,7 @@ export function ContactSupport({ content = support }) {
           </div>
         </div>
 
-        <div className="contact-support__form" id="message" ref={formRef} hidden={!formOpen}>
+        <div className="contact-support__form" id="message" data-reveal="up">
           <ContactForm content={content.form} />
         </div>
       </div>

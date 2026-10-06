@@ -12,8 +12,7 @@ export function AdvanceHero({ content = hero }) {
     <section className="advance-hero" aria-labelledby="advance-hero-title">
       {content.image && (
         <div className="advance-hero__media" aria-hidden="true">
-          {/* Not `eager`: React would add a preload hint that other pages pick up when they prefetch /advance. */}
-          <Img src={image(content.image.file)} width={content.image.width} height={content.image.height} className="advance-hero__bg" />
+          <Img src={image(content.image.file)} width={content.image.width} height={content.image.height} priority className="advance-hero__bg" />
         </div>
       )}
       <div className="container">

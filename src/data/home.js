@@ -9,7 +9,7 @@ export const hero = {
     { label: 'Start Free', href: '#', variant: 'primary', size: 'lg', iconRight: 'arrow-right' },
     { label: 'Watch Demo', href: '#', variant: 'outline', size: 'lg', iconLeft: 'play-circle' },
   ],
-  image: { file: 'hero-studio.png', alt: 'IKONIC artist in the studio' },
+  image: { file: 'hero-studio.webp', alt: 'IKONIC artist in the studio' },
   release: { title: 'Higher Ground', artist: 'Nova Rae', tone: 1, stores: ['spotify', 'apple-music', 'youtube', 'tiktok'], extra: '+6' },
   advance: { label: 'Advance Approved', value: '$50,000', icon: 'bolt' },
   streams: { label: 'Total Streams', value: '2,483,921', trend: '+12.4%', chart: { type: 'bars', values: [30, 48, 40, 62, 55, 80, 100] } },

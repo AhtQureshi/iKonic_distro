@@ -30,9 +30,8 @@ a.contact-support__badge:hover { border-color: var(--color-red); }
 @keyframes contact-support-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
 @media (prefers-reduced-motion: reduce) { .contact-support__dot { animation: none; } }
 
-/* Message form, opened by the Contact Support button */
-.contact-support__form { max-width: 760px; margin: 56px auto 0; scroll-margin-top: calc(var(--header-h) + 24px); }
-.contact-support__form[hidden] { display: none; }
+/* Message form under the cards (the Contact Support button scrolls here) */
+.contact-support__form { max-width: 760px; margin: 64px auto 0; scroll-margin-top: calc(var(--header-h) + 24px); }
 
 @media (max-width: 1024px) {
   .contact-support__layout { grid-template-columns: 1fr; gap: 40px; }

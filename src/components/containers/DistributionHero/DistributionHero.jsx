@@ -9,8 +9,7 @@ export function DistributionHero({ content = hero }) {
     <section className="distribution-hero" aria-labelledby="distribution-hero-title">
       {content.image && (
         <div className="distribution-hero__media" aria-hidden="true">
-          {/* Not `eager`: React would add a preload hint that other pages pick up when they prefetch /distribution. */}
-          <Img src={image(content.image.file)} width={content.image.width} height={content.image.height} className="distribution-hero__bg" />
+          <Img src={image(content.image.file)} width={content.image.width} height={content.image.height} priority className="distribution-hero__bg" />
         </div>
       )}
       <div className="container">

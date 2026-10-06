@@ -39,7 +39,7 @@ Charts inside a revealed element draw themselves. Everything is skipped for user
 
 ```
 public/assets/
-  images/                  Raster images (hero-studio.png, logo.webp)
+  images/                  Raster images: page banners (*-hero.webp), logo.webp
   svgs/                    brand/, stores/, flags/, maps/, illustrations/ — served from /assets/...
 scripts/build-icons.mjs    Builds the Icon atom's registry from its .svg files (runs before dev/build)
 src/

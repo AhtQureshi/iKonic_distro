@@ -12,7 +12,7 @@ export const hero = {
     { icon: 'book-open', title: 'Help Center', text: 'Step-by-step guides and platform walkthroughs.', href: '#faq', linkLabel: 'Go to the Help Center' },
     { icon: 'play-circle', title: 'Video Tutorials', text: 'Watch quick tutorials on key features.', href: '#faq', linkLabel: 'Go to Video Tutorials' },
     { icon: 'users', title: 'Community', text: 'Connect with other artists and creators.', href: '#faq', linkLabel: 'Go to the Community' },
-    { icon: 'chat', title: 'Contact Support', text: 'Get help from our team whenever you need it.', href: '#support', linkLabel: 'Contact Support' },
+    { icon: 'chat', title: 'Contact Support', text: 'Get help from our team whenever you need it.', href: '#message', linkLabel: 'Contact Support' },
   ],
 };
 
@@ -121,7 +121,7 @@ export const support = {
   eyebrow: 'Still Need Help?',
   title: 'Contact Our<br>Support Team.',
   text: 'Our team is here to help. Get in touch and we’ll respond as soon as possible.',
-  action: { label: 'Contact Support', closeLabel: 'Hide Message Form' },
+  action: { label: 'Contact Support' },
   cards: [
     { icon: 'chat', title: 'Live Chat', text: 'Chat with our support team in real time.', badge: { label: 'Available Now', live: true } },
     { icon: 'mail', title: 'Email Support', text: 'Send us a message and we’ll get back to you.', badge: { label: contactEmail, href: `mailto:${contactEmail}` } },

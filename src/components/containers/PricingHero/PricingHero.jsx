@@ -13,8 +13,7 @@ export function PricingHero({ content = hero }) {
     <section className="pricing-hero">
       {content.image && (
         <div className="pricing-hero__media" aria-hidden="true">
-          {/* Not `eager`: React would add a preload hint that other pages pick up when they prefetch /pricing. */}
-          <Img src={image(content.image.file)} width={content.image.width} height={content.image.height} className="pricing-hero__bg" />
+          <Img src={image(content.image.file)} width={content.image.width} height={content.image.height} priority className="pricing-hero__bg" />
         </div>
       )}
       <div className="container pricing-hero__inner">

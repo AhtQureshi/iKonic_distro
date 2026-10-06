@@ -1,0 +1,27 @@
+.labels-steps { padding: 110px 0; background: #0c0c0d; }
+.labels-steps__grid { display: grid; grid-template-columns: 1fr 1.7fr; gap: 70px; align-items: start; }
+.labels-steps__grid .section-intro .heading { font-size: 44px; }
+.labels-steps__list { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; margin-top: 10px; }
+
+/* Dotted connector between step rings */
+.labels-steps__list .numbered-step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 38px;
+  left: calc(50% + 48px);
+  width: calc(100% - 96px);
+  border-top: 2px dotted #4a4a4a;
+  z-index: 1;
+}
+
+@media (max-width: 1024px) {
+  .labels-steps__grid { grid-template-columns: 1fr; gap: 50px; }
+  .labels-steps__list { grid-template-columns: repeat(2, 1fr); gap: 44px; }
+  .labels-steps__list .numbered-step:not(:last-child)::after { display: none; }
+}
+
+@media (max-width: 640px) {
+  .labels-steps { padding: 70px 0; }
+  .labels-steps__grid .section-intro .heading { font-size: 36px; }
+  .labels-steps__list { grid-template-columns: 1fr; }
+}

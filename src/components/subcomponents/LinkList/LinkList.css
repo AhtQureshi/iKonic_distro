@@ -1,0 +1,3 @@
+.link-list ul { display: flex; flex-wrap: wrap; gap: 10px 28px; }
+.link-list a { font-size: 13.5px; color: var(--color-text-muted); transition: color 0.2s; }
+.link-list a:hover { color: #fff; }

@@ -1,0 +1,16 @@
+.advance-faq { padding-top: 0; }
+.advance-faq__grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 60px; align-items: start; }
+.advance-faq .heading { font-size: var(--fs-h2-lg); letter-spacing: -0.5px; line-height: 1.08; }
+.advance-faq .section-heading { margin-bottom: 28px; }
+.advance-faq .section-heading .text { font-size: 16px; color: #cfcfcf; }
+
+/* Tighter accordion rows on this page */
+.advance-faq__list .accordion-item { background: #111; border-radius: var(--radius-md); }
+.advance-faq__list .accordion-item + .accordion-item { margin-top: 12px; }
+.advance-faq__list .accordion-item.is-open { border-color: #3a3a3a; }
+.advance-faq__list .accordion-item__q { padding: 18px 20px; font-size: 15.5px; }
+.advance-faq__list .accordion-item__a p { padding: 0 20px 20px; }
+
+@media (max-width: 820px) {
+  .advance-faq__grid { grid-template-columns: 1fr; gap: 40px; }
+}

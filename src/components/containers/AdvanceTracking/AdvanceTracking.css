@@ -1,0 +1,22 @@
+.advance-tracking { padding-top: 0; }
+.advance-tracking__grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 60px; align-items: center; }
+.advance-tracking__screen { min-width: 0; }
+.advance-tracking .heading { font-size: var(--fs-h2-lg); letter-spacing: -0.5px; line-height: 1.08; }
+.advance-tracking .section-heading .text { max-width: 440px; font-size: 16px; color: #cfcfcf; }
+
+.advance-tracking__checks { margin: 28px 0 32px; }
+.advance-tracking__checks li { gap: 14px; margin-bottom: 16px; padding: 0; font-size: 16px; color: var(--color-text); }
+/* Checks sit in glowing red discs on this page */
+.advance-tracking__checks .check-list__icon {
+  width: 26px;
+  height: 26px;
+  padding: 6px;
+  border-radius: 50%;
+  background: var(--color-red);
+  color: #fff;
+  box-shadow: 0 0 14px rgba(239, 58, 16, 0.55);
+}
+
+@media (max-width: 1024px) {
+  .advance-tracking__grid { grid-template-columns: 1fr; }
+}

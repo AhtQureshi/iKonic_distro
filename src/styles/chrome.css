@@ -1,0 +1,38 @@
+/*
+ * Stylesheet for the shared header + footer on the standalone pages (see src/pages/chrome).
+ * It is loaded inside a shadow root, so only the pieces the header and footer use are here.
+ */
+@import url('./tokens.css');
+@import url('./base.css');
+@import url('./layout.css');
+
+/* Atoms */
+@import url('../components/atoms/Button/Button.css');
+@import url('../components/atoms/Icon/Icon.css');
+@import url('../components/atoms/IconButton/IconButton.css');
+@import url('../components/atoms/Logo/Logo.css');
+
+/* Subcomponents */
+@import url('../components/subcomponents/LinkList/LinkList.css');
+@import url('../components/subcomponents/MobileNav/MobileNav.css');
+@import url('../components/subcomponents/NavMenu/NavMenu.css');
+@import url('../components/subcomponents/SocialLinks/SocialLinks.css');
+
+/* Containers */
+@import url('../components/containers/Footer/Footer.css');
+@import url('../components/containers/Header/Header.css');
+
+/* base.css styles <body>; inside a shadow root the host plays that role. */
+:host {
+  display: block;
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: var(--fs-md);
+  line-height: 1.55;
+  letter-spacing: normal;
+  text-align: left;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* The header is fixed, so the header slot keeps its height in the page flow. */
+:host([data-site-header]) { height: var(--header-h); }

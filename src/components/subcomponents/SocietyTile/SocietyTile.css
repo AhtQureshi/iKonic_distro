@@ -1,0 +1,13 @@
+.society-tile {
+  padding: 24px 12px;
+  text-align: center;
+  background: #111111;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.society-tile:hover { border-color: rgba(239, 58, 16, 0.5); transform: translateY(-3px); }
+
+.society-tile__name { display: block; margin-bottom: 6px; font-size: 16px; font-weight: 800; letter-spacing: 1px; line-height: 1.6; }
+.society-tile__region { font-size: 12px; line-height: 1.6; color: #7a7a82; }
+.society-tile--highlight .society-tile__name { color: var(--color-red); }

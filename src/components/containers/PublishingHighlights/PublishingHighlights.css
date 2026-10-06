@@ -1,0 +1,15 @@
+.publishing-highlights {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+  padding: 56px 0;
+  border-top: 1px solid var(--color-border);
+}
+
+@media (max-width: 900px) {
+  .publishing-highlights { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 560px) {
+  .publishing-highlights { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,7 @@
+.trend { display: inline-flex; align-items: center; gap: 4px; font-weight: 600; line-height: 1; }
+.trend--md { font-size: 12px; }
+.trend--sm { font-size: 9.5px; gap: 3px; }
+
+.trend--up { color: var(--color-success); }
+.trend--down { color: var(--color-red); }
+.trend--down .icon { transform: rotate(180deg); }

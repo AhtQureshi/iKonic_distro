@@ -1,0 +1,9 @@
+.pricing-plans { position: relative; padding: 8px 0 64px; }
+.pricing-plans__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; align-items: stretch; }
+
+@media (max-width: 1020px) {
+  .pricing-plans__grid { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; }
+}
+@media (max-width: 560px) {
+  .pricing-plans { padding-bottom: 48px; }
+}

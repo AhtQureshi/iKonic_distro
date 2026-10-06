@@ -1,0 +1,24 @@
+.distribution-faq { padding: 84px 0; }
+.distribution-faq__grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 56px; align-items: start; }
+.distribution-faq__action { margin-top: 28px; }
+
+/* Flush, ruled list rather than separate cards */
+.distribution-faq__list { border-top: 1px solid var(--color-border); }
+.distribution-faq__list .accordion-item { border: 0; border-bottom: 1px solid var(--color-border); border-radius: 0; }
+.distribution-faq__list .accordion-item + .accordion-item { margin-top: 0; }
+.distribution-faq__list .accordion-item__q { padding: 22px 24px; font-weight: 700; }
+.distribution-faq__list .accordion-item__x { font-size: 24px; }
+.distribution-faq__list .accordion-item__a p { max-width: 640px; }
+
+@media (max-width: 1024px) {
+  .distribution-faq__grid { grid-template-columns: 1fr; gap: 40px; }
+}
+
+@media (max-width: 560px) {
+  .distribution-faq { padding: 64px 0; }
+  .distribution-faq__list .accordion-item__q { padding: 18px 16px; font-size: 15px; }
+  .distribution-faq__list .accordion-item__a p { padding: 0 16px 18px; }
+}
+
+/* Larger, heavier section title (matches the original page) */
+.distribution-faq .heading--h2 { font-size: clamp(34px, 4.4vw, 54px); font-weight: 900; }

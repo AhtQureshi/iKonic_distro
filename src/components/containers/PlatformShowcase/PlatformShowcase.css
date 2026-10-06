@@ -1,0 +1,13 @@
+.platform-showcase {
+  overflow: hidden;
+  background:
+    radial-gradient(50% 60% at 75% 50%, rgba(239, 58, 16, 0.16), transparent 70%),
+    radial-gradient(40% 50% at 100% 100%, rgba(239, 58, 16, 0.1), transparent 70%);
+}
+
+.platform-showcase__grid { display: grid; grid-template-columns: 0.82fr 1.18fr; gap: 56px; align-items: center; }
+.platform-showcase__copy { display: flex; flex-direction: column; align-items: flex-start; gap: 30px; }
+
+@media (max-width: 1024px) {
+  .platform-showcase__grid { grid-template-columns: 1fr; gap: 48px; }
+}

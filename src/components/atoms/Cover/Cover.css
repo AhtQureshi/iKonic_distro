@@ -1,0 +1,52 @@
+﻿.cover {
+  --c1: #3a0f08;
+  --c2: #ef3a10;
+  --x: 50%;
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  background:
+    radial-gradient(70% 60% at var(--x) 30%, var(--c2) 0%, transparent 70%),
+    radial-gradient(120% 90% at 50% 100%, var(--c1) 0%, #060607 75%);
+}
+
+.cover img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Silhouette: head + shoulders, rim-lit by the tone colour */
+.cover--art::before,
+.cover--art::after {
+  content: '';
+  position: absolute;
+  background: #0a0a0b;
+  box-shadow: 0 0 18px 1px color-mix(in srgb, var(--c2) 55%, transparent);
+}
+.cover--art::before {
+  width: 30%;
+  aspect-ratio: 0.85;
+  left: calc(var(--x) - 15%);
+  top: 24%;
+  border-radius: 48% 48% 44% 44%;
+}
+.cover--art::after {
+  width: 78%;
+  height: 42%;
+  left: calc(var(--x) - 39%);
+  bottom: -10%;
+  border-radius: 50% 50% 0 0 / 80% 80% 0 0;
+}
+
+.cover--r-sm { border-radius: var(--radius-sm); }
+.cover--r-md { border-radius: var(--radius-md); }
+.cover--r-none { border-radius: 0; }
+.cover--r-full { border-radius: 50%; }
+
+.cover--tone-1 { --c1: #4a1208; --c2: #ff4a1c; --x: 46%; }
+.cover--tone-2 { --c1: #1c2733; --c2: #6f8fb3; --x: 54%; }
+.cover--tone-3 { --c1: #4a0606; --c2: #e01818; --x: 50%; }
+.cover--tone-4 { --c1: #06331f; --c2: #1fd17a; --x: 44%; }
+.cover--tone-5 { --c1: #0b2340; --c2: #38a3ff; --x: 52%; }
+.cover--tone-6 { --c1: #141c38; --c2: #5a6fd6; --x: 48%; }
+.cover--tone-7 { --c1: #2a0c45; --c2: #a05cff; --x: 55%; }
+.cover--tone-8 { --c1: #402508; --c2: #f0a13d; --x: 47%; }

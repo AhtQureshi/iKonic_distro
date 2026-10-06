@@ -1,0 +1,19 @@
+.numbered-step { position: relative; padding: 0 8px; text-align: center; }
+.numbered-step__num {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 76px;
+  height: 76px;
+  margin: 0 auto 22px;
+  border: 2px solid var(--color-red);
+  border-radius: 50%;
+  background: rgba(239, 58, 16, 0.06);
+  color: var(--color-red);
+  font-size: 24px;
+  font-weight: 800;
+}
+.numbered-step__title { margin-bottom: 8px; font-size: 18px; font-weight: 700; line-height: 1.5; }
+.numbered-step__text { color: var(--color-text-muted); font-size: 14.5px; line-height: 1.6; }

@@ -1,0 +1,9 @@
+.pricing-audience { position: relative; padding: 64px 0; }
+.pricing-audience__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }
+
+@media (max-width: 860px) {
+  .pricing-audience__grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .pricing-audience { padding: 48px 0; }
+}

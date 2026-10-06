@@ -1,0 +1,14 @@
+.publishing-dashboard { position: relative; padding: 96px 0; }
+.publishing-dashboard__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+
+.publishing-dashboard .section-intro .eyebrow { font-size: 12px; letter-spacing: 3.5px; }
+.publishing-dashboard .section-intro .heading { font-size: clamp(36px, 4vw, 56px); }
+.publishing-dashboard .section-intro .section-heading .text { margin-top: 18px; font-size: 17px; max-width: 520px; }
+
+@media (max-width: 900px) {
+  .publishing-dashboard__grid { grid-template-columns: 1fr; gap: 44px; }
+}
+
+@media (max-width: 560px) {
+  .publishing-dashboard { padding: 64px 0; }
+}

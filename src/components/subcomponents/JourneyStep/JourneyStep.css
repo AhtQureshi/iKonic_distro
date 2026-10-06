@@ -1,0 +1,22 @@
+.journey-step { position: relative; display: flex; flex-direction: column; gap: 18px; }
+
+.journey-step__icon {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  color: var(--color-red);
+  background: radial-gradient(circle, rgba(239, 58, 16, 0.18), rgba(239, 58, 16, 0.04) 70%), var(--color-bg);
+  border: 1.5px solid rgba(239, 58, 16, 0.6);
+  box-shadow: 0 0 28px rgba(239, 58, 16, 0.22);
+  transition: transform 0.25s var(--ease), box-shadow 0.25s;
+}
+.journey-step__icon--number { width: 62px; height: 62px; border-width: 2px; border-color: var(--color-red); background: var(--color-bg); box-shadow: 0 0 22px rgba(239, 58, 16, 0.35); font-size: 20px; font-weight: 800; }
+.journey-step:hover .journey-step__icon { transform: translateY(-3px); box-shadow: 0 0 36px rgba(239, 58, 16, 0.45); }
+
+.journey-step__title { font-size: 17px; font-weight: 700; }
+.journey-step__text { font-size: 13.5px; color: var(--color-text-dim); margin-top: 4px; }

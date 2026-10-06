@@ -1,0 +1,12 @@
+.country-list__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 2px;
+  font-size: 14px;
+  border-bottom: 1px solid #18181b;
+}
+.country-list__row:last-child { border-bottom: 0; }
+.country-list__name { display: flex; align-items: center; gap: 12px; }
+.country-list__value { font-weight: 600; color: var(--color-text-muted); font-variant-numeric: tabular-nums; }

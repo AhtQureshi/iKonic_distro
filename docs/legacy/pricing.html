@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing — IKONIC | Artists Own More Here.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0a0b; --bg2:#0e0e10; --card:#121214; --card2:#141416;
+  --border:#232326; --border2:#2e2e33;
+  --red:#ef3a10; --red-dark:#c22a0a; --red-glow:rgba(239,58,16,.35);
+  --text:#ffffff; --muted:#a8a8ad; --muted2:#7c7c82;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Archivo',system-ui,sans-serif;line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{max-width:100%}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+
+/* ---------- NAV ---------- */
+.site-nav{position:sticky;top:0;z-index:100;background:rgba(10,10,11,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1240px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;gap:36px}
+.logo{font-weight:800;font-size:22px;letter-spacing:.14em;display:flex;align-items:center;line-height:1}
+.logo .o-ring{width:15px;height:15px;border:3.5px solid var(--red);border-radius:50%;display:inline-block;margin:0 1px;flex:none}
+.nav-links{display:flex;align-items:center;gap:30px;margin-left:12px;flex:1}
+.nav-links>a,.nav-drop>button{font-size:14px;font-weight:500;color:#d6d6da;background:none;border:none;font-family:inherit;cursor:pointer;padding:6px 2px;position:relative;transition:color .2s}
+.nav-links>a:hover,.nav-drop>button:hover{color:#fff}
+.nav-links>a.active{color:#fff;font-weight:600}
+.nav-links>a.active::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:2px;background:var(--red);border-radius:2px}
+.nav-drop{position:relative}
+.nav-drop .drop-panel{position:absolute;top:calc(100% + 12px);left:-12px;min-width:200px;background:var(--card2);border:1px solid var(--border);border-radius:12px;padding:8px;display:none;box-shadow:0 18px 40px rgba(0,0,0,.6)}
+.nav-drop.open .drop-panel{display:block}
+.nav-drop .drop-panel a{display:block;padding:10px 14px;font-size:14px;border-radius:8px;color:#d6d6da}
+.nav-drop .drop-panel a:hover{background:#1c1c1f;color:#fff}
+.nav-actions{display:flex;align-items:center;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:600;font-size:14px;border-radius:10px;padding:12px 22px;cursor:pointer;border:1px solid transparent;transition:transform .15s,box-shadow .2s,background .2s,border-color .2s;white-space:nowrap}
+.btn:hover{transform:translateY(-1px)}
+.btn-red{background:var(--red);color:#fff}
+.btn-red:hover{background:#ff4a1d;box-shadow:0 8px 24px var(--red-glow)}
+.btn-outline{background:transparent;color:#fff;border-color:var(--border2)}
+.btn-outline:hover{border-color:var(--red);color:#fff}
+.btn-sm{padding:9px 18px;font-size:13.5px}
+.hamburger{display:none;background:none;border:1px solid var(--border2);border-radius:8px;color:#fff;font-size:20px;width:42px;height:42px;cursor:pointer}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;padding:96px 0 70px;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(640px 420px at 78% 8%, rgba(239,58,16,.28), transparent 62%),
+    radial-gradient(520px 380px at 12% 92%, rgba(239,58,16,.12), transparent 60%),
+    radial-gradient(900px 500px at 55% 120%, rgba(239,58,16,.08), transparent 60%);}
+.hero-inner{position:relative}
+.kicker{color:var(--red);font-size:12.5px;font-weight:700;letter-spacing:.32em;text-transform:uppercase;margin-bottom:22px}
+.hero h1{font-size:clamp(44px,6.4vw,84px);font-weight:800;line-height:1.04;letter-spacing:-.015em;margin-bottom:22px}
+.hero h1 .red{color:var(--red)}
+.hero .sub{color:var(--muted);font-size:17px;max-width:560px;margin-bottom:34px}
+.toggle-row{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.toggle{display:inline-flex;background:#17171a;border:1px solid var(--border);border-radius:999px;padding:5px;position:relative}
+.toggle button{border:none;background:transparent;color:var(--muted);font-family:inherit;font-weight:600;font-size:14px;padding:10px 26px;border-radius:999px;cursor:pointer;transition:all .25s;position:relative;z-index:1}
+.toggle button.on{background:var(--red);color:#fff;box-shadow:0 4px 16px var(--red-glow)}
+.save-badge{color:var(--red);font-size:13.5px;font-weight:600;border:1px solid rgba(239,58,16,.4);border-radius:999px;padding:7px 16px;background:rgba(239,58,16,.08)}
+.handwritten{position:absolute;right:2%;top:36px;text-align:center;transform:rotate(-4deg);z-index:2}
+.handwritten svg{display:block;margin:0 auto 4px}
+.handwritten span{font-family:'Caveat',cursive;font-size:clamp(26px,3.2vw,42px);font-weight:700;color:var(--red);line-height:1.15;display:block;text-shadow:0 0 22px rgba(239,58,16,.45)}
+
+/* ---------- SECTION SCAFFOLD ---------- */
+section{padding:64px 0;position:relative}
+.sec-head{margin-bottom:40px}
+.sec-head h2{font-size:clamp(32px,4vw,52px);font-weight:800;letter-spacing:-.01em;line-height:1.08;margin-bottom:14px}
+.sec-head h2 .red{color:var(--red)}
+.sec-head p{color:var(--muted);font-size:16px;max-width:520px}
+
+/* ---------- PLAN CARDS ---------- */
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;align-items:stretch}
+.plan{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:38px 32px;position:relative;display:flex;flex-direction:column;transition:transform .2s,border-color .2s,box-shadow .25s}
+.plan:hover{transform:translateY(-4px);border-color:var(--border2)}
+.plan.pop{border:1.5px solid var(--red);background:linear-gradient(180deg,rgba(239,58,16,.10),rgba(239,58,16,.03) 55%),var(--card);box-shadow:0 0 44px rgba(239,58,16,.16)}
+.plan.pop:hover{box-shadow:0 0 60px rgba(239,58,16,.28)}
+.pop-badge{position:absolute;top:-14px;right:26px;background:var(--red);color:#fff;font-size:12px;font-weight:700;padding:6px 16px;border-radius:999px;letter-spacing:.02em;box-shadow:0 6px 18px var(--red-glow)}
+.plan h3{font-size:20px;font-weight:800;letter-spacing:.06em;margin-bottom:6px}
+.plan .tagline{color:var(--muted);font-size:14.5px;margin-bottom:24px}
+.price{font-size:52px;font-weight:800;letter-spacing:-.02em;line-height:1;margin-bottom:6px}
+.price small{font-size:17px;font-weight:500;color:var(--muted)}
+.bill-note{font-size:13px;color:var(--muted2);min-height:20px;margin-bottom:24px}
+.feat-list{list-style:none;margin-bottom:32px;flex:1}
+.feat-list li{display:flex;align-items:flex-start;gap:12px;padding:7px 0;font-size:15px;color:#e6e6e9}
+.feat-list svg{flex:none;margin-top:4px}
+.plan .btn{width:100%;padding:14px}
+
+/* ---------- COMPARISON TABLE ---------- */
+.compare-card{background:var(--card);border:1px solid var(--border);border-radius:18px;overflow:hidden}
+.table-scroll{overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:720px}
+thead th{font-size:13px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#d6d6da;padding:22px 16px;border-bottom:1px solid var(--border);text-align:center}
+thead th:first-child{text-align:left;padding-left:28px;color:var(--muted)}
+thead th.col-pro{background:rgba(239,58,16,.10)}
+tbody td{padding:15px 16px;border-bottom:1px solid #1b1b1e;font-size:14.5px;text-align:center;color:#e6e6e9}
+tbody tr:last-child td{border-bottom:none}
+tbody td:first-child{text-align:left;padding-left:28px;display:flex;align-items:center;gap:12px;font-weight:500}
+.row-icon{width:26px;height:26px;flex:none;display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(239,58,16,.45);border-radius:50%;background:rgba(239,58,16,.08)}
+td.col-pro{background:rgba(239,58,16,.07)}
+.check{color:var(--red);font-weight:800}
+.dash{color:#4c4c52}
+td .num{font-weight:700}
+
+/* ---------- LABEL / DISTRIBUTOR PANELS ---------- */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.panel{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:44px 40px;position:relative;overflow:hidden;transition:border-color .2s,transform .2s}
+.panel:hover{border-color:var(--border2);transform:translateY(-3px)}
+.panel::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(480px 300px at 85% 110%, rgba(239,58,16,.16), transparent 65%)}
+.panel-inner{position:relative;z-index:1}
+.panel-icon{width:56px;height:56px;border-radius:14px;background:rgba(239,58,16,.1);border:1px solid rgba(239,58,16,.4);display:flex;align-items:center;justify-content:center;margin-bottom:22px}
+.panel h3{font-size:clamp(26px,2.6vw,34px);font-weight:800;line-height:1.15;margin:6px 0 14px}
+.panel p{color:var(--muted);font-size:15px;margin-bottom:24px;max-width:420px}
+.check-list{list-style:none;margin-bottom:32px}
+.check-list li{display:flex;align-items:center;gap:12px;padding:6px 0;font-size:15px;color:#e6e6e9}
+
+/* ---------- INCLUDED ---------- */
+.included-head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:40px;flex-wrap:wrap}
+.included-head .note{color:var(--muted);font-size:15px;max-width:340px;text-align:right}
+.value-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.value-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:30px 26px;transition:border-color .2s,transform .2s}
+.value-card:hover{border-color:rgba(239,58,16,.5);transform:translateY(-3px)}
+.value-card .v-icon{margin-bottom:18px}
+.value-card h4{font-size:17px;font-weight:700;margin-bottom:6px}
+.value-card p{color:var(--muted);font-size:14px}
+
+/* ---------- FAQ ---------- */
+.faq-layout{display:grid;grid-template-columns:1fr 1.2fr;gap:56px;align-items:start}
+.faq-item{background:var(--card);border:1px solid var(--border);border-radius:14px;margin-bottom:14px;overflow:hidden;transition:border-color .2s}
+.faq-item.open{border-color:rgba(239,58,16,.5)}
+.faq-q{width:100%;background:none;border:none;color:#fff;font-family:inherit;font-size:16px;font-weight:600;text-align:left;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;gap:16px;cursor:pointer}
+.faq-x{color:var(--red);font-size:22px;font-weight:400;line-height:1;flex:none;transition:transform .25s}
+.faq-item.open .faq-x{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.faq-a p{padding:0 24px 22px;color:var(--muted);font-size:14.5px}
+
+/* ---------- CTA BANNER ---------- */
+.cta-banner{position:relative;border-radius:22px;overflow:hidden;margin:20px 0 0;padding:80px 60px;border:1px solid rgba(239,58,16,.3);
+  background:
+    radial-gradient(700px 380px at 50% 130%, rgba(239,58,16,.5), transparent 65%),
+    radial-gradient(500px 300px at 12% -10%, rgba(239,58,16,.22), transparent 60%),
+    radial-gradient(500px 300px at 88% -10%, rgba(239,58,16,.22), transparent 60%),
+    linear-gradient(180deg,#141014,#0a0a0b);}
+.cta-flex{display:flex;justify-content:space-between;align-items:center;gap:40px;flex-wrap:wrap;position:relative;z-index:1}
+.cta-banner .kicker{margin-bottom:16px}
+.cta-banner h2{font-size:clamp(36px,4.6vw,58px);font-weight:800;letter-spacing:-.01em;line-height:1.05;margin-bottom:16px}
+.cta-banner h2 .red{color:var(--red)}
+.cta-banner p{color:var(--muted);font-size:16px;max-width:480px}
+.cta-btns{display:flex;gap:14px;flex-wrap:wrap}
+
+/* ---------- FOOTER ---------- */
+footer{border-top:1px solid var(--border);margin-top:80px;padding:48px 0 28px;background:#080809}
+.foot-top{display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap;margin-bottom:36px}
+.foot-brand .tagline{color:var(--muted);font-size:13.5px;margin-top:8px}
+.foot-links{display:flex;gap:26px;flex-wrap:wrap}
+.foot-links a{font-size:14px;color:var(--muted);transition:color .2s}
+.foot-links a:hover{color:#fff}
+.socials{display:flex;gap:10px}
+.soc{width:38px;height:38px;border:1px solid var(--border2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--muted);transition:all .2s;letter-spacing:.02em}
+.soc:hover{border-color:var(--red);color:var(--red)}
+.foot-bottom{border-top:1px solid var(--border);padding-top:24px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.foot-bottom small{color:var(--muted2);font-size:13px}
+.foot-legal{display:flex;gap:22px}
+.foot-legal a{font-size:13px;color:var(--muted2)}
+.foot-legal a:hover{color:#fff}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:1020px){
+  .plans{grid-template-columns:1fr;max-width:520px;margin:0 auto}
+  .value-grid{grid-template-columns:repeat(2,1fr)}
+  .faq-layout{grid-template-columns:1fr}
+  .handwritten{position:static;transform:rotate(-3deg);margin-top:36px;display:inline-block}
+}
+@media(max-width:860px){
+  .nav-links{position:fixed;top:64px;left:0;right:0;background:#0e0e10;border-bottom:1px solid var(--border);flex-direction:column;align-items:flex-start;gap:0;margin:0;padding:12px 24px 20px;display:none}
+  .nav-links.open{display:flex}
+  .nav-links>a,.nav-drop{width:100%}
+  .nav-links>a{padding:12px 0;border-bottom:1px solid #1b1b1e}
+  .nav-drop>button{width:100%;text-align:left;padding:12px 0;border-bottom:1px solid #1b1b1e}
+  .nav-drop .drop-panel{position:static;box-shadow:none;border:none;background:transparent;padding:0 0 8px;display:none}
+  .nav-drop.open .drop-panel{display:block}
+  .nav-actions{margin-left:auto}
+  .nav-actions .btn-outline{display:none}
+  .hamburger{display:flex;align-items:center;justify-content:center}
+  .duo{grid-template-columns:1fr}
+  .cta-banner{padding:56px 32px}
+  .included-head .note{text-align:left}
+  .handwritten{display:none}
+}
+@media(max-width:560px){
+  .value-grid{grid-template-columns:1fr}
+  .hero{padding:64px 0 48px}
+  section{padding:48px 0}
+  .cta-btns .btn{width:100%}
+}
+/* Real IKONIC wordmark; sized by the parent's font-size. 'screen' drops the artwork's black background. */
+.logo-img{display:block;height:1em;width:auto;mix-blend-mode:screen}
+</style>
+</head>
+<body>
+
+<!-- Shared site header: src/components/containers/Header (rendered by dist/chrome.js) -->
+<div data-site-header="pricing"></div>
+
+<!-- ================= HERO ================= -->
+<section class="hero" style="padding-top:96px">
+  <div class="wrap hero-inner">
+    <p class="kicker">Pricing</p>
+    <h1>Simple Plans.<br><span class="red">Bigger Opportunities.</span></h1>
+    <p class="sub">Choose the plan that fits your goals. Distribute, publish, get funded, and manage your entire music business — all in one platform.</p>
+    <div class="toggle-row">
+      <div class="toggle" role="group" aria-label="Billing period">
+        <button type="button" id="btnMonthly" class="on">Monthly</button>
+        <button type="button" id="btnAnnual">Annual</button>
+      </div>
+      <span class="save-badge">Save up to 20%</span>
+    </div>
+    <div class="handwritten" aria-hidden="true">
+      <svg width="44" height="34" viewBox="0 0 44 34" fill="none">
+        <path d="M6 28 L4 10 L13 17 L22 4 L31 17 L40 10 L38 28 Z" stroke="#ef3a10" stroke-width="2.5" fill="none" stroke-linejoin="round"/>
+        <circle cx="4" cy="8" r="2.4" fill="#ef3a10"/><circle cx="22" cy="3.5" r="2.4" fill="#ef3a10"/><circle cx="40" cy="8" r="2.4" fill="#ef3a10"/>
+        <rect x="6" y="28" width="32" height="3.5" rx="1.5" fill="#ef3a10"/>
+      </svg>
+      <span>Artists<br>Own More Here.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PLAN CARDS ================= -->
+<section style="padding-top:8px">
+  <div class="wrap">
+    <div class="plans">
+      <div class="plan">
+        <h3>BASIC</h3>
+        <p class="tagline">Everything you need to get started.</p>
+        <div class="price"><span class="js-price" data-monthly="$4.99" data-annual="$3.99">$4.99</span><small>/mo</small></div>
+        <p class="bill-note js-bill"></p>
+        <ul class="feat-list">
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M2.5 8.5 L6.5 12.5 L13.5 3.5" stroke="#ef3a10" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Worldwide distribution (250+ stores)</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M2.5 8.5 L6.5 12.5 L13.5 3.5" stroke="#ef3a10" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Keep 100% of your rights</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M2.5 8.5 L6.5 12.5 L13.5 3.5" stroke="#ef3a10" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Unlimited releases</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M2.5 8.5 L6.5 12.5 L13.5 3.5" stroke="#ef3a10" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Basic analytics</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M2.5 8.5 L6.5 12.5 L13.5 3.5" stroke="#ef3a10" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Real-time release status</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M2.5 8.5 L6.5 12.5 L13.5 3.5" stroke="#ef3a10" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Standard support</li>
+        </ul>
+        <a href="#" class="btn btn-outline">Get Started →</a>
+      </div>
+      <div class="plan pop">
+        <span class="pop-badge">Most Popular</span>
+        <h3>PRO</h3>
+        <p class="tagline">For serious independent artists.</p>
+        <div class="price"><span class="js-price" data-monthly="$9.99" data-annual="$7.99">$9.99</span><small>/mo</small></div>
+        <p class="bill-note js-bill"></p>
+        <ul class="feat-list">
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M2.5 8.5 L6.5 12.5 L13.5 3.5" stroke="#ef3a10" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Everything in Basic</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M2.5 8.5 L6.5 12.5 L13.5 3.5" stroke="#ef3a10" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Advanced analytics</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M2.5 8.5 L6.5 12.5 L13.5 3.5" stroke="#ef3a10" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Publishing administration</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M2.5 8.5 L6.5 12.5 L13.5 3.5" stroke="#ef3a10" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Royalty splits (unlimited)</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M2.5 8.5 L6.5 12.5 L13.5 3.5" stroke="#ef3a10" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Smart links</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M2.5 8.5 L6.5 12.5 L13.5 3.5" stroke="#ef3a10" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Team members (up to 5)</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M2.5 8.5 L6.5 12.5 L13.5 3.5" stroke="#ef3a10" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Priority support</li>
+        </ul>
+        <a href="#" class="btn btn-red">Get Started →</a>
+      </div>
+      <div class="plan">
+        <h3>PRO+</h3>
+        <p class="tagline">For artists ready to scale.</p>
+        <div class="price"><span class="js-price" data-monthly="$19.99" data-annual="$15.99">$19.99</span><small>/mo</small></div>
+        <p class="bill-note js-bill"></p>
+        <ul class="feat-list">
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M2.5 8.5 L6.5 12.5 L13.5 3.5" stroke="#ef3a10" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Everything in Pro</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M2.5 8.5 L6.5 12.5 L13.5 3.5" stroke="#ef3a10" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Advance eligibility</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M2.5 8.5 L6.5 12.5 L13.5 3.5" stroke="#ef3a10" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>AI metadata assistant</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M2.5 8.5 L6.5 12.5 L13.5 3.5" stroke="#ef3a10" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>A&amp;R opportunities</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M2.5 8.5 L6.5 12.5 L13.5 3.5" stroke="#ef3a10" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Team members (up to 15)</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M2.5 8.5 L6.5 12.5 L13.5 3.5" stroke="#ef3a10" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Custom release scheduling</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M2.5 8.5 L6.5 12.5 L13.5 3.5" stroke="#ef3a10" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Priority support</li>
+        </ul>
+        <a href="#" class="btn btn-outline">Get Started →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= COMPARISON TABLE ================= -->
+<section>
+  <div class="wrap">
+    <div class="compare-card">
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th>Features</th><th>Basic</th><th class="col-pro">Pro</th><th>Pro+</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><span class="row-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ef3a10" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14 0 18M12 3c-3 3.5-3 14 0 18"/></svg></span>Worldwide Distribution (250+ stores)</td><td><span class="check">✓</span></td><td class="col-pro"><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+            <tr><td><span class="row-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ef3a10" stroke-width="2"><path d="M18.2 8.5a4.5 4.5 0 0 1 0 7c-2 .8-3.5-.5-5.5-.5s-3.5 1.3-5.5.5a4.5 4.5 0 0 1 0-7c2-.8 3.5.5 5.5.5s3.5-1.3 5.5-.5z"/></svg></span>Unlimited Releases</td><td><span class="check">✓</span></td><td class="col-pro"><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+            <tr><td><span class="row-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ef3a10" stroke-width="2"><path d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span>Keep 100% of Your Rights</td><td><span class="check">✓</span></td><td class="col-pro"><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+            <tr><td><span class="row-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ef3a10" stroke-width="2"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg></span>Basic Analytics</td><td><span class="check">✓</span></td><td class="col-pro"><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+            <tr><td><span class="row-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ef3a10" stroke-width="2"><path d="M3 17l5-6 4 3 6-8"/><path d="M3 21h18"/></svg></span>Advanced Analytics</td><td><span class="dash">–</span></td><td class="col-pro"><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+            <tr><td><span class="row-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ef3a10" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h8M8 15h5"/></svg></span>Publishing Administration</td><td><span class="dash">–</span></td><td class="col-pro"><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+            <tr><td><span class="row-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ef3a10" stroke-width="2"><circle cx="8" cy="8" r="3.5"/><circle cx="16" cy="16" r="3.5"/><path d="M11 11l3 3"/></svg></span>Royalty Splits</td><td><span class="dash">–</span></td><td class="col-pro"><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+            <tr><td><span class="row-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ef3a10" stroke-width="2"><path d="M10 14a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1.5 1.5M14 10a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1.5-1.5"/></svg></span>Smart Links</td><td><span class="dash">–</span></td><td class="col-pro"><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+            <tr><td><span class="row-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ef3a10" stroke-width="2"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M16 4.5a3.2 3.2 0 0 1 0 7M18.5 14.5c2 .8 3.5 2.7 3.5 5.5"/></svg></span>Team Members</td><td><span class="num">1</span></td><td class="col-pro"><span class="num">5</span></td><td><span class="num">15</span></td></tr>
+            <tr><td><span class="row-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ef3a10" stroke-width="2"><path d="M12 3v18M7 7l5-4 5 4M7 17l5 4 5-4"/></svg></span>Advance Eligibility</td><td><span class="dash">–</span></td><td class="col-pro"><span class="dash">–</span></td><td><span class="check">✓</span></td></tr>
+            <tr><td><span class="row-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ef3a10" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 12l2 2 4-4"/></svg></span>AI Metadata Assistant</td><td><span class="dash">–</span></td><td class="col-pro"><span class="dash">–</span></td><td><span class="check">✓</span></td></tr>
+            <tr><td><span class="row-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ef3a10" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 10.5l2.5 2.5 4.5-5"/></svg></span>A&amp;R Opportunities</td><td><span class="dash">–</span></td><td class="col-pro"><span class="dash">–</span></td><td><span class="check">✓</span></td></tr>
+            <tr><td><span class="row-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ef3a10" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span>Custom Release Scheduling</td><td><span class="dash">–</span></td><td class="col-pro"><span class="dash">–</span></td><td><span class="check">✓</span></td></tr>
+            <tr><td><span class="row-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ef3a10" stroke-width="2"><path d="M12 3l8 4v5c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V7z"/><path d="M12 8v4M12 15.5v.5"/></svg></span>Priority Support</td><td><span class="dash">–</span></td><td class="col-pro"><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LABELS / DISTRIBUTORS ================= -->
+<section>
+  <div class="wrap">
+    <div class="duo">
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="panel-icon">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#ef3a10" stroke-width="1.8"><circle cx="9" cy="8" r="3.4"/><path d="M2.8 20c0-3.6 2.8-6.4 6.2-6.4s6.2 2.8 6.2 6.4"/><circle cx="17" cy="9.5" r="2.6"/><path d="M16.5 14c2.8.3 4.9 2.7 4.9 6"/></svg>
+          </div>
+          <p class="kicker" style="margin-bottom:0">For Labels</p>
+          <h3>Scalable Plans for<br>Labels &amp; Teams.</h3>
+          <p>Manage multiple artists, releases, permissions, and payouts — all in one place.</p>
+          <ul class="check-list">
+            <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M2.5 8.5 L6.5 12.5 L13.5 3.5" stroke="#ef3a10" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Up to 50+ artists</li>
+            <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M2.5 8.5 L6.5 12.5 L13.5 3.5" stroke="#ef3a10" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Advanced team tools</li>
+            <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M2.5 8.5 L6.5 12.5 L13.5 3.5" stroke="#ef3a10" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Custom permissions</li>
+            <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M2.5 8.5 L6.5 12.5 L13.5 3.5" stroke="#ef3a10" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Dedicated support</li>
+          </ul>
+          <a href="labels.html" class="btn btn-outline">View Label Plans →</a>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="panel-icon">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#ef3a10" stroke-width="1.8"><rect x="4" y="3" width="16" height="18" rx="1.5"/><path d="M4 9h16M4 14h16M10 3v18M15 3v18"/></svg>
+          </div>
+          <p class="kicker" style="margin-bottom:0">For Distributors</p>
+          <h3>Distributor Access<br>Upon Request.</h3>
+          <p>Custom distribution solutions for larger operations, partners, and enterprises.</p>
+          <ul class="check-list">
+            <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M2.5 8.5 L6.5 12.5 L13.5 3.5" stroke="#ef3a10" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Custom terms</li>
+            <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M2.5 8.5 L6.5 12.5 L13.5 3.5" stroke="#ef3a10" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>White-label options</li>
+            <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M2.5 8.5 L6.5 12.5 L13.5 3.5" stroke="#ef3a10" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Dedicated infrastructure</li>
+            <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M2.5 8.5 L6.5 12.5 L13.5 3.5" stroke="#ef3a10" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Personalized support</li>
+          </ul>
+          <a href="support.html#contact" class="btn btn-outline">Request Access →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= INCLUDED WITH EVERY PLAN ================= -->
+<section>
+  <div class="wrap">
+    <div class="included-head">
+      <div>
+        <p class="kicker">Included with every plan</p>
+        <h2 style="font-size:clamp(32px,4vw,52px);font-weight:800;letter-spacing:-.01em;line-height:1.08">More Value. <span style="color:var(--red)">No Hidden Fees.</span></h2>
+      </div>
+      <p class="note">Transparent pricing. No setup fees. No surprises. Just everything you need to grow.</p>
+    </div>
+    <div class="value-grid">
+      <div class="value-card">
+        <div class="v-icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#ef3a10" stroke-width="1.8"><path d="M13 2L4.5 13.5H11L10 22L19.5 10.5H13z" stroke-linejoin="round"/></svg></div>
+        <h4>100% Ownership</h4>
+        <p>You keep your rights.</p>
+      </div>
+      <div class="value-card">
+        <div class="v-icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#ef3a10" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14 0 18M12 3c-3 3.5-3 14 0 18"/></svg></div>
+        <h4>Global Reach</h4>
+        <p>250+ stores worldwide.</p>
+      </div>
+      <div class="value-card">
+        <div class="v-icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#ef3a10" stroke-width="1.8"><circle cx="8" cy="8" r="3.5"/><circle cx="16" cy="16" r="3.5"/><path d="M11 11l3 3"/></svg></div>
+        <h4>Royalty Splits</h4>
+        <p>Easy split management.</p>
+      </div>
+      <div class="value-card">
+        <div class="v-icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#ef3a10" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M15.5 9.5c-.7-1-2-1.6-3.5-1.6-2 0-3.5 1-3.5 2.4 0 3.2 7.3 1.5 7.3 4.9 0 1.5-1.7 2.6-3.8 2.6-1.5 0-2.8-.6-3.6-1.6"/></svg></div>
+        <h4>Fast Payouts</h4>
+        <p>Get paid on time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section>
+  <div class="wrap">
+    <div class="faq-layout">
+      <div class="sec-head" style="margin-bottom:0">
+        <p class="kicker">Frequently asked questions</p>
+        <h2>Quick answers.</h2>
+        <p>Everything you need to know about our pricing.</p>
+        <a href="support.html" class="btn btn-outline" style="margin-top:28px">View All FAQs →</a>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button type="button" class="faq-q">Can I upgrade or downgrade my plan?<span class="faq-x">+</span></button>
+          <div class="faq-a"><p>Yes — you can switch plans at any time from your dashboard, and the change takes effect immediately.</p></div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-q">Are there any setup fees?<span class="faq-x">+</span></button>
+          <div class="faq-a"><p>No — there are no setup fees, ever. You only pay the plan price you see.</p></div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-q">Do I keep 100% of my rights?<span class="faq-x">+</span></button>
+          <div class="faq-a"><p>Yes — you always keep 100% ownership of your music and your rights on every plan.</p></div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-q">How does the advance eligibility work?<span class="faq-x">+</span></button>
+          <div class="faq-a"><p>Pro+ members unlock eligibility for Ikonic Advance, our artist funding program based on your catalog's performance.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA BANNER ================= -->
+<section style="padding-top:24px">
+  <div class="wrap">
+    <div class="cta-banner">
+      <div class="cta-flex">
+        <div>
+          <p class="kicker">Your next chapter starts here</p>
+          <h2>Own More. <span class="red">Build Bigger.</span></h2>
+          <p>Join thousands of independent artists using Ikonic to take control of their music business.</p>
+        </div>
+        <div class="cta-btns">
+          <a href="#" class="btn btn-red">Start Free →</a>
+          <a href="#" class="btn btn-outline">View Platform</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Shared site footer: src/components/containers/Footer (rendered by dist/chrome.js) -->
+<div data-site-footer></div>
+
+<script src="dist/chrome.js"></script>
+<script>
+// Monthly / Annual price toggle
+(function(){
+  var btnM = document.getElementById('btnMonthly');
+  var btnA = document.getElementById('btnAnnual');
+  var prices = document.querySelectorAll('.js-price');
+  var notes = document.querySelectorAll('.js-bill');
+  function setMode(annual){
+    btnM.classList.toggle('on', !annual);
+    btnA.classList.toggle('on', annual);
+    prices.forEach(function(el){
+      el.textContent = annual ? el.getAttribute('data-annual') : el.getAttribute('data-monthly');
+    });
+    notes.forEach(function(el){
+      el.textContent = annual ? 'billed annually' : '';
+    });
+  }
+  btnM.addEventListener('click', function(){ setMode(false); });
+  btnA.addEventListener('click', function(){ setMode(true); });
+})();
+
+// FAQ accordion
+document.querySelectorAll('.faq-item').forEach(function(item){
+  var q = item.querySelector('.faq-q');
+  var a = item.querySelector('.faq-a');
+  q.addEventListener('click', function(){
+    var open = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(function(o){
+      o.classList.remove('open');
+      o.querySelector('.faq-a').style.maxHeight = null;
+    });
+    if(!open){
+      item.classList.add('open');
+      a.style.maxHeight = a.scrollHeight + 'px';
+    }
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+.section-intro { display: flex; flex-direction: column; }
+.section-intro .section-heading { gap: 0; }
+.section-intro .eyebrow { margin-bottom: 18px; font-size: 13px; letter-spacing: 3px; }
+.section-intro .heading { font-size: 48px; line-height: 1.12; letter-spacing: -0.5px; }
+.section-intro .section-heading .text { margin-top: 16px; font-size: 18px; max-width: 560px; }
+.section-intro__extra { margin-top: 28px; }
+.section-intro__action { margin-top: 30px; }
+
+@media (max-width: 640px) {
+  .section-intro .heading { font-size: 36px; }
+}

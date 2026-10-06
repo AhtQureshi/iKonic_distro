@@ -1,0 +1,69 @@
+.label-dash {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  min-height: 560px;
+  overflow: hidden;
+  background: #101012;
+  border: 1px solid #2c2c2c;
+  border-radius: var(--radius-xl);
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6), 0 0 120px rgba(239, 58, 16, 0.07);
+}
+
+.label-dash__side { display: flex; flex-direction: column; gap: 4px; padding: 24px 14px; border-right: 1px solid #222; }
+.label-dash__logo { padding: 6px 12px 20px; }
+.label-dash__nav {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 9px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #bdbdbd;
+}
+.label-dash__nav .icon { color: #8a8a8a; }
+.label-dash__nav.is-active { background: rgba(239, 58, 16, 0.18); color: #fff; }
+.label-dash__nav.is-active .icon { color: var(--color-red); }
+
+.label-dash__main { padding: 26px 30px; min-width: 0; }
+.label-dash__head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.label-dash__title { font-size: 22px; font-weight: 800; }
+.label-dash__range {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  font-size: 13px;
+  color: #bbb;
+  background: #151515;
+  border: 1px solid #2c2c2c;
+  border-radius: var(--radius-sm);
+}
+
+.label-dash__stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 20px; }
+.label-dash__stat,
+.label-dash__chart,
+.label-dash__artist { background: #161617; border: 1px solid #232323; border-radius: var(--radius-md); }
+.label-dash__stat { padding: 16px 18px; line-height: 1.6; }
+.label-dash__value { font-size: 24px; font-weight: 800; }
+.label-dash__label { font-size: 12.5px; color: var(--color-text-muted); }
+.label-dash__trend { margin-top: 2px; font-size: 12px; font-weight: 700; color: var(--color-success); }
+
+.label-dash__chart { padding: 18px 10px 8px; margin-bottom: 20px; color: var(--color-red); }
+.label-dash__chart .sparkline { display: block; height: 130px; }
+
+.label-dash__subhead { margin-bottom: 14px; font-size: 17px; font-weight: 800; }
+.label-dash__artists { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.label-dash__artist { overflow: hidden; }
+.label-dash__artist .cover { aspect-ratio: auto; height: 110px; }
+.label-dash__artist-body { padding: 12px 14px; line-height: 1.6; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.label-dash__artist-name { font-size: 14px; font-weight: 700; }
+.label-dash__artist-meta { font-size: 12px; color: var(--color-text-muted); }
+
+@media (max-width: 640px) {
+  .label-dash { grid-template-columns: 1fr; min-height: 0; }
+  .label-dash__side { display: none; }
+  .label-dash__main { padding: 22px 18px; }
+  .label-dash__stats,
+  .label-dash__artists { grid-template-columns: repeat(2, 1fr); }
+}

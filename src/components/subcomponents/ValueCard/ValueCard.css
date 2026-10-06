@@ -1,0 +1,11 @@
+.value-card {
+  padding: 30px 26px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  transition: border-color 0.2s, transform 0.2s;
+}
+.value-card:hover { border-color: rgba(239, 58, 16, 0.5); transform: translateY(-3px); }
+.value-card__icon { color: var(--color-red); margin-bottom: 18px; }
+.value-card__title.heading { font-size: 17px; font-weight: 700; letter-spacing: 0; line-height: 1.6; margin-bottom: 6px; }
+.value-card__text.text { font-size: 14px; }

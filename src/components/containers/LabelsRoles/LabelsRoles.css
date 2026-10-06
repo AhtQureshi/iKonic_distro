@@ -1,0 +1,13 @@
+.labels-roles { padding: 110px 0; }
+.labels-roles__grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 70px; align-items: start; }
+.labels-roles__cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+
+@media (max-width: 1024px) {
+  .labels-roles__grid { grid-template-columns: 1fr; gap: 50px; }
+  .labels-roles__cards { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .labels-roles { padding: 70px 0; }
+  .labels-roles__cards { grid-template-columns: 1fr; }
+}

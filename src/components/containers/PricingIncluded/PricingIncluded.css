@@ -1,0 +1,18 @@
+.pricing-included { position: relative; padding: 64px 0; }
+.pricing-included__head { display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; flex-wrap: wrap; margin-bottom: 40px; }
+.pricing-included__heading.section-heading { max-width: none; }
+.pricing-included__heading .eyebrow { font-size: 12.5px; letter-spacing: 0.32em; margin-bottom: 8px; }
+.pricing-included__heading .heading { font-size: clamp(32px, 4vw, 52px); letter-spacing: -0.01em; line-height: 1.08; }
+.pricing-included__note.text { max-width: 340px; text-align: right; }
+.pricing-included__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+
+@media (max-width: 1020px) {
+  .pricing-included__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 860px) {
+  .pricing-included__note.text { text-align: left; }
+}
+@media (max-width: 560px) {
+  .pricing-included { padding: 48px 0; }
+  .pricing-included__grid { grid-template-columns: 1fr; }
+}

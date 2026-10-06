@@ -1,0 +1,21 @@
+.labels-dashboard { padding: 110px 0; background: #0c0c0d; }
+.labels-dashboard__grid { display: grid; grid-template-columns: 1fr 1.7fr; gap: 70px; align-items: center; }
+
+/* Larger, filled check marks than the default CheckList */
+.labels-dashboard .check-list { margin-bottom: 4px; }
+.labels-dashboard .check-list li { gap: 16px; padding: 7px 0; font-size: 17px; font-weight: 500; }
+.labels-dashboard .check-list__icon {
+  --icon-size: 28px !important;
+  padding: 6px;
+  border-radius: 50%;
+  background: var(--color-red);
+  color: #fff;
+}
+
+@media (max-width: 1024px) {
+  .labels-dashboard__grid { grid-template-columns: 1fr; gap: 50px; }
+}
+
+@media (max-width: 640px) {
+  .labels-dashboard { padding: 70px 0; }
+}

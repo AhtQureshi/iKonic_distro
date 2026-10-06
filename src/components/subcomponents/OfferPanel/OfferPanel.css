@@ -1,0 +1,43 @@
+﻿.offer-panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 44px 40px;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 18px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.offer-panel::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(480px 300px at 85% 110%, rgba(239, 58, 16, 0.16), transparent 65%);
+}
+.offer-panel:hover { border-color: var(--color-border-strong); transform: translateY(-3px); }
+
+.offer-panel__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  margin-bottom: 22px;
+  border-radius: 14px;
+  background: rgba(239, 58, 16, 0.1);
+  border: 1px solid rgba(239, 58, 16, 0.4);
+  color: var(--color-red);
+}
+.offer-panel__eyebrow.eyebrow { color: var(--color-text-muted); letter-spacing: 0.32em; font-size: 12.5px; }
+.offer-panel__title.heading { font-size: clamp(26px, 2.6vw, 34px); line-height: 1.15; margin: 6px 0 14px; }
+.offer-panel__text.text { max-width: 420px; margin-bottom: 24px; }
+.offer-panel__list { margin-bottom: 32px; }
+
+@media (max-width: 560px) {
+  .offer-panel { padding: 36px 24px; }
+}

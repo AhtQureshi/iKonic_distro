@@ -1,0 +1,9 @@
+.avatar {
+  display: inline-block;
+  flex: none;
+  width: var(--avatar-size, 44px);
+  height: var(--avatar-size, 44px);
+  border-radius: 50%;
+  border: 2px solid var(--color-bg);
+  overflow: hidden;
+}

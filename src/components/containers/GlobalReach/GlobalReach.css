@@ -1,0 +1,18 @@
+.global-reach {
+  overflow: hidden;
+  background: radial-gradient(45% 60% at 55% 50%, rgba(239, 58, 16, 0.1), transparent 70%);
+}
+
+.global-reach__grid { display: grid; grid-template-columns: 0.8fr 1.5fr 0.6fr; gap: 40px; align-items: center; }
+.global-reach__copy { display: flex; flex-direction: column; gap: 28px; }
+.global-reach__stats { display: flex; flex-wrap: wrap; gap: 12px; }
+
+@media (max-width: 1100px) {
+  .global-reach__grid { grid-template-columns: 1fr 1fr; }
+  .global-reach__map { grid-column: 1 / -1; grid-row: 2; }
+}
+
+@media (max-width: 700px) {
+  .global-reach__grid { grid-template-columns: 1fr; }
+  .global-reach__map { grid-row: auto; }
+}

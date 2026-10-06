@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ikonic Advance — Turn Your Royalties Into Momentum</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  :root{
+    --bg:#0a0a0b; --red:#ef3a10; --red-dark:#c22c0a; --card:#111111; --card2:#141414;
+    --border:#222222; --muted:#9a9a9a; --green:#2ecc71;
+  }
+  html{ scroll-behavior:smooth; }
+  body{
+    font-family:'Archivo',-apple-system,Segoe UI,sans-serif;
+    background:var(--bg); color:#fff; line-height:1.55; overflow-x:hidden;
+  }
+  a{ text-decoration:none; color:inherit; }
+  .wrap{ max-width:1200px; margin:0 auto; padding:0 24px; }
+  .red{ color:var(--red); }
+
+  /* ---------- Logo ---------- */
+  .logo{ font-weight:900; font-size:24px; letter-spacing:2px; display:inline-flex; align-items:center; color:#fff; }
+  .logo .oring{ display:inline-block; width:17px; height:17px; border:4px solid var(--red); border-radius:50%; margin:0 1px; position:relative; top:1px; }
+
+  /* ---------- Nav ---------- */
+  header.nav{ position:sticky; top:0; z-index:100; background:rgba(10,10,11,.92); backdrop-filter:blur(10px); border-bottom:1px solid #161616; }
+  .nav-inner{ max-width:1200px; margin:0 auto; padding:14px 24px; display:flex; align-items:center; gap:36px; }
+  .nav-links{ display:flex; align-items:center; gap:28px; margin-left:24px; flex:1; }
+  .nav-links a{ font-size:14px; font-weight:500; color:#d6d6d6; padding:6px 0; position:relative; transition:color .2s; }
+  .nav-links a:hover{ color:#fff; }
+  .nav-links a.active{ color:#fff; font-weight:600; }
+  .nav-links a.active::after{ content:""; position:absolute; left:0; right:0; bottom:-2px; height:2px; background:var(--red); border-radius:2px; }
+  .dropdown{ position:relative; }
+  .dropdown > a::after{ content:"▾"; font-size:10px; margin-left:5px; }
+  .dropdown-menu{ display:none; position:absolute; top:calc(100% + 10px); left:0; background:#131313; border:1px solid var(--border); border-radius:10px; min-width:180px; padding:8px; box-shadow:0 12px 32px rgba(0,0,0,.6); }
+  .dropdown:hover .dropdown-menu, .dropdown:focus-within .dropdown-menu{ display:block; }
+  .dropdown-menu a{ display:block; padding:9px 12px; border-radius:6px; font-size:14px; }
+  .dropdown-menu a:hover{ background:#1c1c1c; }
+  .nav-actions{ display:flex; align-items:center; gap:12px; }
+  .btn{ display:inline-flex; align-items:center; justify-content:center; gap:8px; font-weight:700; font-size:15px; border-radius:10px; padding:13px 26px; cursor:pointer; transition:transform .15s, box-shadow .2s, background .2s; border:1px solid transparent; }
+  .btn-red{ background:var(--red); color:#fff; box-shadow:0 6px 24px rgba(239,58,16,.35); }
+  .btn-red:hover{ background:#ff4a1f; transform:translateY(-1px); }
+  .btn-outline{ background:transparent; color:#fff; border-color:#3a3a3a; }
+  .btn-outline:hover{ border-color:var(--red); color:#fff; }
+  .btn-sm{ padding:10px 20px; font-size:14px; border-radius:9px; }
+  .hamburger{ display:none; background:none; border:1px solid #333; border-radius:8px; color:#fff; font-size:20px; padding:6px 12px; cursor:pointer; margin-left:auto; }
+
+  /* ---------- Kickers / headlines ---------- */
+  .kicker{ color:var(--red); font-size:12px; font-weight:800; letter-spacing:3.5px; text-transform:uppercase; margin-bottom:14px; }
+  h1,h2{ font-weight:800; letter-spacing:-.5px; line-height:1.08; }
+  .sec{ padding:96px 0; }
+
+  /* ---------- Hero ---------- */
+  .hero{ position:relative; padding:84px 0 64px; overflow:hidden; }
+  .hero::before{ content:""; position:absolute; inset:0; background:
+      radial-gradient(600px 400px at 78% 30%, rgba(239,58,16,.28), transparent 65%),
+      radial-gradient(700px 500px at 55% 70%, rgba(239,58,16,.12), transparent 60%),
+      radial-gradient(400px 300px at 90% 85%, rgba(239,58,16,.15), transparent 60%);
+    pointer-events:none; }
+  .hero-grid{ position:relative; display:grid; grid-template-columns:1.05fr .95fr; gap:48px; align-items:center; }
+  .hero h1{ font-size:clamp(42px,5.4vw,68px); margin-bottom:20px; }
+  .hero .sub{ color:#cfcfcf; font-size:17px; max-width:480px; margin-bottom:30px; }
+  .hero-btns{ display:flex; gap:14px; flex-wrap:wrap; margin-bottom:56px; }
+  .play-ic{ display:inline-flex; width:22px; height:22px; border:1.5px solid #fff; border-radius:50%; align-items:center; justify-content:center; font-size:9px; }
+  .hero-points{ display:grid; grid-template-columns:1fr 1fr; gap:26px 20px; }
+  .hp{ display:flex; gap:14px; align-items:flex-start; }
+  .hp svg{ flex:none; width:34px; height:34px; stroke:var(--red); fill:none; stroke-width:1.8; }
+  .hp b{ display:block; font-size:15px; font-weight:700; margin-bottom:3px; }
+  .hp span{ font-size:13.5px; color:var(--muted); }
+
+  /* Approved card */
+  .approved-card{ background:linear-gradient(160deg,#151515,#0d0d0e); border:1px solid #2a2a2a; border-radius:18px; padding:26px; max-width:400px; margin-left:auto; box-shadow:0 24px 70px rgba(0,0,0,.6), 0 0 60px rgba(239,58,16,.10); position:relative; }
+  .ac-head{ display:flex; gap:14px; align-items:center; margin-bottom:16px; }
+  .ac-bolt{ width:46px; height:46px; border-radius:50%; background:var(--red); display:flex; align-items:center; justify-content:center; flex:none; box-shadow:0 0 24px rgba(239,58,16,.6); }
+  .ac-bolt svg{ width:24px; height:24px; fill:#fff; }
+  .ac-head b{ font-size:17px; display:block; }
+  .ac-head .amt{ font-size:20px; font-weight:800; }
+  .funds-sent{ display:flex; align-items:center; gap:8px; color:var(--green); font-size:14px; font-weight:600; margin-bottom:16px; }
+  .funds-sent .dot{ width:9px; height:9px; border-radius:50%; background:var(--green); box-shadow:0 0 10px var(--green); }
+  .ac-row{ display:flex; justify-content:space-between; padding:10px 0; border-top:1px solid #1f1f1f; font-size:14px; }
+  .ac-row span{ color:var(--muted); }
+  .ac-row b{ font-weight:600; }
+
+  /* ---------- Estimator ---------- */
+  .est-grid{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:24px; align-items:stretch; margin-top:40px; }
+  .est-head h2{ font-size:clamp(34px,4vw,52px); margin-bottom:14px; }
+  .est-head p{ color:#cfcfcf; font-size:16px; max-width:380px; }
+  .est-card{ background:var(--card); border:1px solid var(--border); border-radius:16px; padding:28px; }
+  .est-card label{ font-size:14px; color:#d0d0d0; display:block; margin-bottom:14px; }
+  .est-input{ background:#1a1a1a; border:1px solid #2b2b2b; border-radius:10px; font-size:30px; font-weight:800; padding:12px 16px; margin-bottom:22px; color:#fff; }
+  input[type=range]{ width:100%; -webkit-appearance:none; appearance:none; height:6px; border-radius:3px; background:linear-gradient(to right, var(--red) var(--fill,15%), #2c2c2c var(--fill,15%)); outline:none; cursor:pointer; }
+  input[type=range]::-webkit-slider-thumb{ -webkit-appearance:none; width:26px; height:26px; border-radius:50%; background:var(--red); border:5px solid #0a0a0b; box-shadow:0 0 0 2px var(--red), 0 0 18px rgba(239,58,16,.7); cursor:pointer; }
+  input[type=range]::-moz-range-thumb{ width:16px; height:16px; border-radius:50%; background:var(--red); border:5px solid #0a0a0b; box-shadow:0 0 0 2px var(--red); cursor:pointer; }
+  .est-range-labels{ display:flex; justify-content:space-between; font-size:13px; color:var(--muted); margin-top:12px; }
+  .est-amount-label{ font-size:14px; color:#d0d0d0; margin-bottom:4px; }
+  .est-amount{ font-size:46px; font-weight:900; color:var(--red); display:flex; align-items:center; gap:10px; letter-spacing:-1px; }
+  .info-i{ width:22px; height:22px; border:1.5px solid #555; color:#999; border-radius:50%; font-size:13px; display:inline-flex; align-items:center; justify-content:center; font-style:normal; }
+  .est-terms{ margin:18px 0 22px; }
+  .est-terms .et-title{ font-size:14px; color:#d0d0d0; margin-bottom:8px; }
+  .est-term-row{ display:flex; justify-content:space-between; font-size:14px; padding:9px 0; border-top:1px solid #1f1f1f; }
+  .est-term-row span{ color:var(--muted); } .est-term-row b{ font-weight:600; }
+  .est-card .btn-red{ width:100%; }
+  .est-note{ text-align:center; color:#777; font-size:12.5px; margin-top:18px; }
+
+  /* ---------- Cards (Fuel your next chapter) ---------- */
+  .ch-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin-top:44px; }
+  .ch-card{ background:var(--card); border:1px solid var(--border); border-radius:16px; overflow:hidden; transition:transform .2s, border-color .2s; }
+  .ch-card:hover{ transform:translateY(-4px); border-color:#3a3a3a; }
+  .ch-visual{ height:150px; position:relative; display:flex; align-items:flex-start; padding:18px; overflow:hidden; }
+  .ch-visual svg{ width:44px; height:44px; stroke:var(--red); fill:none; stroke-width:1.8; position:relative; z-index:2; filter:drop-shadow(0 0 10px rgba(239,58,16,.6)); }
+  .ch-body{ padding:20px 20px 24px; }
+  .ch-body b{ font-size:17px; font-weight:700; display:block; margin-bottom:8px; }
+  .ch-body p{ font-size:14px; color:var(--muted); }
+  .cv-1{ background:radial-gradient(120px 90px at 65% 60%, rgba(239,58,16,.45), transparent 70%), radial-gradient(200px 150px at 30% 80%, rgba(120,20,8,.5), transparent 70%), #08080a; }
+  .cv-2{ background:radial-gradient(140px 100px at 70% 40%, rgba(239,58,16,.5), transparent 70%), radial-gradient(180px 140px at 20% 90%, rgba(150,30,10,.4), transparent 70%), #08080a; }
+  .cv-3{ background:radial-gradient(120px 100px at 40% 30%, rgba(239,58,16,.4), transparent 70%), radial-gradient(200px 160px at 75% 75%, rgba(140,25,8,.45), transparent 70%), #08080a; }
+  .cv-4{ background:radial-gradient(150px 110px at 55% 55%, rgba(239,58,16,.48), transparent 70%), radial-gradient(180px 130px at 25% 25%, rgba(120,22,8,.4), transparent 70%), #08080a; }
+
+  /* ---------- Transparency / laptop ---------- */
+  .trans-grid{ display:grid; grid-template-columns:1.05fr .95fr; gap:60px; align-items:center; }
+  .trans-copy h2{ font-size:clamp(34px,4vw,52px); margin-bottom:16px; }
+  .trans-copy > p{ color:#cfcfcf; font-size:16px; margin-bottom:28px; max-width:440px; }
+  .check-list{ list-style:none; margin-bottom:32px; }
+  .check-list li{ display:flex; align-items:center; gap:14px; font-size:16px; margin-bottom:16px; }
+  .check{ width:26px; height:26px; border-radius:50%; background:var(--red); color:#fff; font-size:14px; font-weight:800; display:inline-flex; align-items:center; justify-content:center; flex:none; box-shadow:0 0 14px rgba(239,58,16,.55); }
+  .laptop{ background:#0e0e0f; border:1px solid #2c2c2c; border-radius:18px; overflow:hidden; box-shadow:0 30px 80px rgba(0,0,0,.7), 0 0 70px rgba(239,58,16,.08); }
+  .laptop-inner{ display:grid; grid-template-columns:170px 1fr; min-height:380px; }
+  .lp-side{ background:#0b0b0c; border-right:1px solid #1e1e1e; padding:18px 12px; }
+  .lp-side .logo{ font-size:16px; margin-bottom:18px; display:inline-flex; }
+  .lp-side .logo .oring{ width:11px; height:11px; border-width:3px; }
+  .lp-item{ display:flex; align-items:center; gap:10px; font-size:12.5px; color:#9a9a9a; padding:8px 10px; border-radius:8px; margin-bottom:2px; }
+  .lp-item .li-dot{ width:14px; height:14px; border:1.5px solid #555; border-radius:50%; flex:none; }
+  .lp-item.active{ background:rgba(239,58,16,.18); color:#fff; font-weight:600; }
+  .lp-item.active .li-dot{ border-color:var(--red); background:var(--red); box-shadow:0 0 8px rgba(239,58,16,.8); }
+  .lp-main{ padding:20px 22px; }
+  .lp-main h3{ font-size:18px; font-weight:800; margin-bottom:12px; }
+  .lp-tabs{ display:flex; gap:20px; border-bottom:1px solid #1e1e1e; margin-bottom:16px; font-size:13px; }
+  .lp-tabs span{ padding:8px 2px; color:#888; }
+  .lp-tabs .on{ color:#fff; font-weight:600; border-bottom:2px solid var(--red); }
+  .lp-stats{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:16px; }
+  .lp-stat{ background:#141414; border:1px solid #242424; border-radius:10px; padding:12px 14px; }
+  .lp-stat small{ display:block; color:#8a8a8a; font-size:11px; margin-bottom:4px; }
+  .lp-stat b{ font-size:17px; font-weight:800; }
+  .lp-stat .pct{ color:var(--red); font-size:11.5px; font-weight:700; margin-left:6px; }
+  .lp-bar-wrap{ margin-bottom:16px; }
+  .lp-bar-head{ display:flex; justify-content:space-between; font-size:12.5px; margin-bottom:8px; color:#cfcfcf; }
+  .lp-bar{ height:10px; background:#232323; border-radius:6px; overflow:hidden; }
+  .lp-bar i{ display:block; height:100%; width:24%; background:linear-gradient(90deg,var(--red),#ff5a2a); border-radius:6px; box-shadow:0 0 12px rgba(239,58,16,.6); }
+  .lp-pay-title{ font-size:13px; font-weight:700; margin-bottom:8px; }
+  .lp-pay-row{ display:flex; justify-content:space-between; font-size:12.5px; padding:9px 0; border-top:1px solid #1c1c1c; color:#cfcfcf; }
+  .lp-pay-row span:first-child{ color:#8a8a8a; }
+
+  /* ---------- Process ---------- */
+  .process-head h2{ font-size:clamp(34px,4vw,52px); margin-bottom:44px; }
+  .steps{ display:grid; grid-template-columns:repeat(4,1fr); gap:20px; position:relative; }
+  .steps::before{ content:""; position:absolute; top:31px; left:8%; right:8%; height:2px; background:linear-gradient(90deg, var(--red), rgba(239,58,16,.35)); z-index:0; }
+  .step{ position:relative; z-index:1; }
+  .step-num{ width:62px; height:62px; border-radius:50%; border:2px solid var(--red); background:var(--bg); display:flex; align-items:center; justify-content:center; font-size:20px; font-weight:800; color:var(--red); margin-bottom:18px; box-shadow:0 0 22px rgba(239,58,16,.35); }
+  .step b{ font-size:17px; font-weight:700; display:block; margin-bottom:8px; }
+  .step p{ font-size:14px; color:var(--muted); max-width:230px; }
+
+  /* ---------- FAQ ---------- */
+  .faq-grid{ display:grid; grid-template-columns:.9fr 1.1fr; gap:60px; align-items:start; }
+  .faq-copy h2{ font-size:clamp(34px,4vw,52px); margin-bottom:14px; }
+  .faq-copy p{ color:#cfcfcf; font-size:16px; margin-bottom:28px; }
+  .faq-item{ background:var(--card); border:1px solid var(--border); border-radius:12px; margin-bottom:12px; overflow:hidden; transition:border-color .2s; }
+  .faq-item.open{ border-color:#3a3a3a; }
+  .faq-q{ width:100%; background:none; border:none; color:#fff; font-family:inherit; font-size:15.5px; font-weight:600; text-align:left; padding:18px 20px; display:flex; justify-content:space-between; align-items:center; gap:16px; cursor:pointer; }
+  .faq-x{ color:var(--red); font-size:22px; font-weight:400; line-height:1; transition:transform .25s; flex:none; }
+  .faq-item.open .faq-x{ transform:rotate(45deg); }
+  .faq-a{ max-height:0; overflow:hidden; transition:max-height .3s ease; }
+  .faq-a p{ padding:0 20px 20px; color:var(--muted); font-size:14.5px; }
+
+  /* ---------- CTA banner ---------- */
+  .cta-banner{ position:relative; padding:110px 0; overflow:hidden; background:#0c0503; border-top:1px solid #1a1a1a; border-bottom:1px solid #1a1a1a; }
+  .cta-banner::before{ content:""; position:absolute; inset:0; background:
+      radial-gradient(700px 380px at 50% 100%, rgba(239,58,16,.35), transparent 65%),
+      radial-gradient(500px 300px at 15% 20%, rgba(239,58,16,.14), transparent 60%),
+      radial-gradient(500px 300px at 85% 15%, rgba(239,58,16,.14), transparent 60%);
+    pointer-events:none; }
+  .cta-inner{ position:relative; }
+  .cta-inner h2{ font-size:clamp(38px,4.6vw,58px); margin-bottom:14px; }
+  .cta-inner > p{ color:#cfcfcf; font-size:16px; margin-bottom:28px; max-width:560px; }
+  .cta-btns{ display:flex; gap:14px; flex-wrap:wrap; margin-bottom:44px; }
+  .cta-stats{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; max-width:760px; }
+  .cta-stat{ background:rgba(17,17,17,.85); border:1px solid var(--border); border-radius:14px; padding:22px; }
+  .cta-stat svg{ width:30px; height:30px; stroke:var(--red); fill:none; stroke-width:1.8; margin-bottom:10px; }
+  .cta-stat b{ font-size:22px; font-weight:800; display:block; }
+  .cta-stat span{ font-size:13.5px; color:var(--muted); }
+
+  /* ---------- Footer ---------- */
+  footer{ padding:48px 0 28px; border-top:1px solid #161616; }
+  .foot-top{ display:flex; align-items:center; gap:40px; flex-wrap:wrap; margin-bottom:20px; }
+  .foot-brand .tagline{ font-size:13px; color:var(--muted); margin-top:6px; }
+  .foot-links{ display:flex; gap:26px; flex:1; flex-wrap:wrap; }
+  .foot-links a{ font-size:14px; color:#bdbdbd; } .foot-links a:hover{ color:#fff; }
+  .socials{ display:flex; gap:10px; }
+  .socials a{ width:38px; height:38px; border:1px solid #2c2c2c; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; color:#bdbdbd; transition:border-color .2s,color .2s; }
+  .socials a:hover{ border-color:var(--red); color:#fff; }
+  .foot-bottom{ display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; border-top:1px solid #161616; padding-top:22px; font-size:13px; color:#777; }
+  .foot-legal{ display:flex; gap:22px; } .foot-legal a{ color:#777; } .foot-legal a:hover{ color:#fff; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:1024px){
+    .est-grid{ grid-template-columns:1fr 1fr; }
+    .est-head{ grid-column:1/-1; }
+    .ch-grid{ grid-template-columns:repeat(2,1fr); }
+    .trans-grid{ grid-template-columns:1fr; }
+  }
+  @media (max-width:820px){
+    .nav-links, .nav-actions{ display:none; }
+    .hamburger{ display:block; }
+    .nav-links.mobile-open{ display:flex; position:absolute; top:100%; left:0; right:0; background:#0e0e0f; border-bottom:1px solid #222; flex-direction:column; align-items:flex-start; padding:16px 24px 24px; gap:6px; margin:0; }
+    .nav-actions.mobile-open{ display:flex; position:absolute; top:calc(100% + 300px); left:24px; }
+    .hero-grid, .faq-grid{ grid-template-columns:1fr; }
+    .approved-card{ margin:0; }
+    .est-grid{ grid-template-columns:1fr; }
+    .steps{ grid-template-columns:1fr 1fr; }
+    .steps::before{ display:none; }
+    .ch-grid{ grid-template-columns:1fr; }
+    .cta-stats{ grid-template-columns:1fr; }
+    .sec{ padding:64px 0; }
+    .laptop-inner{ grid-template-columns:1fr; }
+    .lp-side{ display:none; }
+  }
+/* Real IKONIC wordmark; sized by the parent's font-size. 'screen' drops the artwork's black background. */
+.logo-img{display:block;height:1em;width:auto;mix-blend-mode:screen}
+</style>
+</head>
+<body>
+
+<!-- Shared site header: src/components/containers/Header (rendered by dist/chrome.js) -->
+<div data-site-header="advance"></div>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="kicker">Ikonic Advance</div>
+      <h1>Turn Your<br>Royalties Into<br><span class="red">Momentum.</span></h1>
+      <p class="sub">Get funding based on your music earnings, not your credit. Keep 100% of your rights and continue to grow your career.</p>
+      <div class="hero-btns">
+        <a class="btn btn-red" href="#">Apply Now <span>&rarr;</span></a>
+        <a class="btn btn-outline" href="#process"><span class="play-ic">&#9654;</span> See How It Works</a>
+      </div>
+      <div class="hero-points">
+        <div class="hp">
+          <svg viewBox="0 0 24 24"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/></svg>
+          <div><b>No Credit Required</b><span>Based on your catalog performance</span></div>
+        </div>
+        <div class="hp">
+          <svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg>
+          <div><b>Keep 100% Ownership</b><span>You keep your rights and royalties</span></div>
+        </div>
+        <div class="hp">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          <div><b>Fast Decisions</b><span>Get a response in as little as 24-72 hours</span></div>
+        </div>
+        <div class="hp">
+          <svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>
+          <div><b>Keep Earning</b><span>Continue releasing and collecting royalties</span></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="approved-card">
+        <div class="ac-head">
+          <div class="ac-bolt"><svg viewBox="0 0 24 24"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/></svg></div>
+          <div><b>Advance Approved</b><span class="amt">$50,000</span></div>
+        </div>
+        <div class="funds-sent"><span class="dot"></span> Funds Sent</div>
+        <div class="ac-row"><span>Monthly Royalties</span><b>$7,842</b></div>
+        <div class="ac-row"><span>Advance Amount</span><b>$50,000</b></div>
+        <div class="ac-row"><span>Repayment</span><b>12% of monthly royalties</b></div>
+        <div class="ac-row"><span>Term</span><b>12 months</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ESTIMATOR ============ -->
+<section class="sec">
+  <div class="wrap">
+    <div class="est-grid">
+      <div class="est-head">
+        <div class="kicker">Advance Estimator</div>
+        <h2>See What You<br>Could Get Funded.</h2>
+        <p>Get an estimate based on your monthly royalties. No impact to your rights. No credit check.</p>
+      </div>
+      <div class="est-card">
+        <label for="royaltyRange">Enter your average monthly royalties</label>
+        <div class="est-input" id="royaltyDisplay">$7,500</div>
+        <input type="range" id="royaltyRange" min="500" max="50000" step="100" value="7500" aria-label="Average monthly royalties">
+        <div class="est-range-labels"><span>$500</span><span>$50,000+</span></div>
+      </div>
+      <div class="est-card">
+        <div class="est-amount-label">Estimated Advance</div>
+        <div class="est-amount"><span id="advanceAmount">$42,000</span> <i class="info-i">i</i></div>
+        <div class="est-terms">
+          <div class="et-title">Estimated Terms</div>
+          <div class="est-term-row"><span>Repayment</span><b>12% of monthly royalties</b></div>
+          <div class="est-term-row"><span>Estimated Term</span><b>~10-14 months</b></div>
+          <div class="est-term-row"><span>You Keep</span><b>100% of your rights</b></div>
+        </div>
+        <a class="btn btn-red" href="#">Apply Now <span>&rarr;</span></a>
+      </div>
+    </div>
+    <p class="est-note">Estimates are based on historical catalog performance. Final offers may vary.</p>
+  </div>
+</section>
+
+<!-- ============ FUEL YOUR NEXT CHAPTER ============ -->
+<section class="sec" style="padding-top:0;">
+  <div class="wrap">
+    <div class="kicker">Built For Independent Artists</div>
+    <h2 style="font-size:clamp(34px,4vw,52px); margin-bottom:14px;">Fuel Your Next Chapter.</h2>
+    <p style="color:#cfcfcf; font-size:16px;">Use your advance to invest in your music, your brand, and your future.</p>
+    <div class="ch-grid">
+      <div class="ch-card">
+        <div class="ch-visual cv-1">
+          <svg viewBox="0 0 24 24"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0M12 17v4M8 21h8"/></svg>
+        </div>
+        <div class="ch-body"><b>Create More Music</b><p>Studio time, producers, and recording costs.</p></div>
+      </div>
+      <div class="ch-card">
+        <div class="ch-visual cv-2">
+          <svg viewBox="0 0 24 24"><path d="M3 11v3l4 1 2 5h2l-1.5-6.5L19 17V7L8 10l-1 2-4-1zM19 7a4 4 0 0 1 0 8"/></svg>
+        </div>
+        <div class="ch-body"><b>Grow Your Audience</b><p>Marketing, content, and promotion.</p></div>
+      </div>
+      <div class="ch-card">
+        <div class="ch-visual cv-3">
+          <svg viewBox="0 0 24 24"><rect x="2" y="6" width="13" height="12" rx="2"/><path d="M15 10l7-3v10l-7-3"/></svg>
+        </div>
+        <div class="ch-body"><b>Upgrade Your Visuals</b><p>Music videos, shoots, and creative production.</p></div>
+      </div>
+      <div class="ch-card">
+        <div class="ch-visual cv-4">
+          <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M17.5 14.5a6.5 6.5 0 0 1 4 5.5"/></svg>
+        </div>
+        <div class="ch-body"><b>Expand Your Team</b><p>Invest in your team and infrastructure.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRANSPARENCY ============ -->
+<section class="sec" style="padding-top:0;">
+  <div class="wrap trans-grid">
+    <div class="laptop">
+      <div class="laptop-inner">
+        <div class="lp-side">
+          <span class="logo"><img class="logo-img" src="src/assets/images/logo.webp" alt="IKONIC"></span>
+          <div class="lp-item"><span class="li-dot"></span>Dashboard</div>
+          <div class="lp-item"><span class="li-dot"></span>Catalog</div>
+          <div class="lp-item"><span class="li-dot"></span>Analytics</div>
+          <div class="lp-item"><span class="li-dot"></span>Publishing</div>
+          <div class="lp-item"><span class="li-dot"></span>Royalties</div>
+          <div class="lp-item active"><span class="li-dot"></span>Advance</div>
+          <div class="lp-item"><span class="li-dot"></span>Payouts</div>
+          <div class="lp-item"><span class="li-dot"></span>Team</div>
+          <div class="lp-item"><span class="li-dot"></span>Settings</div>
+        </div>
+        <div class="lp-main">
+          <h3>Advance</h3>
+          <div class="lp-tabs"><span class="on">Overview</span><span>History</span></div>
+          <div class="lp-stats">
+            <div class="lp-stat"><small>Total Advanced</small><b>$50,000</b></div>
+            <div class="lp-stat"><small>Repaid</small><b>$12,400</b><span class="pct">24%</span></div>
+            <div class="lp-stat"><small>Remaining</small><b>$37,600</b><span class="pct">76%</span></div>
+          </div>
+          <div class="lp-bar-wrap">
+            <div class="lp-bar-head"><span>Repayment Progress</span><span>24% Complete</span></div>
+            <div class="lp-bar"><i></i></div>
+          </div>
+          <div class="lp-pay-title">Recent Payments</div>
+          <div class="lp-pay-row"><span>Aug 1, 2026</span><span>$882.40</span><span>12%</span></div>
+          <div class="lp-pay-row"><span>Jul 1, 2026</span><span>$1,024.18</span><span>12%</span></div>
+          <div class="lp-pay-row"><span>Jun 1, 2026</span><span>$980.32</span><span>12%</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="trans-copy">
+      <div class="kicker">Full Transparency</div>
+      <h2>Track Everything<br>In Real Time.</h2>
+      <p>See your advance amount, repayment progress, upcoming deductions, and more — all inside your Ikonic dashboard.</p>
+      <ul class="check-list">
+        <li><span class="check">&#10003;</span>Real-time repayment tracking</li>
+        <li><span class="check">&#10003;</span>Clear payment history</li>
+        <li><span class="check">&#10003;</span>No hidden fees</li>
+        <li><span class="check">&#10003;</span>Continue earning and releasing</li>
+        <li><span class="check">&#10003;</span>Full transparency</li>
+      </ul>
+      <a class="btn btn-outline" href="#">See Platform Preview <span>&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section class="sec" id="process" style="padding-top:0;">
+  <div class="wrap process-head">
+    <div class="kicker">A Simple Process</div>
+    <h2>Get Funded. Keep Creating.</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <b>Apply</b><p>Submit your catalog for review.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <b>Review</b><p>We analyze your earnings and performance.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <b>Get Offer</b><p>Receive your custom advance offer.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <b>Get Funded</b><p>Funds sent directly to you while you keep earning.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="sec" style="padding-top:0;">
+  <div class="wrap faq-grid">
+    <div class="faq-copy">
+      <div class="kicker">Frequently Asked Questions</div>
+      <h2>Quick answers.</h2>
+      <p>Everything you need to know about Ikonic Advance.</p>
+      <a class="btn btn-outline" href="#">View All FAQs <span>&rarr;</span></a>
+    </div>
+    <div>
+      <div class="faq-item">
+        <button class="faq-q">Do I need a credit check?<span class="faq-x">+</span></button>
+        <div class="faq-a"><p>No — your offer is based on your catalog's earnings and performance, not your credit score.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How much can I get?<span class="faq-x">+</span></button>
+        <div class="faq-a"><p>Advance amounts are based on your monthly royalties and catalog history — use the estimator above to see what you could get funded.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How and when do I get paid?<span class="faq-x">+</span></button>
+        <div class="faq-a"><p>Once your offer is accepted, funds are sent directly to you — most artists receive funding within days of approval.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Do I keep 100% of my rights?<span class="faq-x">+</span></button>
+        <div class="faq-a"><p>Yes — you keep 100% ownership of your rights and catalog while the advance is repaid from a share of your royalties.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What catalogs are eligible?<span class="faq-x">+</span></button>
+        <div class="faq-a"><p>Catalogs with consistent streaming earnings and a verifiable royalty history are eligible for review.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA BANNER ============ -->
+<section class="cta-banner">
+  <div class="wrap cta-inner">
+    <div class="kicker">Your Catalog. More Opportunities.</div>
+    <h2>Get Funded. <span class="red">Go Further.</span></h2>
+    <p>Turn your royalties into momentum and take your music career to the next level.</p>
+    <div class="cta-btns">
+      <a class="btn btn-red" href="#">Apply Now <span>&rarr;</span></a>
+      <a class="btn btn-outline" href="#">Learn More</a>
+    </div>
+    <div class="cta-stats">
+      <div class="cta-stat">
+        <svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+        <b>$100M+</b><span>Available for Artists</span>
+      </div>
+      <div class="cta-stat">
+        <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M17.5 14.5a6.5 6.5 0 0 1 4 5.5"/></svg>
+        <b>All Genres</b><span>Independent Artists</span>
+      </div>
+      <div class="cta-stat">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
+        <b>Global</b><span>Catalogs Worldwide</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Shared site footer: src/components/containers/Footer (rendered by dist/chrome.js) -->
+<div data-site-footer></div>
+
+<script src="dist/chrome.js"></script>
+<script>
+// Estimator: monthly x 5.6, rounded to nearest 100
+(function(){
+  var range = document.getElementById('royaltyRange');
+  var display = document.getElementById('royaltyDisplay');
+  var amount = document.getElementById('advanceAmount');
+  function fmt(n){ return '$' + n.toLocaleString('en-US'); }
+  function update(){
+    var v = parseInt(range.value, 10);
+    display.textContent = fmt(v);
+    var est = Math.round((v * 5.6) / 100) * 100;
+    amount.textContent = fmt(est);
+    var pct = ((v - 500) / (50000 - 500)) * 100;
+    range.style.setProperty('--fill', pct + '%');
+  }
+  range.addEventListener('input', update);
+  update();
+})();
+
+// FAQ accordion
+document.querySelectorAll('.faq-item').forEach(function(item){
+  var q = item.querySelector('.faq-q');
+  var a = item.querySelector('.faq-a');
+  q.addEventListener('click', function(){
+    var isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(function(o){
+      o.classList.remove('open');
+      o.querySelector('.faq-a').style.maxHeight = null;
+    });
+    if(!isOpen){
+      item.classList.add('open');
+      a.style.maxHeight = a.scrollHeight + 'px';
+    }
+  });
+});
+</script>
+</body>
+</html>

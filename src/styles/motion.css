@@ -1,0 +1,32 @@
+/*
+ * Scroll-reveal states. Only active once setupMotion() adds .motion to <html>,
+ * so content is never hidden without JS. Uses the individual `translate` / `scale`
+ * properties so it never fights a component's own `transform` (hover lifts, 3D tilt).
+ */
+.motion [data-reveal] {
+  opacity: 0;
+  transition:
+    opacity 0.8s var(--ease) var(--reveal-delay, 0ms),
+    translate 0.9s var(--ease) var(--reveal-delay, 0ms),
+    scale 0.9s var(--ease) var(--reveal-delay, 0ms);
+}
+.motion [data-reveal='up'] { translate: 0 32px; }
+.motion [data-reveal='down'] { translate: 0 -24px; }
+.motion [data-reveal='left'] { translate: -48px 0; }
+.motion [data-reveal='right'] { translate: 48px 0; }
+.motion [data-reveal='zoom'] { scale: 0.9; }
+
+.motion [data-reveal].is-visible { opacity: 1; translate: none; scale: none; }
+
+/* Charts draw themselves once their section is revealed */
+.motion [data-reveal] .sparkline__line { stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 1.8s var(--ease) calc(var(--reveal-delay, 0ms) + 300ms); }
+.motion [data-reveal].is-visible .sparkline__line { stroke-dashoffset: 0; }
+.motion [data-reveal] .sparkline__area { opacity: 0; transition: opacity 1.2s ease calc(var(--reveal-delay, 0ms) + 900ms); }
+.motion [data-reveal].is-visible .sparkline__area { opacity: 1; }
+
+.motion [data-reveal] .mini-bars i { scale: 1 0; transform-origin: bottom; transition: scale 0.7s var(--ease) calc(var(--reveal-delay, 0ms) + 300ms + var(--i, 0) * 70ms); }
+.motion [data-reveal].is-visible .mini-bars i { scale: 1 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  .motion [data-reveal] { opacity: 1 !important; translate: none !important; scale: none !important; }
+}

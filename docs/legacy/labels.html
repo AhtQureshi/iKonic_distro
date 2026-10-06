@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Labels — IKONIC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0a0b; --card:#121213; --card2:#151515; --border:#232323;
+  --text:#fff; --muted:#a8a8a8; --red:#ef3a10; --red-dark:#c92d0a;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Archivo',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%}
+a{color:inherit;text-decoration:none}
+.container{max-width:1280px;margin:0 auto;padding:0 32px}
+.kicker{color:var(--red);font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:18px}
+h1,h2{font-weight:800;letter-spacing:-.5px;line-height:1.12}
+.red{color:var(--red)}
+.section{padding:110px 0}
+.sub{color:var(--muted);font-size:18px;max-width:560px;margin-top:16px}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:16px;padding:15px 32px;border-radius:10px;border:none;cursor:pointer;transition:transform .15s ease,background .15s ease,border-color .15s ease}
+.btn-red{background:var(--red);color:#fff}
+.btn-red:hover{background:#ff4b22;transform:translateY(-1px)}
+.btn-outline{background:transparent;color:#fff;border:1px solid #3a3a3a}
+.btn-outline:hover{border-color:var(--red);color:#fff}
+.btn .arrow{font-weight:700}
+
+/* Nav */
+.nav{position:sticky;top:0;z-index:100;background:rgba(10,10,11,.92);backdrop-filter:blur(12px);border-bottom:1px solid #1a1a1a}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:76px}
+.logo{font-weight:900;font-size:26px;letter-spacing:2px;color:#fff;display:flex;align-items:center}
+.logo .oring{display:inline-block;width:19px;height:19px;border:4px solid var(--red);border-radius:50%;margin:0 1px;transform:translateY(1px)}
+.nav-links{display:flex;align-items:center;gap:34px}
+.nav-links a.link{font-size:15px;font-weight:600;color:#d6d6d6;transition:color .15s}
+.nav-links a.link:hover{color:#fff}
+.nav-links a.link.active{color:#fff;position:relative}
+.nav-links a.link.active::after{content:"";position:absolute;left:0;right:0;bottom:-8px;height:3px;background:var(--red);border-radius:2px}
+.nav-cta{display:flex;align-items:center;gap:14px}
+.dropdown{position:relative}
+.dropdown-menu{position:absolute;top:calc(100% + 12px);left:0;background:#141414;border:1px solid var(--border);border-radius:10px;min-width:200px;padding:8px;display:none;box-shadow:0 20px 50px rgba(0,0,0,.6)}
+.dropdown:hover .dropdown-menu{display:block}
+.dropdown-menu a{display:block;padding:10px 14px;border-radius:8px;font-size:14px;font-weight:600;color:#d6d6d6}
+.dropdown-menu a:hover{background:#1e1e1e;color:#fff}
+.caret{font-size:10px;color:#888}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px}
+.hamburger span{display:block;width:24px;height:2px;background:#fff;margin:5px 0;border-radius:2px}
+
+/* Hero */
+.hero{position:relative;overflow:hidden;padding:120px 0 90px}
+.hero::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(700px 420px at 82% 18%, rgba(239,58,16,.28), transparent 65%),
+  radial-gradient(500px 380px at 62% 70%, rgba(239,58,16,.12), transparent 60%),
+  radial-gradient(900px 500px at 10% 90%, rgba(239,58,16,.06), transparent 60%);pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative}
+.hero h1{font-size:64px}
+.hero .sub{font-size:18px;max-width:520px;margin:22px 0 34px}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap}
+.watch-demo{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:16px;padding:15px 32px;border-radius:10px;border:1px solid #3a3a3a;background:transparent;color:#fff;cursor:pointer;transition:border-color .15s}
+.watch-demo:hover{border-color:var(--red)}
+.play-circle{width:26px;height:26px;border:2px solid #fff;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:10px}
+
+.hero-card{background:linear-gradient(160deg,#191919,#0f0f10);border:1px solid #2a2a2a;border-radius:18px;padding:26px 28px;box-shadow:0 30px 80px rgba(0,0,0,.55),0 0 90px rgba(239,58,16,.08);position:relative}
+.hero-card-top{display:flex;align-items:center;gap:12px;margin-bottom:22px}
+.hero-card-avatar{width:38px;height:38px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#ff5a2e,#7a1400);border:2px solid #3a3a3a}
+.hero-card-name{font-weight:700;font-size:16px}
+.hero-card-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:22px}
+.hero-card-stats .num{font-size:24px;font-weight:800}
+.hero-card-stats .lbl{font-size:12.5px;color:var(--muted)}
+.avatar-row{display:flex;align-items:center}
+.adot{width:40px;height:40px;border-radius:50%;border:2px solid #0a0a0b;margin-left:-12px}
+.adot:first-child{margin-left:0}
+.adot.more{background:#1f1f1f;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff}
+
+.hero-bullets{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:80px;position:relative}
+.hb{display:flex;gap:16px;align-items:flex-start}
+.hb-icon{flex:0 0 auto;width:46px;height:46px;color:var(--red)}
+.hb-icon svg{width:100%;height:100%}
+.hb p{font-weight:600;font-size:16px;line-height:1.45;color:#e8e8e8}
+
+/* Cards */
+.cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:30px;transition:border-color .2s,transform .2s}
+.card:hover{border-color:#3d3d3d;transform:translateY(-3px)}
+.card-icon{width:44px;height:44px;color:var(--red);margin-bottom:20px}
+.card-icon svg{width:100%;height:100%}
+.card h3{font-size:19px;font-weight:700;margin-bottom:10px}
+.card p{color:var(--muted);font-size:15.5px;line-height:1.6}
+
+.split{display:grid;grid-template-columns:1fr 1.6fr;gap:70px;align-items:start}
+
+/* Checklist */
+.checklist{list-style:none;margin:28px 0 34px}
+.checklist li{display:flex;align-items:center;gap:16px;font-size:17px;font-weight:500;padding:7px 0;color:#e6e6e6}
+.check{flex:0 0 auto;width:28px;height:28px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;color:#fff;font-size:15px;font-weight:700}
+
+/* Laptop mockup */
+.laptop{background:#101012;border:1px solid #2c2c2c;border-radius:20px;overflow:hidden;box-shadow:0 40px 100px rgba(0,0,0,.6),0 0 120px rgba(239,58,16,.07)}
+.dash{display:grid;grid-template-columns:200px 1fr;min-height:560px}
+.dash-side{border-right:1px solid #222;padding:24px 14px;display:flex;flex-direction:column;gap:4px}
+.dash-logo{font-weight:900;letter-spacing:2px;font-size:16px;padding:6px 12px 20px;display:flex;align-items:center}
+.dash-logo .oring{display:inline-block;width:12px;height:12px;border:3px solid var(--red);border-radius:50%;margin:0 1px;transform:translateY(1px)}
+.dash-item{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:9px;font-size:14px;color:#bdbdbd;font-weight:600}
+.dash-item.active{background:rgba(239,58,16,.18);color:#fff}
+.dash-item .di{width:16px;height:16px;flex:0 0 auto;color:#8a8a8a}
+.dash-item.active .di{color:var(--red)}
+.dash-main{padding:26px 30px}
+.dash-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+.dash-head h3{font-size:22px;font-weight:800}
+.date-pill{font-size:13px;color:#bbb;border:1px solid #2c2c2c;border-radius:8px;padding:7px 14px;background:#151515}
+.stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:20px}
+.stat{background:#161617;border:1px solid #232323;border-radius:12px;padding:16px 18px}
+.stat .n{font-size:24px;font-weight:800}
+.stat .l{font-size:12.5px;color:var(--muted)}
+.stat .d{font-size:12px;color:#3ddc84;font-weight:700;margin-top:2px}
+.chart{background:#161617;border:1px solid #232323;border-radius:12px;padding:18px 10px 8px;margin-bottom:20px}
+.chart svg{width:100%;height:130px;display:block}
+.artists-head{font-size:17px;font-weight:800;margin-bottom:14px}
+.artist-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.artist-card{background:#161617;border:1px solid #232323;border-radius:12px;overflow:hidden}
+.artist-cover{height:110px}
+.artist-card .a-body{padding:12px 14px}
+.artist-card .a-name{font-weight:700;font-size:14px}
+.artist-card .a-sub{font-size:12px;color:var(--muted)}
+.cover1{background:radial-gradient(circle at 35% 30%,#c93a6b,#4a0f2e 60%,#12060f)}
+.cover2{background:radial-gradient(circle at 60% 40%,#8a5a2a,#3a1c08 60%,#0d0703)}
+.cover3{background:radial-gradient(circle at 40% 60%,#e0361f,#5c0f04 60%,#120604)}
+.cover4{background:radial-gradient(circle at 65% 35%,#1f8a70,#063a30 60%,#03100d)}
+
+/* Roles */
+.roles-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.role-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:26px 24px;transition:border-color .2s,transform .2s}
+.role-card:hover{border-color:#3d3d3d;transform:translateY(-3px)}
+.role-icon{width:38px;height:38px;color:var(--red);margin-bottom:16px}
+.role-icon svg{width:100%;height:100%}
+.role-card h3{font-size:18px;margin-bottom:8px}
+.role-card p{color:var(--muted);font-size:14.5px}
+
+/* Steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;margin-top:50px}
+.step{text-align:center;position:relative;padding:0 8px}
+.step-num{width:76px;height:76px;border:2px solid var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:800;color:var(--red);margin:0 auto 22px;background:rgba(239,58,16,.06);position:relative;z-index:2}
+.step:not(:last-child)::after{content:"";position:absolute;top:38px;left:calc(50% + 48px);width:calc(100% - 96px);border-top:2px dotted #4a4a4a;z-index:1}
+.step h3{font-size:18px;margin-bottom:8px}
+.step p{color:var(--muted);font-size:14.5px}
+
+/* FAQ */
+.faq-wrap{display:grid;grid-template-columns:1fr 1.4fr;gap:70px;align-items:start}
+.faq-item{background:#131314;border:1px solid var(--border);border-radius:12px;margin-bottom:14px;overflow:hidden}
+.faq-q{width:100%;background:none;border:none;color:#fff;font-family:inherit;font-size:16.5px;font-weight:600;text-align:left;padding:22px 24px;display:flex;justify-content:space-between;align-items:center;gap:16px;cursor:pointer}
+.faq-q .plus{color:var(--red);font-size:22px;font-weight:400;line-height:1;transition:transform .25s;flex:0 0 auto}
+.faq-item.open .faq-q .plus{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--muted);font-size:15.5px}
+.faq-a-inner{padding:0 24px 22px}
+.faq-item.open{border-color:#3a3a3a}
+
+/* CTA banner */
+.cta-banner{position:relative;overflow:hidden;border-radius:24px;padding:80px 70px;margin:40px 0 0;background:linear-gradient(120deg,#160806 0%,#0a0a0b 55%),radial-gradient(600px 300px at 80% 100%, rgba(239,58,16,.35), transparent 65%)}
+.cta-banner::before{content:"";position:absolute;inset:0;background:radial-gradient(500px 260px at 20% 110%, rgba(239,58,16,.22), transparent 60%);pointer-events:none}
+.cta-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:50px;align-items:center;position:relative}
+.cta-banner h2{font-size:52px}
+.cta-banner .sub{max-width:480px}
+.cta-btns{display:flex;gap:16px;margin-top:30px;flex-wrap:wrap}
+.cta-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.cta-stat{display:flex;gap:14px;align-items:flex-start;border-left:1px solid #2e2e2e;padding-left:20px}
+.cta-stat:first-child{border-left:none;padding-left:0}
+.cta-stat .si{width:36px;height:36px;color:var(--red);flex:0 0 auto}
+.cta-stat .si svg{width:100%;height:100%}
+.cta-stat .n{font-size:26px;font-weight:800}
+.cta-stat .l{font-size:13px;color:var(--muted)}
+
+/* Footer */
+footer{border-top:1px solid #1a1a1a;padding:56px 0 30px;margin-top:110px}
+.foot-top{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap}
+.foot-tag{color:var(--muted);font-size:14.5px;margin-top:8px}
+.foot-links{display:flex;gap:32px;flex-wrap:wrap}
+.foot-links a{font-size:15px;font-weight:600;color:#c9c9c9}
+.foot-links a:hover{color:#fff}
+.socials{display:flex;gap:12px}
+.soc{width:40px;height:40px;border:1px solid #2c2c2c;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#bbb;transition:border-color .15s,color .15s;letter-spacing:.5px}
+.soc:hover{border-color:var(--red);color:#fff}
+.foot-bottom{display:flex;justify-content:space-between;align-items:center;margin-top:44px;padding-top:24px;border-top:1px solid #161616;color:#777;font-size:13.5px;flex-wrap:wrap;gap:14px}
+.foot-bottom .legal{display:flex;gap:24px}
+.foot-bottom .legal a:hover{color:#fff}
+
+@media(max-width:1024px){
+  .hero-grid{grid-template-columns:1fr;gap:50px}
+  .hero h1{font-size:50px}
+  .split{grid-template-columns:1fr;gap:50px}
+  .cards-grid{grid-template-columns:repeat(2,1fr)}
+  .roles-grid{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:repeat(2,1fr);gap:44px}
+  .step:not(:last-child)::after{display:none}
+  .faq-wrap{grid-template-columns:1fr;gap:40px}
+  .cta-grid{grid-template-columns:1fr;gap:40px}
+  .hero-bullets{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:640px){
+  .section{padding:70px 0}
+  .container{padding:0 20px}
+  .hero{padding:80px 0 60px}
+  .hero h1{font-size:40px}
+  .cards-grid,.roles-grid,.steps{grid-template-columns:1fr}
+  .hero-bullets{grid-template-columns:1fr;gap:20px}
+  .dash{grid-template-columns:1fr}
+  .dash-side{display:none}
+  .stat-row{grid-template-columns:repeat(2,1fr)}
+  .artist-row{grid-template-columns:repeat(2,1fr)}
+  .cta-banner{padding:50px 28px}
+  .cta-banner h2{font-size:34px}
+  .cta-stats{grid-template-columns:1fr;gap:22px}
+  .cta-stat{border-left:none;padding-left:0;border-top:1px solid #2e2e2e;padding-top:18px}
+  .cta-stat:first-child{border-top:none;padding-top:0}
+  .hamburger{display:block}
+  .nav-links{position:absolute;top:76px;left:0;right:0;background:#0d0d0e;border-bottom:1px solid #1a1a1a;flex-direction:column;align-items:flex-start;padding:10px 24px 24px;gap:4px;display:none}
+  .nav-links.open{display:flex}
+  .nav-links a.link{padding:10px 0;font-size:16px}
+  .nav-links a.link.active::after{display:none}
+  .dropdown-menu{position:static;display:block;background:none;border:none;box-shadow:none;padding:0 0 0 12px}
+  .nav-cta .btn-outline{display:none}
+}
+/* Real IKONIC wordmark; sized by the parent's font-size. 'screen' drops the artwork's black background. */
+.logo-img{display:block;height:1em;width:auto;mix-blend-mode:screen}
+</style>
+</head>
+<body>
+
+<!-- Shared site header: src/components/containers/Header (rendered by dist/chrome.js) -->
+<div data-site-header="labels"></div>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <p class="kicker">For Labels &amp; Teams</p>
+        <h1>Manage Your Artists. <span class="red">All In One Place.</span></h1>
+        <p class="sub">Create multiple artist accounts, assign roles, manage releases, track earnings, and grow your entire roster from one powerful platform.</p>
+        <div class="hero-btns">
+          <a href="#" class="btn btn-red">Get Started <span class="arrow">&rarr;</span></a>
+          <button class="watch-demo"><span class="play-circle">&#9654;</span> Watch Demo</button>
+        </div>
+      </div>
+      <div>
+        <div class="hero-card">
+          <div class="hero-card-top">
+            <div class="hero-card-avatar"></div>
+            <span class="hero-card-name">Your Label</span>
+            <span style="color:#777;font-size:14px">&#9662;</span>
+          </div>
+          <div class="hero-card-stats">
+            <div><div class="num">12</div><div class="lbl">Artists</div></div>
+            <div><div class="num">28</div><div class="lbl">Releases</div></div>
+            <div><div class="num">4.2M</div><div class="lbl">Total Streams</div></div>
+            <div><div class="num">$48,320</div><div class="lbl">Total Earnings</div></div>
+          </div>
+          <div class="avatar-row">
+            <div class="adot" style="background:radial-gradient(circle at 35% 30%,#c93a6b,#4a0f2e)"></div>
+            <div class="adot" style="background:radial-gradient(circle at 60% 40%,#8a5a2a,#3a1c08)"></div>
+            <div class="adot" style="background:radial-gradient(circle at 40% 60%,#e0361f,#5c0f04)"></div>
+            <div class="adot" style="background:radial-gradient(circle at 65% 35%,#1f8a70,#063a30)"></div>
+            <div class="adot" style="background:radial-gradient(circle at 50% 50%,#6a5acd,#221a55)"></div>
+            <div class="adot more">+8</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-bullets">
+      <div class="hb">
+        <div class="hb-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c.6-3 2.9-4.6 5.5-4.6s4.9 1.6 5.5 4.6"/><circle cx="17" cy="9" r="2.6"/><path d="M15.5 14.6c2.3.2 4.2 1.6 4.9 4.1"/></svg></div>
+        <p>Manage Multiple Artist Accounts</p>
+      </div>
+      <div class="hb">
+        <div class="hb-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6l7-3z"/><path d="M9.5 12l2 2 3.5-4"/></svg></div>
+        <p>Custom Roles and Permissions</p>
+      </div>
+      <div class="hb">
+        <div class="hb-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20V12M9 20V6M14 20v-9M19 20V4"/></svg></div>
+        <p>Track Earnings Across Your Roster</p>
+      </div>
+      <div class="hb">
+        <div class="hb-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="3"/><path d="M2.8 19c.5-2.8 2.6-4.3 5.2-4.3s4.7 1.5 5.2 4.3"/><circle cx="17" cy="8" r="3"/><path d="M12.8 19c.5-2.8 2.6-4.3 5.2-4.3 1.2 0 2.3.3 3.2.9"/></svg></div>
+        <p>Built for Labels, Managers &amp; Teams</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:80px">
+  <div class="container">
+    <div class="split">
+      <div>
+        <p class="kicker">Built for Growth</p>
+        <h2 style="font-size:48px">Everything Your Label Needs.</h2>
+        <p class="sub">From signing new talent to releasing music and tracking revenue &mdash; manage your entire operation in one place.</p>
+        <div style="margin-top:30px"><a href="#" class="btn btn-red">Get Started <span class="arrow">&rarr;</span></a></div>
+      </div>
+      <div class="cards-grid" style="grid-template-columns:repeat(2,1fr)">
+        <div class="card">
+          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c.6-3 2.9-4.6 5.5-4.6s4.9 1.6 5.5 4.6"/><circle cx="17" cy="9" r="2.6"/><path d="M15.5 14.6c2.3.2 4.2 1.6 4.9 4.1"/></svg></div>
+          <h3>Multiple Artist Accounts</h3>
+          <p>Create and manage unlimited artist profiles under one label account.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6l7-3z"/><path d="M9.5 12l2 2 3.5-4"/></svg></div>
+          <h3>Role-Based Access</h3>
+          <p>Assign custom roles and permissions to your team members.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l8 4.5v9L12 20l-8-4.5v-9L12 2z"/><path d="M12 11L4 6.5M12 11l8-4.5M12 11v9"/></svg></div>
+          <h3>Release Management</h3>
+          <p>Approve, schedule, and manage releases for all artists.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20V12M9 20V6M14 20v-9M19 20V4"/></svg></div>
+          <h3>Revenue Tracking</h3>
+          <p>View earnings across your entire roster in real time.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="3"/><path d="M2.8 19c.5-2.8 2.6-4.3 5.2-4.3s4.7 1.5 5.2 4.3"/><circle cx="17" cy="8" r="3"/><path d="M12.8 19c.5-2.8 2.6-4.3 5.2-4.3 1.2 0 2.3.3 3.2.9"/></svg></div>
+          <h3>Team Collaboration</h3>
+          <p>Invite your team, collaborate, and keep everything organized.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 0 0-.1-1.2l2-1.6-2-3.4-2.4 1a7 7 0 0 0-2-1.2L14 3h-4l-.5 2.6a7 7 0 0 0-2 1.2l-2.4-1-2 3.4 2 1.6A7 7 0 0 0 5 12c0 .4 0 .8.1 1.2l-2 1.6 2 3.4 2.4-1a7 7 0 0 0 2 1.2L10 21h4l.5-2.6a7 7 0 0 0 2-1.2l2.4 1 2-3.4-2-1.6c.1-.4.1-.8.1-1.2z"/></svg></div>
+          <h3>Custom Settings</h3>
+          <p>Set permissions, workflows, and approval processes that fit your label.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:#0c0c0d">
+  <div class="container">
+    <div class="split" style="grid-template-columns:1fr 1.7fr;align-items:center">
+      <div>
+        <p class="kicker">Your Label Dashboard</p>
+        <h2 style="font-size:48px">Complete Control at a Glance.</h2>
+        <p class="sub">See your artists, releases, earnings, and team activity all in one dashboard.</p>
+        <ul class="checklist">
+          <li><span class="check">&#10003;</span> Overview of all artists and releases</li>
+          <li><span class="check">&#10003;</span> Real-time streaming and revenue data</li>
+          <li><span class="check">&#10003;</span> Approval workflows</li>
+          <li><span class="check">&#10003;</span> Team activity and access logs</li>
+          <li><span class="check">&#10003;</span> Quick actions and insights</li>
+        </ul>
+        <a href="#" class="btn btn-outline">Explore the Platform <span class="arrow">&rarr;</span></a>
+      </div>
+      <div>
+        <div class="laptop">
+          <div class="dash">
+            <div class="dash-side">
+              <div class="dash-logo"><img class="logo-img" src="src/assets/images/logo.webp" alt="IKONIC"></div>
+              <div class="dash-item active"><svg class="di" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>Dashboard</div>
+              <div class="dash-item"><svg class="di" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c.8-3.5 3.6-5.2 7-5.2s6.2 1.7 7 5.2"/></svg>Artists</div>
+              <div class="dash-item"><svg class="di" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.5"/></svg>Releases</div>
+              <div class="dash-item"><svg class="di" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V12M9 20V6M14 20v-9M19 20V4"/></svg>Analytics</div>
+              <div class="dash-item"><svg class="di" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4.5v9L12 20l-8-4.5v-9L12 2z"/></svg>Publishing</div>
+              <div class="dash-item"><svg class="di" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 7c0-2-2.2-3-5-3s-5 1-5 3 2 2.5 5 3 5 1 5 3-2.2 3-5 3-5-1-5-3"/></svg>Advance</div>
+              <div class="dash-item"><svg class="di" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h10"/></svg>Royalties</div>
+              <div class="dash-item"><svg class="di" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c.6-3 2.9-4.6 5.5-4.6s4.9 1.6 5.5 4.6"/></svg>Team</div>
+              <div class="dash-item"><svg class="di" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1"/></svg>Settings</div>
+            </div>
+            <div class="dash-main">
+              <div class="dash-head">
+                <h3>Label Overview</h3>
+                <span class="date-pill">Last 30 Days &#9662;</span>
+              </div>
+              <div class="stat-row">
+                <div class="stat"><div class="n">12</div><div class="l">Artists</div><div class="d">+3 this month</div></div>
+                <div class="stat"><div class="n">28</div><div class="l">Releases</div><div class="d">+5 this month</div></div>
+                <div class="stat"><div class="n">4.2M</div><div class="l">Total Streams</div><div class="d">+28%</div></div>
+                <div class="stat"><div class="n">$48,320</div><div class="l">Total Earnings</div><div class="d">+41%</div></div>
+              </div>
+              <div class="chart">
+                <svg viewBox="0 0 600 130" preserveAspectRatio="none">
+                  <defs>
+                    <linearGradient id="chartFill" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0" stop-color="#ef3a10" stop-opacity="0.45"/>
+                      <stop offset="1" stop-color="#ef3a10" stop-opacity="0"/>
+                    </linearGradient>
+                  </defs>
+                  <path d="M0,95 L25,88 L50,92 L75,70 L100,76 L125,55 L150,62 L175,48 L200,58 L225,40 L250,52 L275,35 L300,48 L325,60 L350,42 L375,55 L400,38 L425,52 L450,44 L475,60 L500,50 L525,68 L550,58 L575,72 L600,64 L600,130 L0,130 Z" fill="url(#chartFill)"/>
+                  <path d="M0,95 L25,88 L50,92 L75,70 L100,76 L125,55 L150,62 L175,48 L200,58 L225,40 L250,52 L275,35 L300,48 L325,60 L350,42 L375,55 L400,38 L425,52 L450,44 L475,60 L500,50 L525,68 L550,58 L575,72 L600,64" fill="none" stroke="#ef3a10" stroke-width="2.5"/>
+                </svg>
+              </div>
+              <div class="artists-head">Your Artists</div>
+              <div class="artist-row">
+                <div class="artist-card"><div class="artist-cover cover1"></div><div class="a-body"><div class="a-name">Nova Rae</div><div class="a-sub">Artist &bull; 8 Releases</div></div></div>
+                <div class="artist-card"><div class="artist-cover cover2"></div><div class="a-body"><div class="a-name">Jace Miles</div><div class="a-sub">Artist &bull; 5 Releases</div></div></div>
+                <div class="artist-card"><div class="artist-cover cover3"></div><div class="a-body"><div class="a-name">Tori Vex</div><div class="a-sub">Artist &bull; 4 Releases</div></div></div>
+                <div class="artist-card"><div class="artist-cover cover4"></div><div class="a-body"><div class="a-name">Dre Ruk</div><div class="a-sub">Artist &bull; 6 Releases</div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="split">
+      <div>
+        <p class="kicker">Team Roles &amp; Permissions</p>
+        <h2 style="font-size:48px">Give the Right Access to the Right People.</h2>
+        <p class="sub">Assign roles based on responsibility and keep your team, artists, and label organized.</p>
+        <div style="margin-top:30px"><a href="#" class="btn btn-outline">View All Roles <span class="arrow">&rarr;</span></a></div>
+      </div>
+      <div class="roles-grid">
+        <div class="role-card">
+          <div class="role-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8l4 4 5-6 5 6 4-4v9H3V8z"/><path d="M5 20h14"/></svg></div>
+          <h3>Owner</h3><p>Full access to everything.</p>
+        </div>
+        <div class="role-card">
+          <div class="role-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 0 0-.1-1.2l2-1.6-2-3.4-2.4 1a7 7 0 0 0-2-1.2L14 3h-4l-.5 2.6a7 7 0 0 0-2 1.2l-2.4-1-2 3.4 2 1.6A7 7 0 0 0 5 12c0 .4 0 .8.1 1.2l-2 1.6 2 3.4 2.4-1a7 7 0 0 0 2 1.2L10 21h4l.5-2.6a7 7 0 0 0 2-1.2l2.4 1 2-3.4-2-1.6c.1-.4.1-.8.1-1.2z"/></svg></div>
+          <h3>Admin</h3><p>Manage artists, releases, and team members.</p>
+        </div>
+        <div class="role-card">
+          <div class="role-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c.8-3.5 3.6-5.2 7-5.2s6.2 1.7 7 5.2"/></svg></div>
+          <h3>Artist</h3><p>Access to their own profile, releases, and analytics.</p>
+        </div>
+        <div class="role-card">
+          <div class="role-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="6"/><path d="M15.5 15.5L20 20"/></svg></div>
+          <h3>A&amp;R</h3><p>Discover and manage talent, approve releases.</p>
+        </div>
+        <div class="role-card">
+          <div class="role-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11l14-6v14L3 13v-2z"/><path d="M7 13.5V19a1.5 1.5 0 0 0 3 0v-4"/></svg></div>
+          <h3>Marketing</h3><p>Access to promotion tools and analytics.</p>
+        </div>
+        <div class="role-card">
+          <div class="role-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M15 9.5c-.8-.8-1.8-1.2-3-1.2-1.9 0-3.2 1-3.2 2.4 0 3 6.4 1.6 6.4 4.4 0 1.4-1.3 2.4-3.2 2.4-1.2 0-2.2-.4-3-1.2"/></svg></div>
+          <h3>Finance</h3><p>View revenue, payouts, and financial reports.</p>
+        </div>
+        <div class="role-card">
+          <div class="role-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 13a8 8 0 0 1 16 0"/><rect x="2" y="13" width="4" height="7" rx="1.5"/><rect x="18" y="13" width="4" height="7" rx="1.5"/><path d="M20 20a3 3 0 0 1-3 3h-3"/></svg></div>
+          <h3>Support</h3><p>Handle support and communication.</p>
+        </div>
+        <div class="role-card">
+          <div class="role-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 5v14M5 12h14"/></svg></div>
+          <h3>Custom</h3><p>Create custom roles with specific permissions.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:#0c0c0d">
+  <div class="container">
+    <div class="split" style="grid-template-columns:1fr 1.7fr">
+      <div>
+        <p class="kicker">How It Works</p>
+        <h2 style="font-size:44px">Get Your Team Running in Minutes.</h2>
+        <p class="sub">Set up your label, add your artists, invite your team, and start releasing.</p>
+        <div style="margin-top:30px"><a href="#" class="btn btn-red">Get Started <span class="arrow">&rarr;</span></a></div>
+      </div>
+      <div class="steps" style="margin-top:10px">
+        <div class="step">
+          <div class="step-num">01</div>
+          <h3>Create Your Label</h3>
+          <p>Set up your label account and profile.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <h3>Add Artists</h3>
+          <p>Create artist accounts and assign access.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <h3>Invite Your Team</h3>
+          <p>Assign roles and permissions.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">04</div>
+          <h3>Start Releasing</h3>
+          <p>Manage releases and grow your roster.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="faq-wrap">
+      <div>
+        <p class="kicker">Frequently Asked Questions</p>
+        <h2 style="font-size:48px">Quick answers.</h2>
+        <p class="sub">Everything you need to know about labels and team management on Ikonic.</p>
+        <div style="margin-top:30px"><a href="#" class="btn btn-outline">View All FAQs <span class="arrow">&rarr;</span></a></div>
+      </div>
+      <div>
+        <div class="faq-item">
+          <button class="faq-q">How many artists can I add to my label account?<span class="plus">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">You can create and manage unlimited artist accounts under your label.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Can I assign different permissions to my team?<span class="plus">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">Yes, you can assign custom roles and permissions so each team member only accesses what they need.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Can artists have their own login under my label?<span class="plus">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">Yes, each artist gets their own login with access limited to their profile, releases, and analytics.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Can I view all earnings in one place?<span class="plus">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">Yes, you can track streaming and revenue data across your entire roster in real time from one dashboard.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding:0 0 20px">
+  <div class="container">
+    <div class="cta-banner">
+      <div class="cta-grid">
+        <div>
+          <p class="kicker">Built for the Next Generation</p>
+          <h2>Build Your Label. <span class="red">Go Further.</span></h2>
+          <p class="sub">More artists. More releases. More opportunities &mdash; all in one place.</p>
+          <div class="cta-btns">
+            <a href="#" class="btn btn-red">Get Started <span class="arrow">&rarr;</span></a>
+            <a href="pricing.html" class="btn btn-outline">View Pricing</a>
+          </div>
+        </div>
+        <div class="cta-stats">
+          <div class="cta-stat">
+            <div class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 18V5l10-2v13"/><circle cx="7" cy="18" r="2.5"/><circle cx="17" cy="16" r="2.5"/></svg></div>
+            <div><div class="n">50K+</div><div class="l">Artists &amp; Labels</div></div>
+          </div>
+          <div class="cta-stat">
+            <div class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20V12M9 20V6M14 20v-9M19 20V4"/></svg></div>
+            <div><div class="n">500M+</div><div class="l">Streams Distributed</div></div>
+          </div>
+          <div class="cta-stat">
+            <div class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9S14.5 18.5 12 21c-2.5-2.5-3.8-5.6-3.8-9S9.5 5.5 12 3z"/></svg></div>
+            <div><div class="n">170+</div><div class="l">Countries</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Shared site footer: src/components/containers/Footer (rendered by dist/chrome.js) -->
+<div data-site-footer></div>
+
+<script src="dist/chrome.js"></script>
+<script>
+document.querySelectorAll('.faq-item').forEach(function(item){
+  var btn = item.querySelector('.faq-q');
+  var ans = item.querySelector('.faq-a');
+  btn.addEventListener('click', function(){
+    var isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(function(o){
+      o.classList.remove('open');
+      o.querySelector('.faq-a').style.maxHeight = null;
+    });
+    if(!isOpen){
+      item.classList.add('open');
+      ans.style.maxHeight = ans.scrollHeight + 'px';
+    }
+  });
+});
+</script>
+</body>
+</html>

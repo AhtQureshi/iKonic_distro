@@ -1,0 +1,13 @@
+.store-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #e9e9ec;
+  white-space: nowrap;
+  opacity: 0.9;
+  transition: opacity 0.2s;
+}
+.store-mark:hover { opacity: 1; }

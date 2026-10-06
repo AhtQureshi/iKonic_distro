@@ -1,0 +1,89 @@
+.cta-banner {
+  position: relative;
+  padding: 120px 0 110px;
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(55% 70% at 50% 110%, rgba(255, 70, 30, 0.75), transparent 70%),
+    radial-gradient(35% 50% at 15% 100%, rgba(239, 58, 16, 0.45), transparent 70%),
+    radial-gradient(35% 50% at 85% 100%, rgba(239, 58, 16, 0.45), transparent 70%),
+    linear-gradient(180deg, #0a0a0b 0%, #2a0905 55%, #4a0d05 100%);
+}
+
+/* Stage light beams */
+.cta-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    conic-gradient(from 200deg at 30% -10%, transparent 0deg, rgba(255, 90, 50, 0.16) 8deg, transparent 18deg),
+    conic-gradient(from 150deg at 70% -10%, transparent 0deg, rgba(255, 90, 50, 0.16) 8deg, transparent 18deg);
+  -webkit-mask-image: linear-gradient(180deg, transparent, #000 35%);
+  mask-image: linear-gradient(180deg, transparent, #000 35%);
+  animation: cta-beams 4s ease-in-out infinite alternate;
+}
+
+@keyframes cta-beams { 0% { opacity: 0.5; } 45% { opacity: 1; } 55% { opacity: 0.75; } 100% { opacity: 1; } }
+@keyframes cta-crowd { 0%, 100% { translate: 0 0; } 50% { translate: 0 6px; } }
+
+.cta-banner__crowd {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  width: 100%;
+  height: 70%;
+  object-fit: cover;
+  object-position: center bottom;
+  animation: cta-crowd 1.8s ease-in-out infinite;
+}
+
+.cta-banner__inner { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
+.cta-banner__copy { display: flex; flex-direction: column; gap: 32px; }
+.cta-banner__copy .section-heading { max-width: 900px; }
+.cta-banner__copy .heading { text-shadow: 0 4px 40px rgba(0, 0, 0, 0.6); }
+.cta-banner__copy .text { color: rgba(255, 255, 255, 0.85); max-width: 560px; }
+.cta-banner__actions { display: flex; flex-wrap: wrap; gap: 14px; }
+.cta-banner__actions .btn--outline { background: rgba(0, 0, 0, 0.45); backdrop-filter: blur(6px); }
+
+@media (max-width: 600px) {
+  .cta-banner { padding: 80px 0 72px; }
+  .cta-banner__actions .btn { flex: 1; }
+}
+
+/* variant: 'boxed' — rounded glowing card */
+.cta-banner-boxed { position: relative; padding: 24px 0 64px; }
+.cta-banner-boxed__card {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  padding: 80px 60px;
+  overflow: hidden;
+  border: 1px solid rgba(239, 58, 16, 0.3);
+  border-radius: 22px;
+  background:
+    radial-gradient(700px 380px at 50% 130%, rgba(239, 58, 16, 0.5), transparent 65%),
+    radial-gradient(500px 300px at 12% -10%, rgba(239, 58, 16, 0.22), transparent 60%),
+    radial-gradient(500px 300px at 88% -10%, rgba(239, 58, 16, 0.22), transparent 60%),
+    linear-gradient(180deg, #141014, #0a0a0b);
+}
+.cta-banner-boxed__copy .eyebrow { color: var(--color-text-muted); font-size: 12.5px; letter-spacing: 0.32em; margin-bottom: 2px; }
+.cta-banner-boxed__copy .heading { font-size: clamp(36px, 4.6vw, 58px); letter-spacing: -0.01em; line-height: 1.05; }
+.cta-banner-boxed__copy.section-heading { max-width: none; }
+.cta-banner-boxed__copy .text { font-size: 16px; max-width: 480px; }
+.cta-banner-boxed__actions { display: flex; gap: 14px; flex-wrap: wrap; }
+
+@media (max-width: 860px) {
+  .cta-banner-boxed__card { padding: 56px 32px; }
+}
+@media (max-width: 560px) {
+  .cta-banner-boxed { padding-bottom: 48px; }
+  .cta-banner-boxed__actions { width: 100%; }
+  .cta-banner-boxed__actions .btn { width: 100%; }
+}

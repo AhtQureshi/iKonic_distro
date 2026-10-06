@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IKONIC — Own More Of Your Music.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0a0b; --bg2:#0d0d0f; --card:#121214; --card2:#141416;
+  --border:#222224; --white:#ffffff; --muted:#a7a7ab; --dim:#6e6e73;
+  --red:#ef3a10; --red-dark:#c92e0c; --red-soft:rgba(239,58,16,.14);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--white);font-family:'Archivo',Arial,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer}
+img{max-width:100%}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+
+/* ---------- NAV ---------- */
+.nav{position:sticky;top:0;z-index:100;background:rgba(10,10,11,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1280px;margin:0 auto;padding:0 24px;height:68px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{display:flex;align-items:center;font-weight:900;font-size:22px;letter-spacing:.08em}
+.logo-o{display:inline-block;width:16px;height:16px;border:3.5px solid var(--red);border-radius:50%;margin:0 2px;transform:translateY(1px)}
+.nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+.nav-links>a,.nav-links>li>a{color:var(--white);font-size:14px;font-weight:500;opacity:.85;transition:opacity .2s}
+.nav-links a:hover{opacity:1;color:var(--red)}
+.dropdown{position:relative}
+.dropdown>a{display:flex;align-items:center;gap:6px}
+.dropdown .caret{width:8px;height:8px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-2px);display:inline-block}
+.dropdown-menu{position:absolute;top:calc(100% + 14px);left:0;min-width:190px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:8px;display:none;box-shadow:0 20px 40px rgba(0,0,0,.5)}
+.dropdown:hover .dropdown-menu{display:block}
+.dropdown-menu a{display:block;padding:10px 14px;font-size:14px;border-radius:8px}
+.dropdown-menu a:hover{background:#1b1b1e;color:var(--red)}
+.nav-actions{display:flex;align-items:center;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:700;font-size:14px;border-radius:10px;padding:12px 22px;transition:transform .15s,box-shadow .2s,background .2s}
+.btn-red{background:var(--red);color:#fff;border:none}
+.btn-red:hover{background:var(--red-dark);transform:translateY(-1px);box-shadow:0 8px 24px rgba(239,58,16,.35)}
+.btn-outline{background:transparent;color:#fff;border:1px solid #3a3a3e}
+.btn-outline:hover{border-color:var(--red);color:var(--red)}
+.btn-sm{padding:10px 18px;font-size:13px}
+.hamburger{display:none;background:none;border:none;flex-direction:column;gap:5px;padding:8px}
+.hamburger span{display:block;width:24px;height:2px;background:#fff;border-radius:2px;transition:.25s}
+.mobile-menu{display:none;border-top:1px solid var(--border);padding:12px 24px 20px;background:#0c0c0e}
+.mobile-menu a{display:block;padding:12px 4px;font-size:15px;border-bottom:1px solid #17171a}
+.mobile-menu .btn{margin-top:12px;width:100%}
+
+/* ---------- KICKERS / HEADINGS ---------- */
+.kicker{color:var(--red);font-size:12px;font-weight:700;letter-spacing:.32em;text-transform:uppercase;margin-bottom:16px}
+h2.headline{font-size:clamp(30px,4.4vw,52px);font-weight:800;line-height:1.08;letter-spacing:-.01em}
+.headline .red{color:var(--red)}
+.sub{color:var(--muted);font-size:16px;line-height:1.65;margin-top:14px;max-width:520px}
+section{padding:96px 0;position:relative}
+
+/* ---------- HERO ---------- */
+.hero{min-height:640px;display:flex;align-items:center;padding:96px 0 64px;overflow:hidden;
+  background:
+    radial-gradient(700px 480px at 82% 30%, rgba(239,58,16,.42), transparent 62%),
+    radial-gradient(520px 420px at 62% 62%, rgba(239,58,16,.22), transparent 60%),
+    radial-gradient(900px 600px at 40% 110%, rgba(239,58,16,.10), transparent 60%),
+    var(--bg);}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;width:100%}
+.hero h1{font-size:clamp(44px,6.4vw,84px);font-weight:800;line-height:1.02;letter-spacing:-.015em;margin:18px 0 22px}
+.hero h1 .red{color:var(--red)}
+.hero .sub{font-size:17px;max-width:460px}
+.hero-btns{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap}
+.hero-btns .btn{padding:15px 30px;font-size:15px;border-radius:12px}
+.play-ico{width:20px;height:20px;border:2px solid currentColor;border-radius:50%;display:inline-flex;align-items:center;justify-content:center}
+.play-ico::after{content:"";border-left:7px solid currentColor;border-top:4.5px solid transparent;border-bottom:4.5px solid transparent;margin-left:2px}
+.hero-visual{position:relative;min-height:480px}
+/* mic silhouette evoked with pure CSS */
+.hero-sil{position:absolute;right:4%;top:-40px;bottom:-40px;width:56%;border-radius:24px;
+  background:
+    radial-gradient(340px 340px at 50% 26%, rgba(255,120,90,.55), transparent 70%),
+    radial-gradient(240px 420px at 52% 60%, rgba(120,30,12,.9), transparent 70%),
+    linear-gradient(160deg,#1a0c08 0%,#0a0a0b 60%);
+  -webkit-mask:linear-gradient(#000,#000);mask:linear-gradient(#000,#000);
+  filter:saturate(1.2)}
+.float-card{position:absolute;background:rgba(16,16,18,.92);border:1px solid #2a2a2e;border-radius:14px;padding:14px 18px;box-shadow:0 18px 44px rgba(0,0,0,.55);backdrop-filter:blur(6px)}
+.float-card .fc-label{font-size:12px;color:var(--muted);font-weight:500}
+.float-card .fc-value{font-size:22px;font-weight:800;margin-top:2px}
+.float-card .fc-delta{font-size:12px;color:#3ddc84;font-weight:600;margin-top:2px}
+.fc-release{display:flex;gap:12px;align-items:center;top:6%;left:0}
+.fc-cover{width:52px;height:52px;border-radius:8px;background:linear-gradient(135deg,#5b1a10,#ef3a10 60%,#2a0d06)}
+.fc-title{font-size:14px;font-weight:700}
+.fc-artist{font-size:12px;color:var(--muted)}
+.fc-released{font-size:11px;color:#3ddc84;font-weight:600;margin-top:2px}
+.fc-stores{display:flex;gap:6px;margin-top:6px}
+.fc-stores i{width:16px;height:16px;border-radius:50%;display:inline-block}
+.fc-advance{top:26%;left:6%;display:flex;align-items:center;gap:12px}
+.fc-bolt{width:34px;height:34px;border-radius:10px;background:var(--red-soft);display:flex;align-items:center;justify-content:center}
+.fc-streams{bottom:22%;left:0}
+.fc-streams .row{display:flex;align-items:flex-end;gap:14px}
+.fc-earnings{bottom:6%;right:0}
+.bars{display:flex;align-items:flex-end;gap:3px;height:34px}
+.bars i{width:5px;background:var(--red);border-radius:2px;opacity:.9}
+.spark{margin-top:6px}
+
+/* ---------- STORE STRIP ---------- */
+.stores{padding:30px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:#0c0c0e}
+.stores .label{font-size:11px;letter-spacing:.3em;color:var(--dim);font-weight:600;margin-bottom:20px}
+.store-row{display:flex;align-items:center;gap:44px;flex-wrap:wrap}
+.store-mark{font-size:19px;font-weight:700;color:#c9c9cd;display:flex;align-items:center;gap:8px;white-space:nowrap}
+.store-mark .dot{width:22px;height:22px;border-radius:50%;background:#1db954;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-style:normal}
+.store-mark.dim{color:var(--dim);font-size:15px;font-weight:600}
+
+/* ---------- TICKER ---------- */
+.ticker{background:#140b08;border-top:1px solid #2a1712;border-bottom:1px solid #2a1712;padding:13px 0;overflow:hidden;white-space:nowrap}
+.ticker-inner{display:flex;align-items:center;gap:36px;animation:tick 26s linear infinite}
+.ticker:hover .ticker-inner{animation-play-state:paused}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.ticker .t-head{font-weight:800;font-size:14px;display:flex;align-items:center;gap:10px;color:#fff}
+.bolt{color:var(--red);font-size:16px}
+.ticker .t-item{font-size:14px;color:#e8c9bf;display:flex;align-items:center;gap:8px}
+.ticker .t-item b{color:var(--red);font-size:11px}
+
+/* ---------- PLATFORM ---------- */
+.platform{background:radial-gradient(800px 500px at 80% 20%, rgba(239,58,16,.12), transparent 60%),var(--bg)}
+.platform-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
+/* laptop mockup */
+.laptop{background:linear-gradient(180deg,#17171a,#0e0e10);border:1px solid #2c2c30;border-radius:18px;padding:10px;box-shadow:0 40px 90px rgba(0,0,0,.6),0 0 80px rgba(239,58,16,.08);position:relative}
+.laptop-screen{background:#0b0b0d;border-radius:10px;overflow:hidden;display:grid;grid-template-columns:150px 1fr;min-height:380px;border:1px solid #1f1f22}
+.dash-side{background:#101012;border-right:1px solid #1c1c1f;padding:16px 10px}
+.dash-side .logo{font-size:13px;margin-bottom:18px;justify-content:center}
+.dash-side .logo-o{width:10px;height:10px;border-width:2.5px}
+.side-item{display:flex;align-items:center;gap:8px;font-size:10.5px;color:var(--muted);padding:8px 10px;border-radius:8px;margin-bottom:2px}
+.side-item.active{background:rgba(239,58,16,.16);color:#fff}
+.side-item svg{width:13px;height:13px;flex:none}
+.dash-main{padding:18px 20px}
+.dash-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.dash-head h4{font-size:15px;font-weight:700}
+.dash-head p{font-size:10.5px;color:var(--dim);margin-top:2px}
+.dash-btn{background:var(--red);border:none;color:#fff;font-size:10.5px;font-weight:700;padding:8px 14px;border-radius:8px}
+.dash-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px}
+.dash-stat{background:#121215;border:1px solid #1e1e22;border-radius:10px;padding:12px}
+.dash-stat .l{font-size:9.5px;color:var(--dim)}
+.dash-stat .v{font-size:17px;font-weight:800;margin:4px 0 2px}
+.dash-stat .d{font-size:9.5px;color:#3ddc84;font-weight:600}
+.dash-chart{background:#121215;border:1px solid #1e1e22;border-radius:10px;padding:12px;margin-bottom:14px}
+.dash-chart .l{font-size:10.5px;color:var(--muted);margin-bottom:8px;font-weight:600}
+.dash-recent .l{font-size:10.5px;color:var(--muted);font-weight:600;margin-bottom:8px}
+.recent-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.recent-card .rc-cover{aspect-ratio:1;border-radius:8px;margin-bottom:6px}
+.recent-card .rc-t{font-size:9.5px;font-weight:700}
+.recent-card .rc-a{font-size:8.5px;color:var(--dim)}
+.c1{background:linear-gradient(135deg,#5b1a10,#ef3a10 55%,#2a0d06)}
+.c2{background:linear-gradient(135deg,#123, #3b6ea5 60%,#0b141c)}
+.c3{background:linear-gradient(135deg,#3d0d0d,#a01010 55%,#160404)}
+.c4{background:linear-gradient(135deg,#0d3b2e,#1db954 55%,#04140d)}
+.c5{background:linear-gradient(135deg,#1a1040,#6a3df0 55%,#0d081f)}
+.c6{background:linear-gradient(135deg,#402a10,#f0a13d 55%,#1f1406)}
+.c7{background:linear-gradient(135deg,#401040,#f03da8 55%,#1c0716)}
+
+/* ---------- FEATURE CARDS ---------- */
+.cards4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:48px}
+.fcard{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:32px 26px;position:relative;overflow:hidden;transition:transform .2s,border-color .2s}
+.fcard:hover{transform:translateY(-4px);border-color:#3a3a3e}
+.fcard .fic{width:52px;height:52px;border-radius:14px;background:var(--red-soft);display:flex;align-items:center;justify-content:center;margin-bottom:22px}
+.fcard .fic svg{width:26px;height:26px;stroke:var(--red);fill:none;stroke-width:2}
+.fcard h3{font-size:20px;font-weight:800;margin-bottom:10px}
+.fcard p{font-size:14px;color:var(--muted);line-height:1.6}
+.fcard .go{margin-top:24px;width:40px;height:40px;border:1px solid #3a3a3e;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:16px;transition:.2s}
+.fcard:hover .go{background:var(--red);border-color:var(--red)}
+
+/* ---------- RELEASES ---------- */
+.pills{display:flex;gap:10px;align-items:center;margin-top:26px;flex-wrap:wrap}
+.pill{background:transparent;border:1px solid #3a3a3e;color:#fff;font-size:13px;font-weight:600;padding:10px 20px;border-radius:999px}
+.pill.active{background:var(--red);border-color:var(--red)}
+.pill:not(.active):hover{border-color:var(--red)}
+.sec-head-row{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.rel-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:16px;margin-top:36px}
+.rel-card{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:transform .2s,border-color .2s}
+.rel-card:hover{transform:translateY(-4px);border-color:#3a3a3e}
+.rel-cover{aspect-ratio:1;position:relative;display:flex;align-items:center;justify-content:center}
+.rel-play{width:44px;height:44px;border-radius:50%;background:rgba(0,0,0,.55);border:1.5px solid rgba(255,255,255,.7);display:flex;align-items:center;justify-content:center;transition:.2s}
+.rel-play::after{content:"";border-left:12px solid #fff;border-top:8px solid transparent;border-bottom:8px solid transparent;margin-left:3px}
+.rel-card:hover .rel-play{background:var(--red);border-color:var(--red)}
+.rel-meta{padding:14px 14px 16px}
+.rel-meta .t{font-size:13.5px;font-weight:700}
+.rel-meta .a{font-size:12px;color:var(--dim);margin-top:3px}
+
+/* ---------- JOURNEY ---------- */
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:52px;position:relative}
+.step{text-align:center;position:relative}
+.step .sic{width:72px;height:72px;border-radius:50%;border:1.5px solid #3a3a3e;background:#121214;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;position:relative;z-index:2}
+.step .sic svg{width:28px;height:28px;stroke:var(--red);fill:none;stroke-width:1.8}
+.step h4{font-size:16px;font-weight:700;margin-bottom:6px}
+.step p{font-size:13px;color:var(--dim)}
+.step:not(:last-child)::after{content:"";position:absolute;top:36px;left:calc(50% + 44px);right:calc(-50% + 44px);border-top:1.5px dashed #333;z-index:1}
+
+/* ---------- REACH ---------- */
+.reach{background:radial-gradient(700px 420px at 55% 40%, rgba(239,58,16,.10), transparent 60%),var(--bg)}
+.reach-grid{display:grid;grid-template-columns:.85fr 1fr .6fr;gap:44px;align-items:center}
+.reach-stats{display:flex;gap:14px;margin-top:26px}
+.reach-stat{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px 22px;display:flex;align-items:center;gap:14px}
+.reach-stat .n{font-size:24px;font-weight:800}
+.reach-stat .l{font-size:12px;color:var(--dim)}
+.reach-stat svg{width:30px;height:30px;stroke:var(--red);fill:none;stroke-width:1.8}
+.worldmap{position:relative;min-height:300px;border-radius:18px;background:
+  radial-gradient(220px 140px at 30% 35%, rgba(239,58,16,.5), transparent 70%),
+  radial-gradient(180px 120px at 55% 30%, rgba(239,58,16,.45), transparent 70%),
+  radial-gradient(160px 130px at 48% 60%, rgba(239,58,16,.4), transparent 70%),
+  radial-gradient(140px 110px at 72% 55%, rgba(239,58,16,.35), transparent 70%),
+  radial-gradient(120px 100px at 82% 72%, rgba(239,58,16,.3), transparent 70%),
+  radial-gradient(150px 110px at 22% 70%, rgba(239,58,16,.3), transparent 70%),
+  #0c0c0e;border:1px solid var(--border)}
+.country-list{list-style:none}
+.country-list li{display:flex;align-items:center;justify-content:space-between;padding:11px 4px;border-bottom:1px solid #17171a;font-size:14px}
+.country-list li:last-child{border-bottom:none}
+.country-list .cn{display:flex;align-items:center;gap:12px}
+.country-list .cdot{width:10px;height:10px;border-radius:50%;background:var(--red);box-shadow:0 0 10px var(--red)}
+.country-list .cs{color:var(--muted);font-weight:600}
+
+/* ---------- PRICING ---------- */
+.pricing-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px;align-items:start}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.plan{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:30px 26px;position:relative;transition:transform .2s,border-color .2s}
+.plan:hover{transform:translateY(-4px)}
+.plan.pop{border:1.5px solid var(--red);box-shadow:0 0 40px rgba(239,58,16,.15)}
+.plan .pname{font-size:12px;font-weight:700;letter-spacing:.22em;color:var(--muted)}
+.plan .price{font-size:32px;font-weight:800;margin:14px 0 20px}
+.plan .price small{font-size:14px;color:var(--dim);font-weight:500}
+.plan ul{list-style:none;margin-bottom:26px}
+.plan ul li{font-size:13.5px;color:var(--muted);padding:7px 0;display:flex;gap:10px;align-items:flex-start;line-height:1.5}
+.plan ul li::before{content:"✓";color:var(--red);font-weight:800;flex:none}
+.plan .btn{width:100%}
+.pop-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:#fff;color:#000;font-size:11px;font-weight:800;padding:5px 14px;border-radius:999px;white-space:nowrap}
+.see-all{color:var(--red);font-weight:700;font-size:14px;display:inline-flex;align-items:center;gap:6px;margin-top:18px}
+
+/* ---------- CTA BANNER ---------- */
+.cta-banner{margin:0 0 0;padding:110px 0;text-align:center;overflow:hidden;
+  background:
+    radial-gradient(800px 420px at 50% 115%, rgba(239,58,16,.55), transparent 65%),
+    radial-gradient(500px 300px at 50% 120%, rgba(239,58,16,.4), transparent 60%),
+    linear-gradient(180deg,#0a0a0b 0%,#160806 100%)}
+.cta-banner h2{font-size:clamp(36px,5.4vw,64px);font-weight:800;letter-spacing:-.01em}
+.cta-banner h2 .red{color:var(--red)}
+.cta-banner .sub{margin:18px auto 0;max-width:560px}
+.cta-btns{display:flex;gap:14px;justify-content:center;margin-top:34px;flex-wrap:wrap}
+.cta-btns .btn{padding:15px 32px;font-size:15px;border-radius:12px}
+.artist-chip{margin-top:44px;display:inline-flex;align-items:center;gap:14px;background:rgba(16,16,18,.9);border:1px solid #2a2a2e;border-radius:16px;padding:12px 22px 12px 12px}
+.avatars{display:flex}
+.avatars i{width:44px;height:44px;border-radius:50%;border:2px solid #0a0a0b;margin-left:-12px;display:block}
+.avatars i:first-child{margin-left:0}
+.artist-chip .n{font-size:22px;font-weight:800}
+.artist-chip .l{font-size:12px;color:var(--dim)}
+.artist-chip{text-align:left}
+
+/* ---------- FOOTER ---------- */
+footer{border-top:1px solid var(--border);padding:48px 0 28px;background:#08080a}
+.foot-top{display:flex;align-items:flex-start;justify-content:space-between;gap:32px;flex-wrap:wrap}
+.foot-brand .tag{font-size:13px;color:var(--dim);margin-top:10px}
+.foot-links{display:flex;gap:28px;flex-wrap:wrap;list-style:none}
+.foot-links a{font-size:13.5px;color:var(--muted)}
+.foot-links a:hover{color:var(--red)}
+.socials{display:flex;gap:10px}
+.socials a{width:38px;height:38px;border-radius:50%;border:1px solid #2e2e32;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:var(--muted);transition:.2s}
+.socials a:hover{border-color:var(--red);color:var(--red)}
+.foot-bottom{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:40px;padding-top:24px;border-top:1px solid #141416;font-size:12.5px;color:var(--dim)}
+.foot-legal{display:flex;gap:22px}
+.foot-legal a:hover{color:#fff}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:1024px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero-visual{min-height:420px}
+  .platform-grid{grid-template-columns:1fr}
+  .reach-grid{grid-template-columns:1fr 1fr}
+  .worldmap{grid-column:1/-1;min-height:240px}
+  .cards4{grid-template-columns:repeat(2,1fr)}
+  .rel-grid{grid-template-columns:repeat(4,1fr)}
+  .pricing-grid{grid-template-columns:1fr}
+}
+@media(max-width:720px){
+  .nav-links,.nav-actions .btn-outline{display:none}
+  .hamburger{display:flex}
+  .mobile-menu.open{display:block}
+  section{padding:64px 0}
+  .steps{grid-template-columns:repeat(2,1fr);gap:28px}
+  .step:not(:last-child)::after{display:none}
+  .rel-grid{grid-template-columns:repeat(2,1fr)}
+  .reach-grid{grid-template-columns:1fr}
+  .plans{grid-template-columns:1fr}
+  .float-card{padding:10px 14px}
+  .float-card .fc-value{font-size:18px}
+  .store-row{gap:24px}
+  .laptop-screen{grid-template-columns:1fr}
+  .dash-side{display:none}
+}
+/* Real IKONIC wordmark; sized by the parent's font-size. 'screen' drops the artwork's black background. */
+.logo-img{display:block;height:1em;width:auto;mix-blend-mode:screen}
+</style>
+</head>
+<body>
+
+<!-- Shared site header: src/components/containers/Header (rendered by dist/chrome.js) -->
+<div data-site-header=""></div>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="kicker">Artists Own More Here</p>
+      <h1>Own More<br>Of <span class="red">Your Music.</span></h1>
+      <p class="sub">Distribution. Publishing. Funding. Everything independent artists need — all in one platform.</p>
+      <div class="hero-btns">
+        <a href="#" class="btn btn-red">Start Free <span>→</span></a>
+        <a href="#" class="btn btn-outline"><span class="play-ico"></span> Watch Demo</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-sil"></div>
+      <div class="float-card fc-release">
+        <div class="fc-cover"></div>
+        <div>
+          <div class="fc-title">Higher Ground</div>
+          <div class="fc-artist">Nova Rae</div>
+          <div class="fc-released">✓ Released</div>
+          <div class="fc-stores">
+            <i style="background:#1db954"></i><i style="background:#fc3c44"></i><i style="background:#ff0000"></i><i style="background:#25f4ee"></i>
+          </div>
+        </div>
+      </div>
+      <div class="float-card fc-advance">
+        <div class="fc-bolt">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#ef3a10"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg>
+        </div>
+        <div>
+          <div class="fc-label">Advance Approved</div>
+          <div class="fc-value">$50,000</div>
+        </div>
+      </div>
+      <div class="float-card fc-streams">
+        <div class="fc-label">Total Streams</div>
+        <div class="row">
+          <div>
+            <div class="fc-value">2,483,921</div>
+            <div class="fc-delta">▲ +12.4%</div>
+          </div>
+          <div class="bars">
+            <i style="height:35%"></i><i style="height:55%"></i><i style="height:42%"></i><i style="height:70%"></i><i style="height:58%"></i><i style="height:88%"></i><i style="height:100%"></i>
+          </div>
+        </div>
+      </div>
+      <div class="float-card fc-earnings">
+        <div class="fc-label">Monthly Earnings</div>
+        <div class="fc-value">$8,432</div>
+        <div class="fc-delta">▲ +29%</div>
+        <svg class="spark" width="120" height="30" viewBox="0 0 120 30">
+          <polyline points="0,24 15,20 30,22 45,14 60,16 75,8 90,12 105,4 120,6" fill="none" stroke="#ef3a10" stroke-width="2.5"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STORE STRIP ============ -->
+<div class="stores">
+  <div class="wrap">
+    <p class="label">AVAILABLE EVERYWHERE</p>
+    <div class="store-row">
+      <span class="store-mark"><i class="dot">♪</i> Spotify</span>
+      <span class="store-mark"><svg width="18" height="18" viewBox="0 0 24 24" fill="#c9c9cd"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35-.07 2.29.74 3.08.8.98-.2 1.92-.87 3.03-.83 1.32.11 2.31.63 2.96 1.57-2.7 1.63-2.26 5.21.44 6.22-.6 1.56-1.38 3.1-2.51 5.21M12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25"/></svg> Music</span>
+      <span class="store-mark"><svg width="20" height="20" viewBox="0 0 24 24" fill="#c9c9cd"><path d="M23 12s-6.85-.01-6.85-.01c.01-4.26-2.75-6.85-6.85-6.85S2.45 7.73 2.45 12s2.75 6.85 6.85 6.85c4.1 0 6.85-2.59 6.85-6.85H23zM9.3 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg> YouTube</span>
+      <span class="store-mark"><svg width="18" height="18" viewBox="0 0 24 24" fill="#c9c9cd"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-5.92 3.4 6.84 6.84 0 006.92 7.53c3.75 0 6.4-2.9 6.4-6.66V8.74a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-2.94-1.17z"/></svg> TikTok</span>
+      <span class="store-mark" style="font-weight:800">amazon<i style="font-style:normal;color:#ff9900">⌒</i>music</span>
+      <span class="store-mark"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c9c9cd" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="#c9c9cd"/></svg> Instagram</span>
+      <span class="store-mark" style="letter-spacing:.2em">TIDAL</span>
+      <span class="store-mark">deezer</span>
+      <span class="store-mark dim">+ MORE</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ TICKER ============ -->
+<div class="ticker">
+  <div class="ticker-inner" id="tickerInner">
+    <span class="t-head"><span class="bolt">⚡</span> What's New on Ikonic:</span>
+    <span class="t-item"><b>●</b> New: Catalog Funding</span>
+    <span class="t-item"><b>●</b> New: AI Metadata Assistant</span>
+    <span class="t-item"><b>●</b> New: Publishing Dashboard</span>
+    <span class="t-item"><b>●</b> New: Team Accounts</span>
+    <span class="t-item"><b>●</b> New: Faster Royalty Withdrawals</span>
+  </div>
+</div>
+
+<!-- ============ PLATFORM ============ -->
+<section class="platform">
+  <div class="wrap platform-grid">
+    <div>
+      <p class="kicker">The Complete Platform</p>
+      <h2 class="headline">One Dashboard.<br>Every Opportunity.</h2>
+      <p class="sub">Manage your releases, publishing, royalties, funding, team, and analytics — all in one place.</p>
+      <div style="margin-top:30px"><a href="#" class="btn btn-red">Explore Platform <span>→</span></a></div>
+    </div>
+    <div class="laptop">
+      <div class="laptop-screen">
+        <div class="dash-side">
+          <div class="logo"><img class="logo-img" src="src/assets/images/logo.webp" alt="IKONIC"></div>
+          <div class="side-item active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Dashboard</div>
+          <div class="side-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.5"/></svg>Releases</div>
+          <div class="side-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg>Analytics</div>
+          <div class="side-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V6l12-3v12M9 18a3 3 0 11-6 0 3 3 0 016 0zm12-3a3 3 0 11-6 0 3 3 0 016 0z"/></svg>Publishing</div>
+          <div class="side-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M15 9.5c0-1.4-1.3-2.5-3-2.5s-3 1.1-3 2.5 1.3 2.5 3 2.5 3 1.1 3 2.5-1.3 2.5-3 2.5-3-1.1-3-2.5"/></svg>Royalties</div>
+          <div class="side-item"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg>Advance</div>
+          <div class="side-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5M16 4.5a3.5 3.5 0 010 7M21.5 20c-.5-2.7-2-4.6-4-5.4"/></svg>Team</div>
+          <div class="side-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M7 15h4"/></svg>Payouts</div>
+          <div class="side-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7c0-1.7 3.6-3 8-3s8 1.3 8 3-3.6 3-8 3-8-1.3-8-3zm0 0v10c0 1.7 3.6 3 8 3s8-1.3 8-3V7M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg>Catalog</div>
+          <div class="side-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 00.3 1.9l.1.1a2 2 0 11-2.8 2.8l-.1-.1a1.7 1.7 0 00-1.9-.3 1.7 1.7 0 00-1 1.5V21a2 2 0 11-4 0v-.2a1.7 1.7 0 00-1-1.5 1.7 1.7 0 00-1.9.3l-.1.1a2 2 0 11-2.8-2.8l.1-.1a1.7 1.7 0 00.3-1.9 1.7 1.7 0 00-1.5-1H3a2 2 0 110-4h.2a1.7 1.7 0 001.5-1 1.7 1.7 0 00-.3-1.9l-.1-.1a2 2 0 112.8-2.8l.1.1a1.7 1.7 0 001.9.3h.1a1.7 1.7 0 001-1.5V3a2 2 0 114 0v.2a1.7 1.7 0 001 1.5h.1a1.7 1.7 0 001.9-.3l.1-.1a2 2 0 112.8 2.8l-.1.1a1.7 1.7 0 00-.3 1.9v.1a1.7 1.7 0 001.5 1h.2a2 2 0 110 4h-.2a1.7 1.7 0 00-1.5 1z"/></svg>Settings</div>
+        </div>
+        <div class="dash-main">
+          <div class="dash-head">
+            <div><h4>Welcome back, Nova Rae</h4><p>Your music. Your business. All in one place.</p></div>
+            <button class="dash-btn">Create Release</button>
+          </div>
+          <div class="dash-stats">
+            <div class="dash-stat"><div class="l">Total Streams</div><div class="v">2.4M</div><div class="d">▲ +12.4%</div></div>
+            <div class="dash-stat"><div class="l">Total Earnings</div><div class="v">$8,432</div><div class="d">▲ +29%</div></div>
+            <div class="dash-stat"><div class="l">Active Releases</div><div class="v">12</div><div class="d">▲ +2</div></div>
+          </div>
+          <div class="dash-chart">
+            <div class="l">Streams</div>
+            <svg width="100%" height="80" viewBox="0 0 400 80" preserveAspectRatio="none">
+              <defs><linearGradient id="rg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ef3a10" stop-opacity=".45"/><stop offset="1" stop-color="#ef3a10" stop-opacity="0"/></linearGradient></defs>
+              <path d="M0,60 L25,52 L50,55 L75,42 L100,46 L125,34 L150,38 L175,28 L200,32 L225,22 L250,26 L275,30 L300,18 L325,24 L350,14 L375,20 L400,12 L400,80 L0,80 Z" fill="url(#rg)"/>
+              <path d="M0,60 L25,52 L50,55 L75,42 L100,46 L125,34 L150,38 L175,28 L200,32 L225,22 L250,26 L275,30 L300,18 L325,24 L350,14 L375,20 L400,12" fill="none" stroke="#ef3a10" stroke-width="2.5"/>
+            </svg>
+          </div>
+          <div class="dash-recent">
+            <div class="l">Recent Releases</div>
+            <div class="recent-row">
+              <div class="recent-card"><div class="rc-cover c1"></div><div class="rc-t">Higher Ground</div><div class="rc-a">Nova Rae</div></div>
+              <div class="recent-card"><div class="rc-cover c2"></div><div class="rc-t">Different Now</div><div class="rc-a">Jace Miles</div></div>
+              <div class="recent-card"><div class="rc-cover c3"></div><div class="rc-t">City Lights</div><div class="rc-a">Tori Vex</div></div>
+              <div class="recent-card"><div class="rc-cover c4"></div><div class="rc-t">No Limits</div><div class="rc-a">Dre Ruk</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURE CARDS ============ -->
+<section>
+  <div class="wrap">
+    <p class="kicker">Built For Independent Artists</p>
+    <h2 class="headline">More Than Distribution.</h2>
+    <div class="cards4">
+      <div class="fcard">
+        <div class="fic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.9 5.7 3.9 9S14.5 18.4 12 21c-2.5-2.6-3.9-5.7-3.9-9S9.5 5.6 12 3z"/></svg></div>
+        <h3>Distribution</h3>
+        <p>Get your music on 250+ stores worldwide.</p>
+        <a href="distribution.html" class="go" aria-label="Distribution">→</a>
+      </div>
+      <div class="fcard">
+        <div class="fic"><svg viewBox="0 0 24 24"><path d="M9 18V6l12-3v12"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="15" r="3"/></svg></div>
+        <h3>Publishing</h3>
+        <p>Collect more from your songs.</p>
+        <a href="publishing.html" class="go" aria-label="Publishing">→</a>
+      </div>
+      <div class="fcard">
+        <div class="fic"><svg viewBox="0 0 24 24"><path d="M12 3c-4 0-7 1.3-7 3s3 3 7 3 7-1.3 7-3-3-3-7-3zM5 8.5V12c0 1.7 3 3 7 3s7-1.3 7-3V8.5M5 12.5V16c0 1.7 3 3 7 3s7-1.3 7-3v-3.5"/></svg></div>
+        <h3>Advance</h3>
+        <p>Turn your royalties into momentum.</p>
+        <a href="advance.html" class="go" aria-label="Advance">→</a>
+      </div>
+      <div class="fcard">
+        <div class="fic"><svg viewBox="0 0 24 24"><path d="M4 20V12M10 20V6M16 20v-9M22 20H2"/></svg></div>
+        <h3>Analytics</h3>
+        <p>Real insights. Real growth.</p>
+        <a href="#" class="go" aria-label="Analytics">→</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LATEST RELEASES ============ -->
+<section style="padding-top:40px">
+  <div class="wrap">
+    <div class="sec-head-row">
+      <div>
+        <p class="kicker">Real Music. Real Artists.</p>
+        <h2 class="headline">Latest Releases on Ikonic.</h2>
+      </div>
+      <div class="pills">
+        <button class="pill active">All</button>
+        <button class="pill">Albums</button>
+        <button class="pill">Singles</button>
+      </div>
+    </div>
+    <div class="rel-grid">
+      <div class="rel-card"><div class="rel-cover c1"><span class="rel-play"></span></div><div class="rel-meta"><div class="t">Higher Ground</div><div class="a">Nova Rae</div></div></div>
+      <div class="rel-card"><div class="rel-cover c2"><span class="rel-play"></span></div><div class="rel-meta"><div class="t">Different Now</div><div class="a">Jace Miles</div></div></div>
+      <div class="rel-card"><div class="rel-cover c3"><span class="rel-play"></span></div><div class="rel-meta"><div class="t">City Lights</div><div class="a">Tori Vex</div></div></div>
+      <div class="rel-card"><div class="rel-cover c4"><span class="rel-play"></span></div><div class="rel-meta"><div class="t">No Limits</div><div class="a">Dre Ruk</div></div></div>
+      <div class="rel-card"><div class="rel-cover c5"><span class="rel-play"></span></div><div class="rel-meta"><div class="t">Lost Files</div><div class="a">Kali O</div></div></div>
+      <div class="rel-card"><div class="rel-cover c6"><span class="rel-play"></span></div><div class="rel-meta"><div class="t">Midnight Run</div><div class="a">The Phase</div></div></div>
+      <div class="rel-card"><div class="rel-cover c7"><span class="rel-play"></span></div><div class="rel-meta"><div class="t">Still Here</div><div class="a">Raylen</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ JOURNEY ============ -->
+<section>
+  <div class="wrap">
+    <p class="kicker">Your Journey</p>
+    <h2 class="headline">From Song to Success.</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="sic"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0014 0M12 18v3"/></svg></div>
+        <h4>Record</h4><p>Create your music.</p>
+      </div>
+      <div class="step">
+        <div class="sic"><svg viewBox="0 0 24 24"><path d="M12 16V4m0 0l-4 4m4-4l4 4M4 20h16"/></svg></div>
+        <h4>Upload</h4><p>Submit your release.</p>
+      </div>
+      <div class="step">
+        <div class="sic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.9 5.7 3.9 9s-1.4 6.4-3.9 9c-2.5-2.6-3.9-5.7-3.9-9S9.5 5.6 12 3z"/></svg></div>
+        <h4>Release</h4><p>Distribute worldwide.</p>
+      </div>
+      <div class="step">
+        <div class="sic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M15 9.5c0-1.4-1.3-2.5-3-2.5s-3 1.1-3 2.5 1.3 2.5 3 2.5 3 1.1 3 2.5-1.3 2.5-3 2.5-3-1.1-3-2.5"/></svg></div>
+        <h4>Earn</h4><p>Collect your royalties.</p>
+      </div>
+      <div class="step">
+        <div class="sic"><svg viewBox="0 0 24 24"><path d="M4 20V14M10 20V9M16 20v-6M22 20H2M14 4l6 6-3 1-4-4-3 1z"/></svg></div>
+        <h4>Grow</h4><p>Build a bigger future.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GLOBAL REACH ============ -->
+<section class="reach">
+  <div class="wrap reach-grid">
+    <div>
+      <p class="kicker">Global Reach</p>
+      <h2 class="headline">Your Music<br>Worldwide.</h2>
+      <p class="sub">Reach fans in 170+ countries across 250+ streaming and download stores.</p>
+      <div class="reach-stats">
+        <div class="reach-stat">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.9 5.7 3.9 9s-1.4 6.4-3.9 9c-2.5-2.6-3.9-5.7-3.9-9S9.5 5.6 12 3z"/></svg>
+          <div><div class="n">170+</div><div class="l">Countries</div></div>
+        </div>
+        <div class="reach-stat">
+          <svg viewBox="0 0 24 24"><path d="M12 3c-4 0-7 1.3-7 3s3 3 7 3 7-1.3 7-3-3-3-7-3zM5 8.5V12c0 1.7 3 3 7 3s7-1.3 7-3V8.5M5 12.5V16c0 1.7 3 3 7 3s7-1.3 7-3v-3.5"/></svg>
+          <div><div class="n">250+</div><div class="l">Stores</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="worldmap" aria-label="World map of listener reach"></div>
+    <ul class="country-list">
+      <li><span class="cn"><span class="cdot"></span>United States</span><span class="cs">1.2M</span></li>
+      <li><span class="cn"><span class="cdot"></span>United Kingdom</span><span class="cs">442K</span></li>
+      <li><span class="cn"><span class="cdot"></span>Germany</span><span class="cs">384K</span></li>
+      <li><span class="cn"><span class="cdot"></span>Canada</span><span class="cs">321K</span></li>
+      <li><span class="cn"><span class="cdot"></span>France</span><span class="cs">298K</span></li>
+      <li><span class="cn"><span class="cdot"></span>Brazil</span><span class="cs">271K</span></li>
+      <li><span class="cn"><span class="cdot"></span>Australia</span><span class="cs">198K</span></li>
+      <li><span class="cn"><span class="cdot"></span>Mexico</span><span class="cs">176K</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ PRICING ============ -->
+<section>
+  <div class="wrap pricing-grid">
+    <div>
+      <p class="kicker">Simple Pricing</p>
+      <h2 class="headline">Plans for Every<br>Stage.</h2>
+      <a href="pricing.html" class="see-all">See All Plans →</a>
+    </div>
+    <div class="plans">
+      <div class="plan">
+        <div class="pname">IKONIC BASIC</div>
+        <div class="price">$4.99<small> /mo</small></div>
+        <ul>
+          <li>Worldwide distribution</li>
+          <li>Keep 100% of your rights</li>
+          <li>Basic analytics</li>
+        </ul>
+        <a href="#" class="btn btn-outline">Get Started <span>→</span></a>
+      </div>
+      <div class="plan pop">
+        <span class="pop-badge">Most Popular</span>
+        <div class="pname">IKONIC PRO</div>
+        <div class="price">$9.99<small> /mo</small></div>
+        <ul>
+          <li>Everything in Basic</li>
+          <li>Advanced analytics</li>
+          <li>Priority support</li>
+        </ul>
+        <a href="#" class="btn btn-red">Get Started <span>→</span></a>
+      </div>
+      <div class="plan">
+        <div class="pname">IKONIC PRO+</div>
+        <div class="price">$19.99<small> /mo</small></div>
+        <ul>
+          <li>Everything in Pro</li>
+          <li>Advance eligibility</li>
+          <li>Team accounts</li>
+        </ul>
+        <a href="#" class="btn btn-outline">Get Started <span>→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA BANNER ============ -->
+<section class="cta-banner">
+  <div class="wrap">
+    <p class="kicker">The Next Generation Builds Here</p>
+    <h2>Own More. <span class="red">Build Bigger.</span></h2>
+    <p class="sub">Join thousands of independent artists using Ikonic to take control of their music business.</p>
+    <div class="cta-btns">
+      <a href="#" class="btn btn-red">Start Free <span>→</span></a>
+      <a href="pricing.html" class="btn btn-outline">View Pricing</a>
+    </div>
+    <div>
+      <div class="artist-chip">
+        <div class="avatars">
+          <i class="c1"></i><i class="c3"></i><i class="c5"></i><i class="c7"></i>
+        </div>
+        <div>
+          <div class="n">50K+</div>
+          <div class="l">Artists &amp; Labels</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Shared site footer: src/components/containers/Footer (rendered by dist/chrome.js) -->
+<div data-site-footer></div>
+
+<script src="dist/chrome.js"></script>
+<script>
+// Duplicate ticker content for a seamless loop
+var tick = document.getElementById('tickerInner');
+if (tick) { tick.innerHTML += tick.innerHTML; }
+// Release filter pills (visual toggle)
+var pills = document.querySelectorAll('.pill');
+pills.forEach(function(p){
+  p.addEventListener('click', function(){
+    pills.forEach(function(x){ x.classList.remove('active'); });
+    p.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>

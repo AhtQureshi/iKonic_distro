@@ -1,0 +1,12 @@
+.labels-features { padding: 80px 0 110px; }
+.labels-features__grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 70px; align-items: start; }
+.labels-features__cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+
+@media (max-width: 1024px) {
+  .labels-features__grid { grid-template-columns: 1fr; gap: 50px; }
+}
+
+@media (max-width: 640px) {
+  .labels-features { padding: 70px 0; }
+  .labels-features__cards { grid-template-columns: 1fr; }
+}

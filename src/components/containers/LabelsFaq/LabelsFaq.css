@@ -1,0 +1,16 @@
+.labels-faq { padding: 110px 0; }
+.labels-faq__grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 70px; align-items: start; }
+
+/* Match the original FAQ sizing */
+.labels-faq .accordion-item { background: #131314; border-radius: var(--radius-md); }
+.labels-faq .accordion-item.is-open { border-color: #3a3a3a; }
+.labels-faq .accordion-item__q { padding: 22px 24px; font-size: 16.5px; }
+.labels-faq .accordion-item__a p { font-size: 15.5px; }
+
+@media (max-width: 1024px) {
+  .labels-faq__grid { grid-template-columns: 1fr; gap: 40px; }
+}
+
+@media (max-width: 640px) {
+  .labels-faq { padding: 70px 0; }
+}

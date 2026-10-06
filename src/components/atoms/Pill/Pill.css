@@ -1,0 +1,17 @@
+.pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-pill);
+  color: var(--color-text);
+  font-weight: 600;
+  white-space: nowrap;
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.pill--md { height: 38px; padding: 0 20px; font-size: 13px; }
+.pill--sm { height: 22px; padding: 0 9px; font-size: 9.5px; border-radius: 6px; }
+
+.pill:hover { border-color: var(--color-text-muted); }
+.pill.is-active { background: var(--color-red); border-color: var(--color-red); }

@@ -1,0 +1,4 @@
+.logo { display: inline-flex; align-items: center; flex: none; }
+
+/* The artwork sits on black; "screen" drops the black so it blends into any dark surface. */
+.logo__img { height: auto; mix-blend-mode: screen; }

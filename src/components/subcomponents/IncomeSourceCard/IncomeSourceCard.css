@@ -1,0 +1,13 @@
+.income-source-card {
+  padding: 26px;
+  background: #111111;
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.income-source-card:hover { border-color: rgba(239, 58, 16, 0.5); transform: translateY(-3px); }
+
+.income-source-card__head { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
+.income-source-card__head .icon { color: var(--color-red); }
+.income-source-card__title { font-size: 17px; font-weight: 700; line-height: 1.4; }
+.income-source-card__text { font-size: 14px; line-height: 1.6; color: var(--color-text-muted); }

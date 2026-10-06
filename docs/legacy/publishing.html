@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Publishing | IKONIC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0a0b;
+  --bg2:#0d0d0e;
+  --card:#141414;
+  --card2:#111111;
+  --border:#222222;
+  --red:#ef3a10;
+  --red-dark:#c92c0b;
+  --text:#ffffff;
+  --muted:#a3a3ab;
+  --muted2:#7a7a82;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Archivo',Arial,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{max-width:100%}
+.wrap{max-width:1280px;margin:0 auto;padding:0 40px}
+
+/* ---------- LOGO ---------- */
+.logo{display:flex;align-items:center;font-weight:900;font-size:24px;letter-spacing:2px;color:#fff}
+.logo .o-ring{display:inline-block;width:19px;height:19px;border:4px solid var(--red);border-radius:50%;margin:0 1px 0 3px;flex:0 0 auto}
+
+/* ---------- NAV ---------- */
+.nav{position:sticky;top:0;z-index:100;background:rgba(10,10,11,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1360px;margin:0 auto;padding:16px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.nav-links{display:flex;align-items:center;gap:34px}
+.nav-links>a{font-size:15px;font-weight:500;color:#d7d7dc;position:relative;padding:6px 0}
+.nav-links>a:hover{color:#fff}
+.nav-links>a.active{color:#fff;font-weight:600}
+.nav-links>a.active::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:3px;background:var(--red);border-radius:2px}
+.dropdown{position:relative}
+.dropdown>a{display:flex;align-items:center;gap:6px}
+.dropdown>a .caret{font-size:10px;color:var(--muted)}
+.dropdown-menu{display:none;position:absolute;top:calc(100% + 12px);left:0;background:var(--card);border:1px solid var(--border);border-radius:12px;min-width:200px;padding:8px;box-shadow:0 20px 50px rgba(0,0,0,.6)}
+.dropdown:hover .dropdown-menu,.dropdown.open .dropdown-menu{display:block}
+.dropdown-menu a{display:block;padding:10px 14px;border-radius:8px;font-size:14px;color:#d7d7dc}
+.dropdown-menu a:hover{background:#1e1e1e;color:#fff}
+.nav-cta{display:flex;align-items:center;gap:14px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:700;font-size:15px;border-radius:12px;padding:14px 30px;cursor:pointer;border:none;transition:transform .15s ease,box-shadow .15s ease,background .15s ease}
+.btn-red{background:var(--red);color:#fff}
+.btn-red:hover{background:var(--red-dark);box-shadow:0 8px 28px rgba(239,58,16,.35);transform:translateY(-1px)}
+.btn-outline{background:transparent;color:#fff;border:1px solid #3a3a3f}
+.btn-outline:hover{border-color:var(--red);color:var(--red)}
+.btn-nav{padding:11px 22px;font-size:14px;border-radius:10px}
+.btn-arrow::after{content:"→";font-weight:700}
+.hamburger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:8px}
+.hamburger span{display:block;width:26px;height:2px;background:#fff;border-radius:2px}
+
+/* ---------- SHARED SECTION PIECES ---------- */
+section{padding:96px 0;position:relative}
+.kicker{color:var(--red);font-size:12px;font-weight:700;letter-spacing:3.5px;text-transform:uppercase;margin-bottom:18px}
+h1,h2{font-weight:800;line-height:1.12;letter-spacing:-0.5px}
+h1{font-size:clamp(44px,5.6vw,76px)}
+h2{font-size:clamp(36px,4vw,56px)}
+.red{color:var(--red)}
+.lead{color:var(--muted);font-size:17px;margin-top:18px;max-width:520px}
+.sec-actions{margin-top:30px;display:flex;gap:14px;flex-wrap:wrap}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+
+/* ---------- HERO ---------- */
+.hero{min-height:92vh;display:flex;align-items:center;overflow:hidden;background:
+  radial-gradient(ellipse 700px 500px at 68% 30%,rgba(239,58,16,.28),transparent 60%),
+  radial-gradient(ellipse 900px 420px at 85% 75%,rgba(239,58,16,.12),transparent 60%),
+  radial-gradient(ellipse 500px 600px at 45% 10%,rgba(150,20,5,.18),transparent 60%),
+  var(--bg)}
+.hero::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(circle at 78% 22%,rgba(255,90,40,.5) 0 6px,transparent 7px),
+  radial-gradient(circle at 88% 40%,rgba(255,90,40,.35) 0 4px,transparent 5px),
+  radial-gradient(circle at 70% 55%,rgba(255,90,40,.4) 0 5px,transparent 6px);opacity:.5;pointer-events:none}
+.hero-inner{position:relative;z-index:2;width:100%}
+.hero-copy{max-width:620px}
+.hero .lead{max-width:560px}
+.hero-card{position:absolute;right:6%;top:16%;width:300px;background:rgba(18,10,8,.72);border:1px solid #3a1a12;border-radius:16px;padding:22px;backdrop-filter:blur(8px);box-shadow:0 24px 70px rgba(0,0,0,.55),0 0 40px rgba(239,58,16,.12)}
+.hero-card h4{color:var(--red);font-size:12px;letter-spacing:2.5px;font-weight:800;margin-bottom:16px}
+.roy-row{margin-bottom:14px}
+.roy-top{display:flex;justify-content:space-between;font-size:13px;margin-bottom:6px}
+.roy-top .amt{font-weight:700}
+.roy-bar{height:7px;background:#2a1410;border-radius:4px;overflow:hidden}
+.roy-bar i{display:block;height:100%;background:linear-gradient(90deg,#ff5a28,var(--red));border-radius:4px}
+
+/* ---------- ICON BULLETS ---------- */
+.bullets{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;padding:56px 0;border-top:1px solid var(--border)}
+.bullet{display:flex;gap:14px;align-items:flex-start}
+.bullet svg{flex:0 0 30px;width:30px;height:30px;stroke:var(--red);fill:none;stroke-width:1.8;margin-top:2px}
+.bullet p{font-size:15px;font-weight:600;line-height:1.45;color:#e8e8ea}
+
+/* ---------- HOW IT WORKS ---------- */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
+.step{text-align:center;padding:0 6px}
+.step-icon{width:86px;height:86px;margin:0 auto 20px;border:1.5px solid rgba(239,58,16,.55);border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(239,58,16,.06);box-shadow:0 0 26px rgba(239,58,16,.18)}
+.step-icon svg{width:34px;height:34px;stroke:var(--red);fill:none;stroke-width:1.7}
+.step h3{font-size:18px;font-weight:700;margin-bottom:10px}
+.step p{color:var(--muted);font-size:14px;max-width:220px;margin:0 auto}
+
+/* ---------- EARN CARDS ---------- */
+.earn-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.earn-card{background:var(--card2);border:1px solid var(--border);border-radius:14px;padding:26px;transition:border-color .2s ease,transform .2s ease}
+.earn-card:hover{border-color:rgba(239,58,16,.5);transform:translateY(-3px)}
+.earn-head{display:flex;align-items:center;gap:14px;margin-bottom:12px}
+.earn-head svg{width:30px;height:30px;stroke:var(--red);fill:none;stroke-width:1.8;flex:0 0 30px}
+.earn-head h3{font-size:17px;font-weight:700}
+.earn-card p{color:var(--muted);font-size:14px}
+
+/* ---------- DASHBOARD MOCKUP ---------- */
+.dash{background:#101012;border:1px solid #26262b;border-radius:20px;overflow:hidden;display:grid;grid-template-columns:200px 1fr;box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 60px rgba(239,58,16,.06)}
+.dash-side{border-right:1px solid #1e1e22;padding:24px 14px}
+.dash-side .logo{font-size:16px;margin-bottom:26px;justify-content:center}
+.dash-side .logo .o-ring{width:13px;height:13px;border-width:3px}
+.dash-nav{display:flex;flex-direction:column;gap:4px}
+.dash-nav a{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--muted);padding:9px 12px;border-radius:9px}
+.dash-nav a svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.8}
+.dash-nav a.active{background:rgba(239,58,16,.16);color:#ff6b4a;font-weight:600}
+.dash-main{padding:24px}
+.dash-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+.dash-top h3{font-size:17px;font-weight:700}
+.dash-select{font-size:12px;color:var(--muted);border:1px solid #2a2a2e;border-radius:8px;padding:7px 12px;background:#161618}
+.dash-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:18px}
+.dstat{background:#161618;border:1px solid #222226;border-radius:12px;padding:16px}
+.dstat .lbl{font-size:11px;color:var(--muted);margin-bottom:4px}
+.dstat .val{font-size:22px;font-weight:800}
+.dstat .chg{font-size:12px;color:#22c55e;font-weight:600}
+.dstat.top-perf{display:flex;gap:12px;align-items:center}
+.dstat .art{width:44px;height:44px;border-radius:9px;background:radial-gradient(circle at 30% 30%,#ff5a28,#7a1403);flex:0 0 44px;box-shadow:inset 0 0 12px rgba(0,0,0,.5)}
+.dstat.top-perf .lbl2{font-size:11px;color:var(--muted)}
+.dstat.top-perf .song{font-size:15px;font-weight:700}
+.dchart{background:#161618;border:1px solid #222226;border-radius:12px;padding:20px 18px 12px;margin-bottom:18px;position:relative}
+.dchart-tip{position:absolute;top:8px;left:56%;background:#1d1d21;border:1px solid #333;border-radius:9px;padding:8px 12px;font-size:12px;font-weight:700;line-height:1.3;text-align:center;box-shadow:0 8px 24px rgba(0,0,0,.5)}
+.dchart-tip span{display:block;font-size:10px;color:var(--muted);font-weight:500}
+.dchart-bars{display:flex;align-items:flex-end;gap:7px;height:120px;margin-top:44px}
+.dchart-bars i{flex:1;background:linear-gradient(180deg,#ff5a28,var(--red-dark));border-radius:3px 3px 0 0;min-height:6px}
+.dchart-bars i:hover{background:#ff6b4a}
+.dchart-months{display:flex;gap:7px;margin-top:8px}
+.dchart-months span{flex:1;text-align:center;font-size:10px;color:var(--muted2)}
+.dtable{background:#161618;border:1px solid #222226;border-radius:12px;padding:8px 18px 14px}
+.dtable h4{font-size:14px;font-weight:700;margin:12px 0 4px}
+.drow{display:grid;grid-template-columns:26px 1fr auto auto;gap:12px;align-items:center;padding:12px 0;border-top:1px solid #222226}
+.drow:first-of-type{border-top:none}
+.drow .num{color:var(--muted2);font-size:13px}
+.drow .cov{width:34px;height:34px;border-radius:7px;flex:0 0 34px}
+.drow .ti{display:flex;gap:10px;align-items:center}
+.drow .ti b{font-size:13.5px;display:block}
+.drow .ti small{color:var(--muted2);font-size:11px}
+.drow .val2{font-weight:700;font-size:13.5px}
+.drow .pct{color:#22c55e;font-size:12.5px;font-weight:600;text-align:right}
+
+/* ---------- NETWORK ---------- */
+.network{background:radial-gradient(ellipse 600px 480px at 50% 55%,rgba(239,58,16,.14),transparent 65%),var(--bg2);overflow:hidden}
+.globe-wrap{position:relative;display:flex;justify-content:center}
+.globe{width:340px;height:340px;border-radius:50%;background:
+  radial-gradient(circle at 35% 30%,rgba(120,30,10,.55),transparent 55%),
+  radial-gradient(circle at 60% 55%,rgba(239,58,16,.35),transparent 45%),
+  radial-gradient(circle at 70% 30%,rgba(255,90,40,.5) 0 5px,transparent 6px),
+  radial-gradient(circle at 38% 62%,rgba(255,90,40,.5) 0 5px,transparent 6px),
+  radial-gradient(circle at 55% 78%,rgba(255,90,40,.45) 0 4px,transparent 5px),
+  radial-gradient(circle at 80% 60%,rgba(255,90,40,.4) 0 4px,transparent 5px),
+  radial-gradient(circle at 28% 42%,rgba(255,90,40,.4) 0 4px,transparent 5px),
+  radial-gradient(circle at 64% 40%,rgba(255,120,60,.35) 0 3px,transparent 4px),
+  #131315;
+  border:1px solid #2c1a14;
+  box-shadow:0 0 70px rgba(239,58,16,.25),inset -20px -20px 60px rgba(0,0,0,.7);
+  position:relative}
+.globe::after{content:"";position:absolute;inset:24px;border-radius:50%;border:1px dashed rgba(239,58,16,.3)}
+.net-stats{display:flex;flex-direction:column;gap:34px}
+.net-stat{display:flex;gap:18px;align-items:flex-start}
+.net-stat svg{width:38px;height:38px;stroke:var(--red);fill:none;stroke-width:1.7;flex:0 0 38px;margin-top:6px}
+.net-stat .n{font-size:34px;font-weight:800;line-height:1.1}
+.net-stat .l{color:var(--muted);font-size:14px}
+
+/* ---------- PARTNERS ---------- */
+.partners-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:44px}
+.partner{background:var(--card2);border:1px solid var(--border);border-radius:12px;padding:24px 12px;text-align:center;transition:border-color .2s ease,transform .2s ease}
+.partner:hover{border-color:rgba(239,58,16,.5);transform:translateY(-3px)}
+.partner b{display:block;font-size:16px;font-weight:800;letter-spacing:1px;margin-bottom:6px}
+.partner span{font-size:12px;color:var(--muted2)}
+.partner.more b{color:var(--red)}
+
+/* ---------- FAQ ---------- */
+.faq-list{display:flex;flex-direction:column;gap:14px}
+.faq-item{background:var(--card2);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:border-color .2s ease}
+.faq-item.open{border-color:rgba(239,58,16,.45)}
+.faq-q{width:100%;background:none;border:none;color:#fff;font-family:inherit;font-size:16px;font-weight:600;text-align:left;padding:22px 24px;display:flex;justify-content:space-between;align-items:center;gap:16px;cursor:pointer}
+.faq-q .plus{color:var(--red);font-size:22px;font-weight:400;line-height:1;flex:0 0 auto;transition:transform .2s ease}
+.faq-item.open .faq-q .plus{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.faq-a p{padding:0 24px 22px;color:var(--muted);font-size:15px}
+
+/* ---------- CTA BANNER ---------- */
+.cta-banner{background:
+  radial-gradient(ellipse 800px 500px at 70% 40%,rgba(239,58,16,.25),transparent 60%),
+  radial-gradient(ellipse 500px 300px at 15% 80%,rgba(239,58,16,.12),transparent 60%),
+  var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);overflow:hidden}
+.cta-inner{position:relative}
+.cta-inner h2{font-size:clamp(38px,4.6vw,62px);max-width:640px}
+.cta-inner .lead{max-width:540px}
+
+/* ---------- FOOTER ---------- */
+footer{padding:56px 0 0;background:#080809}
+.foot-top{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap;padding-bottom:40px;border-bottom:1px solid #1a1a1d}
+.foot-brand p{color:var(--muted);font-size:14px;margin-top:12px}
+.foot-links{display:flex;gap:34px;flex-wrap:wrap}
+.foot-links a{font-size:14px;color:var(--muted)}
+.foot-links a:hover{color:#fff}
+.socials{display:flex;gap:12px}
+.socials a{width:38px;height:38px;border:1px solid #2c2c31;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--muted);letter-spacing:.5px}
+.socials a:hover{border-color:var(--red);color:var(--red)}
+.foot-bottom{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding:24px 0}
+.foot-bottom p{color:var(--muted2);font-size:13px}
+.foot-legal{display:flex;gap:24px}
+.foot-legal a{color:var(--muted2);font-size:13px}
+.foot-legal a:hover{color:#fff}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:1100px){
+  .partners-grid{grid-template-columns:repeat(3,1fr)}
+  .hero-card{position:static;margin-top:44px;width:100%;max-width:420px}
+  .hero{min-height:auto;padding:80px 0}
+}
+@media(max-width:900px){
+  .grid-2{grid-template-columns:1fr;gap:44px}
+  .bullets{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:repeat(2,1fr);gap:36px}
+  .earn-grid{grid-template-columns:repeat(2,1fr)}
+  .dash{grid-template-columns:1fr}
+  .dash-side{display:none}
+  .hamburger{display:flex}
+  .nav-links{position:absolute;top:100%;left:0;right:0;background:#0d0d0f;flex-direction:column;align-items:flex-start;padding:10px 32px 24px;gap:4px;display:none;border-bottom:1px solid var(--border)}
+  .nav-links.open{display:flex}
+  .nav-links>a{padding:12px 0;width:100%}
+  .dropdown{width:100%}
+  .dropdown-menu{position:static;box-shadow:none;margin-top:6px}
+  .nav-cta{margin-left:auto}
+  .net-stats{gap:24px}
+}
+@media(max-width:560px){
+  .wrap{padding:0 22px}
+  section{padding:64px 0}
+  .bullets,.earn-grid,.partners-grid{grid-template-columns:1fr}
+  .partners-grid{grid-template-columns:repeat(2,1fr)}
+  .nav-cta .btn-nav:first-child{display:none}
+  .dash-stats{grid-template-columns:1fr}
+  .dchart-tip{left:40%}
+}
+/* Real IKONIC wordmark; sized by the parent's font-size. 'screen' drops the artwork's black background. */
+.logo-img{display:block;height:1em;width:auto;mix-blend-mode:screen}
+</style>
+</head>
+<body>
+
+<!-- Shared site header: src/components/containers/Header (rendered by dist/chrome.js) -->
+<div data-site-header="publishing"></div>
+
+<!-- ============ HERO ============ -->
+<section class="hero" style="padding:0">
+  <div class="wrap hero-inner">
+    <div class="hero-copy">
+      <p class="kicker">Music Publishing</p>
+      <h1>Turn Songs Into <span class="red">Long-Term Income.</span></h1>
+      <p class="lead">Register your songs, collect publishing royalties worldwide, manage splits, and track earnings — all in one place.</p>
+      <div class="sec-actions">
+        <a href="#" class="btn btn-red btn-arrow">Get Started</a>
+        <a href="#" class="btn btn-outline"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-3px"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z" fill="currentColor" stroke="none"/></svg> Watch Demo</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <h4>Publishing Royalties</h4>
+      <div class="roy-row">
+        <div class="roy-top"><span>Performance</span><span class="amt">$4,232</span></div>
+        <div class="roy-bar"><i style="width:76%"></i></div>
+      </div>
+      <div class="roy-row">
+        <div class="roy-top"><span>Mechanical</span><span class="amt">$2,941</span></div>
+        <div class="roy-bar"><i style="width:53%"></i></div>
+      </div>
+      <div class="roy-row">
+        <div class="roy-top"><span>Sync</span><span class="amt">$1,203</span></div>
+        <div class="roy-bar"><i style="width:34%"></i></div>
+      </div>
+      <div class="roy-row" style="margin-bottom:0">
+        <div class="roy-top"><span>Global</span><span class="amt">8892</span></div>
+        <div class="roy-bar"><i style="width:20%"></i></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ICON BULLETS ============ -->
+<div class="wrap">
+  <div class="bullets">
+    <div class="bullet">
+      <svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+      <p>Collect Global Publishing Royalties</p>
+    </div>
+    <div class="bullet">
+      <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      <p>Easy Split Management</p>
+    </div>
+    <div class="bullet">
+      <svg viewBox="0 0 24 24"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+      <p>Track Performance in Real-Time</p>
+    </div>
+    <div class="bullet">
+      <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+      <p>You Keep 100% of Your Rights</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section>
+  <div class="wrap grid-2">
+    <div>
+      <p class="kicker">How It Works</p>
+      <h2>You Create.<br>We Help You Collect.</h2>
+      <p class="lead">We handle the registration and tracking, so you can focus on making music.</p>
+      <div class="sec-actions">
+        <a href="#" class="btn btn-red btn-arrow">Get Started</a>
+      </div>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h6"/></svg></div>
+        <h3>Register</h3>
+        <p>Add your songs and song details.</p>
+      </div>
+      <div class="step">
+        <div class="step-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+        <h3>We Submit</h3>
+        <p>We register with collecting societies worldwide.</p>
+      </div>
+      <div class="step">
+        <div class="step-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v12"/><path d="M15 9.5c-.8-1-2-1.5-3-1.5-1.7 0-3 .9-3 2.4 0 3.3 6 1.6 6 4.7 0 1.5-1.3 2.4-3 2.4-1 0-2.2-.5-3-1.5"/></svg></div>
+        <h3>You Collect</h3>
+        <p>Earn publishing royalties from radio, streaming, sync, and more.</p>
+      </div>
+      <div class="step">
+        <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg></div>
+        <h3>Track &amp; Grow</h3>
+        <p>See your earnings in real-time and keep 100% of your rights.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MULTIPLE WAYS TO EARN ============ -->
+<section style="background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+  <div class="wrap grid-2">
+    <div>
+      <p class="kicker">Multiple Ways to Earn</p>
+      <h2>Your Music Earns Everywhere.</h2>
+      <p class="lead">Collect publishing royalties from multiple income sources around the world.</p>
+    </div>
+    <div class="earn-grid">
+      <div class="earn-card">
+        <div class="earn-head">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><path d="M12 8V4M12 20v-4M8 12H4M20 12h-4"/></svg>
+          <h3>Streaming</h3>
+        </div>
+        <p>Royalties from plays on streaming platforms.</p>
+      </div>
+      <div class="earn-card">
+        <div class="earn-head">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="2"/><path d="M8.5 8.5a5 5 0 0 0 0 7M15.5 8.5a5 5 0 0 1 0 7M5.6 5.6a9 9 0 0 0 0 12.8M18.4 5.6a9 9 0 0 1 0 12.8"/></svg>
+          <h3>Radio &amp; TV</h3>
+        </div>
+        <p>Earnings from airplay on radio and television.</p>
+      </div>
+      <div class="earn-card">
+        <div class="earn-head">
+          <svg viewBox="0 0 24 24"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0"/><path d="M12 19v3"/></svg>
+          <h3>Live Performance</h3>
+        </div>
+        <p>Get paid when your music is performed live.</p>
+      </div>
+      <div class="earn-card">
+        <div class="earn-head">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="2"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg>
+          <h3>Mechanical</h3>
+        </div>
+        <p>Royalties from downloads and physical sales.</p>
+      </div>
+      <div class="earn-card">
+        <div class="earn-head">
+          <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M7 10l3 3 5-6"/></svg>
+          <h3>Sync Licensing</h3>
+        </div>
+        <p>Earnings from TV, films, ads, and games.</p>
+      </div>
+      <div class="earn-card">
+        <div class="earn-head">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <h3>International</h3>
+        </div>
+        <p>Collected worldwide through our global network of societies.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BUILT FOR TODAY'S ARTISTS / DASHBOARD ============ -->
+<section>
+  <div class="wrap grid-2">
+    <div>
+      <p class="kicker">Built for Today's Artists</p>
+      <h2>Manage Your Publishing in One Place.</h2>
+      <p class="lead">Track earnings, view data, manage splits, and see which songs are generating the most revenue — all from your Ikonic dashboard.</p>
+      <div class="sec-actions">
+        <a href="#" class="btn btn-red btn-arrow">Explore the Platform</a>
+      </div>
+    </div>
+    <div class="dash">
+      <div class="dash-side">
+        <div class="logo"><img class="logo-img" src="src/assets/images/logo.webp" alt="IKONIC"></div>
+        <nav class="dash-nav">
+          <a href="#"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Dashboard</a>
+          <a href="#"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V4H6.5A2.5 2.5 0 0 0 4 6.5z"/></svg>Catalog</a>
+          <a href="#" class="active"><svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>Publishing</a>
+          <a href="#"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v12M15 9.5c-.8-1-2-1.5-3-1.5-1.7 0-3 .9-3 2.4 0 3.3 6 1.6 6 4.7 0 1.5-1.3 2.4-3 2.4-1 0-2.2-.5-3-1.5"/></svg>Royalties</a>
+          <a href="#"><svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><path d="M9 6h9a3 3 0 0 1 3 3v3M15 18H6a3 3 0 0 1-3-3v-3"/></svg>Splits</a>
+          <a href="#"><svg viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>Analytics</a>
+          <a href="#"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Statements</a>
+          <a href="#"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>Settings</a>
+        </nav>
+      </div>
+      <div class="dash-main">
+        <div class="dash-top">
+          <h3>Publishing Overview</h3>
+          <span class="dash-select">Last 12 Months ▾</span>
+        </div>
+        <div class="dash-stats">
+          <div class="dstat">
+            <div class="lbl">Total Earnings</div>
+            <div class="val">$8,432</div>
+            <div class="chg">↑ 24%</div>
+          </div>
+          <div class="dstat">
+            <div class="lbl">Total Songs</div>
+            <div class="val">48</div>
+            <div class="chg">↑ 12%</div>
+          </div>
+          <div class="dstat top-perf">
+            <div class="art"></div>
+            <div>
+              <div class="lbl2">Top Performing</div>
+              <div class="song">Higher Ground</div>
+            </div>
+          </div>
+        </div>
+        <div class="dchart">
+          <div class="dchart-tip">$1,243<span>daily 2026</span></div>
+          <div class="dchart-bars">
+            <i style="height:34%"></i><i style="height:52%"></i><i style="height:40%"></i><i style="height:64%"></i><i style="height:46%"></i><i style="height:70%"></i><i style="height:55%"></i><i style="height:82%"></i><i style="height:95%"></i><i style="height:66%"></i><i style="height:74%"></i><i style="height:58%"></i><i style="height:86%"></i><i style="height:48%"></i><i style="height:62%"></i><i style="height:77%"></i><i style="height:44%"></i><i style="height:69%"></i><i style="height:52%"></i><i style="height:80%"></i><i style="height:60%"></i><i style="height:88%"></i><i style="height:56%"></i><i style="height:72%"></i>
+          </div>
+          <div class="dchart-months">
+            <span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span><span>Nov</span><span>Dec</span>
+          </div>
+        </div>
+        <div class="dtable">
+          <h4>Top Songs</h4>
+          <div class="drow">
+            <span class="num">1</span>
+            <div class="ti"><span class="cov" style="background:radial-gradient(circle at 30% 30%,#ff5a28,#7a1403)"></span><div><b>Higher Ground</b><small>2:59 • R&amp;B</small></div></div>
+            <span class="val2">$2,932</span>
+            <span class="pct">↑ 29%</span>
+          </div>
+          <div class="drow">
+            <span class="num">2</span>
+            <div class="ti"><span class="cov" style="background:radial-gradient(circle at 60% 40%,#a855f7,#3b0764)"></span><div><b>City Lights</b><small>3:21 • Pop</small></div></div>
+            <span class="val2">$1,645</span>
+            <span class="pct">↑ 21%</span>
+          </div>
+          <div class="drow">
+            <span class="num">3</span>
+            <div class="ti"><span class="cov" style="background:radial-gradient(circle at 40% 60%,#f59e0b,#78350f)"></span><div><b>No Limits</b><small>2:47 • Hip-Hop</small></div></div>
+            <span class="val2">$1,203</span>
+            <span class="pct">↑ 18%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GLOBAL PUBLISHING NETWORK ============ -->
+<section class="network">
+  <div class="wrap grid-2" style="grid-template-columns:1fr 1.2fr 1fr;align-items:center">
+    <div>
+      <p class="kicker">Global Publishing Network</p>
+      <h2>Connected Worldwide.</h2>
+      <p class="lead">We work with collecting societies in 170+ countries to make sure you get paid everywhere your music is played.</p>
+      <div class="sec-actions">
+        <a href="#" class="btn btn-outline btn-arrow">View All Territories</a>
+      </div>
+    </div>
+    <div class="globe-wrap"><div class="globe"></div></div>
+    <div class="net-stats">
+      <div class="net-stat">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <div><div class="n">170+</div><div class="l">Countries</div></div>
+      </div>
+      <div class="net-stat">
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <div><div class="n">100+</div><div class="l">Collecting Societies</div></div>
+      </div>
+      <div class="net-stat">
+        <svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+        <div><div class="n">Millions</div><div class="l">Revenue Opportunities</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ OUR GLOBAL PARTNERS ============ -->
+<section style="padding-top:80px">
+  <div class="wrap">
+    <p class="kicker">Our Global Partners</p>
+    <h2>Trusted. Connected. Worldwide.</h2>
+    <p class="lead" style="max-width:640px">We work with major collecting societies to ensure your publishing royalties are collected globally.</p>
+    <div class="partners-grid">
+      <div class="partner"><b>ASCAP</b><span>USA</span></div>
+      <div class="partner"><b>BMI</b><span>USA</span></div>
+      <div class="partner"><b>SESAC</b><span>USA</span></div>
+      <div class="partner"><b>PRS</b><span>UK</span></div>
+      <div class="partner"><b>GEMA</b><span>Germany</span></div>
+      <div class="partner"><b>SACEM</b><span>France</span></div>
+      <div class="partner"><b>SOCAN</b><span>Canada</span></div>
+      <div class="partner"><b>APRA AMCOS</b><span>Australia</span></div>
+      <div class="partner"><b>JASRAC</b><span>Japan</span></div>
+      <div class="partner more"><b>+ MORE</b><span>Worldwide</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section style="background:var(--bg2);border-top:1px solid var(--border)">
+  <div class="wrap grid-2" style="align-items:start">
+    <div>
+      <p class="kicker">Frequently Asked Questions</p>
+      <h2>Quick answers.</h2>
+      <p class="lead">Everything you need to know about publishing on Ikonic.</p>
+      <div class="sec-actions">
+        <a href="support.html" class="btn btn-outline btn-arrow">View All FAQs</a>
+      </div>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q">Do I keep 100% of my rights? <span class="plus">+</span></button>
+        <div class="faq-a"><p>Yes — you keep full ownership of your songs; Ikonic only collects the publishing royalties on your behalf.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What songs can I register? <span class="plus">+</span></button>
+        <div class="faq-a"><p>Any original songs you wrote or co-wrote and hold the publishing rights to, including released and unreleased works.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How and when do I get paid? <span class="plus">+</span></button>
+        <div class="faq-a"><p>Royalties are collected from societies worldwide and added to your Ikonic balance, which you can withdraw once it reaches the payout threshold.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Which countries are included? <span class="plus">+</span></button>
+        <div class="faq-a"><p>Our network covers 170+ countries through collecting societies worldwide, so you are covered almost everywhere your music is played.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA BANNER ============ -->
+<section class="cta-banner">
+  <div class="wrap cta-inner">
+    <p class="kicker">Your Songs. A Bigger Future.</p>
+    <h2>Build Long-Term Income With Your Music.</h2>
+    <p class="lead">Join thousands of independent artists collecting publishing royalties and owning more of their music.</p>
+    <div class="sec-actions">
+      <a href="#" class="btn btn-red btn-arrow">Get Started</a>
+      <a href="pricing.html" class="btn btn-outline">View Pricing</a>
+    </div>
+  </div>
+</section>
+
+<!-- Shared site footer: src/components/containers/Footer (rendered by dist/chrome.js) -->
+<div data-site-footer></div>
+
+<script src="dist/chrome.js"></script>
+<script>
+// FAQ accordion
+document.querySelectorAll('.faq-item').forEach(function(item){
+  var btn = item.querySelector('.faq-q');
+  var body = item.querySelector('.faq-a');
+  btn.addEventListener('click', function(){
+    var isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(function(other){
+      other.classList.remove('open');
+      other.querySelector('.faq-a').style.maxHeight = null;
+    });
+    if(!isOpen){
+      item.classList.add('open');
+      body.style.maxHeight = body.scrollHeight + 'px';
+    }
+  });
+});
+</script>
+</body>
+</html>

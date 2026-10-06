@@ -1,0 +1,4 @@
+.titled-point { display: flex; gap: 14px; align-items: flex-start; }
+.titled-point__icon { color: var(--color-red); }
+.titled-point__title { font-size: 15px; font-weight: 700; margin-bottom: 3px; }
+.titled-point__text { font-size: var(--fs-sm); color: var(--color-text-muted); }

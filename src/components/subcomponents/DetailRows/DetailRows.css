@@ -1,0 +1,10 @@
+.detail-rows__row {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 0;
+  border-top: 1px solid #1f1f1f;
+  font-size: 14px;
+}
+.detail-rows__row dt { color: var(--color-text-muted); }
+.detail-rows__row dd { font-weight: 600; text-align: right; }

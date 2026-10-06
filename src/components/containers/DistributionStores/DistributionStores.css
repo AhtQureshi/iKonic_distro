@@ -1,0 +1,17 @@
+.distribution-stores {
+  margin-top: 64px;
+  padding: 52px 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.008);
+}
+.distribution-stores__list .store-list__label { margin-bottom: 28px; text-align: center; font-size: 12px; font-weight: 800; letter-spacing: 0.3em; }
+.distribution-stores__list .store-list__row { gap: 18px 26px; }
+.distribution-stores__list .store-mark { font-size: 18px; font-weight: 800; color: #b9b9bd; }
+.distribution-stores__list .store-mark:hover { color: #fff; }
+.distribution-stores__list .store-list__more { font-weight: 800; letter-spacing: 0.18em; }
+
+@media (max-width: 720px) {
+  .distribution-stores { margin-top: 40px; padding: 40px 0; }
+  .distribution-stores__list .store-mark { font-size: 16px; }
+}

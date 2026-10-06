@@ -1,0 +1,97 @@
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: min(860px, 100vh);
+  padding-top: var(--header-h);
+  overflow: hidden;
+  isolation: isolate;
+  background: radial-gradient(60% 70% at 80% 40%, rgba(239, 58, 16, 0.18), transparent 70%), var(--color-bg);
+}
+
+/* Photo fills the right side and fades into the page on the left and bottom */
+.hero__media {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 62%;
+  z-index: -1;
+}
+.hero__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 47% 30%;
+  -webkit-mask-image: linear-gradient(90deg, transparent 8%, #000 42%), linear-gradient(0deg, transparent 0%, #000 28%);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(90deg, transparent 8%, #000 42%), linear-gradient(0deg, transparent 0%, #000 28%);
+  mask-composite: intersect;
+}
+
+/* Red stage glow over the photo, like the mockup */
+.hero__media::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(45% 55% at 62% 30%, rgba(255, 60, 20, 0.28), transparent 70%),
+    radial-gradient(40% 60% at 95% 70%, rgba(239, 58, 16, 0.3), transparent 70%);
+  mix-blend-mode: screen;
+  animation: hero-glow 6s ease-in-out infinite alternate;
+}
+.hero__photo { animation: hero-drift 24s ease-in-out infinite alternate; transform-origin: 55% 35%; }
+
+@keyframes hero-glow { from { opacity: 0.65; } to { opacity: 1; } }
+@keyframes hero-drift { from { transform: scale(1); } to { transform: scale(1.07); } }
+
+.hero__floats { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
+.hero__float { position: absolute; pointer-events: auto; animation: hero-float 7s ease-in-out infinite; }
+.hero__float--release { top: 17%; left: 12%; }
+.hero__float--advance { top: 35%; left: 20%; animation-delay: -2s; }
+.hero__float--streams { top: 52%; left: 9%; animation-delay: -4s; min-width: 240px; }
+.hero__float--earnings { top: 50%; right: 5%; animation-delay: -1s; min-width: 230px; }
+
+@keyframes hero-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+
+.hero__inner { flex: 1; display: flex; align-items: center; padding-top: 48px; padding-bottom: 48px; }
+.hero__copy { display: flex; flex-direction: column; gap: 22px; max-width: 540px; }
+.hero__copy .heading { text-shadow: 0 2px 30px rgba(0, 0, 0, 0.5); }
+.hero__text { max-width: 440px; color: rgba(255, 255, 255, 0.86); }
+.hero__actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 8px; }
+
+.hero__stores { padding-bottom: 36px; }
+
+@media (max-width: 1180px) {
+  .hero__float--advance { left: 26%; }
+  .hero__float--streams { left: 14%; }
+}
+
+/* Tablet / mobile: stack copy, then the photo as its own block */
+@media (max-width: 1024px) {
+  .hero { min-height: 0; }
+  .hero__inner { order: 1; padding-top: 56px; padding-bottom: 32px; }
+  .hero__media { position: relative; order: 2; width: 100%; height: 520px; }
+  .hero__photo {
+    object-position: 48% 25%;
+    -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 18%, #000 75%, transparent 100%);
+    mask-image: linear-gradient(180deg, transparent 0%, #000 18%, #000 75%, transparent 100%);
+  }
+  .hero__float--release { top: 8%; left: var(--gutter); }
+  .hero__float--advance { top: 30%; left: auto; right: var(--gutter); }
+  .hero__float--streams { top: auto; bottom: 22%; left: var(--gutter); }
+  .hero__float--earnings { top: auto; bottom: 6%; right: var(--gutter); }
+  .hero__stores { order: 3; padding-top: 8px; }
+}
+
+@media (max-width: 600px) {
+  .hero__media { height: 460px; }
+  .hero__float { transform-origin: left top; }
+  .hero__float--streams,
+  .hero__float--earnings { min-width: 0; }
+  .hero__float--streams { bottom: 26%; }
+  .hero__float--earnings { bottom: 4%; }
+  .hero__actions .btn { flex: 1; }
+}

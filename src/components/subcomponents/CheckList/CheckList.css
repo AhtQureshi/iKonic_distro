@@ -1,0 +1,2 @@
+.check-list li { display: flex; align-items: center; gap: 12px; padding: 6px 0; font-size: 15px; color: #e6e6e9; line-height: 1.5; }
+.check-list__icon { color: var(--color-red); }

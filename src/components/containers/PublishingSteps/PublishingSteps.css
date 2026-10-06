@@ -1,0 +1,30 @@
+.publishing-steps { position: relative; padding: 96px 0; }
+.publishing-steps__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+
+.publishing-steps .section-intro .eyebrow { font-size: 12px; letter-spacing: 3.5px; }
+.publishing-steps .section-intro .heading { font-size: clamp(36px, 4vw, 56px); }
+.publishing-steps .section-intro .section-heading .text { margin-top: 18px; font-size: 17px; max-width: 520px; }
+
+.publishing-steps__list { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
+
+/* JourneyStep, centred with a larger glowing ring */
+.publishing-steps__step { align-items: center; gap: 20px; padding: 0 6px; text-align: center; }
+.publishing-steps__step .journey-step__icon {
+  width: 86px;
+  height: 86px;
+  background: rgba(239, 58, 16, 0.06);
+  border-color: rgba(239, 58, 16, 0.55);
+  box-shadow: 0 0 26px rgba(239, 58, 16, 0.18);
+}
+.publishing-steps__step .journey-step__icon .icon { width: 34px; height: 34px; }
+.publishing-steps__step .journey-step__title { font-size: 18px; line-height: 1.6; }
+.publishing-steps__step .journey-step__text { max-width: 220px; margin: 10px auto 0; font-size: 14px; line-height: 1.6; color: var(--color-text-muted); }
+
+@media (max-width: 900px) {
+  .publishing-steps__grid { grid-template-columns: 1fr; gap: 44px; }
+  .publishing-steps__list { grid-template-columns: repeat(2, 1fr); gap: 36px; }
+}
+
+@media (max-width: 560px) {
+  .publishing-steps { padding: 64px 0; }
+}

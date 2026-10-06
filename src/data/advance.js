@@ -4,6 +4,8 @@ export const hero = {
   eyebrow: 'Ikonic Advance',
   title: 'Turn Your<br>Royalties Into<br><span class="text-red">Momentum.</span>',
   text: 'Get funding based on your music earnings, not your credit. Keep 100% of your rights and continue to grow your career.',
+  // Decorative full-bleed background (public/assets/images/), 1983×793.
+  image: { file: 'advance-hero.webp', width: 1983, height: 793 },
   actions: [
     { label: 'Apply Now', href: '#', variant: 'primary', iconRight: 'arrow-right' },
     { label: 'See How It Works', href: '#process', variant: 'outline', iconLeft: 'play-circle' },

@@ -11,7 +11,19 @@ npm run build      # production build
 npm start          # serve the production build
 ```
 
-Pages: `/`, `/distribution`, `/publishing`, `/advance`, `/pricing`, `/labels`.
+Pages: `/`, `/distribution`, `/publishing`, `/advance`, `/pricing`, `/labels`, `/contact`.
+
+## Contact form email
+
+The contact form posts to `/api/contact` (`src/app/api/contact/route.js`), which emails the message
+through [Resend](https://resend.com). Set these environment variables (Vercel → Settings → Environment Variables):
+
+- `RESEND_API_KEY` — API key from resend.com
+- `CONTACT_TO_EMAIL` — inbox that receives messages (comma-separate several)
+- `CONTACT_FROM_EMAIL` — a sender on a domain verified in Resend, e.g. `IKONIC Website <website@your-domain.com>`
+
+Without them, `npm run dev` just logs each message to the terminal, and production shows the form's error message
+(with the contact email) instead of pretending the message was sent. The addresses shown on the page live in `src/data/contact.js`.
 
 ## Animations
 
@@ -33,7 +45,8 @@ scripts/build-icons.mjs    Builds the Icon atom's registry from its .svg files (
 src/
   app/                     Routes. layout.jsx (fonts, metadata, global CSS) + one page.jsx per page
     page.jsx               Home
-    distribution/, publishing/, advance/, pricing/, labels/
+    distribution/, publishing/, advance/, pricing/, labels/, contact/
+    api/contact/route.js   Contact form endpoint (emails via Resend)
   styles/
     tokens.css             Colours, type scale, radii, spacing. Change the brand here.
     base.css, layout.css   Reset + .container / .section
@@ -46,7 +59,7 @@ src/
     containers/            Full page sections: Header, Hero, Ticker, PlatformShowcase, … Footer
   data/
     site.js                Navigation, footer, socials, stores, plan prices (shared by every page)
-    home.js, distribution.js, publishing.js, advance.js, pricing.js, labels.js   Copy for each page
+    home.js, distribution.js, publishing.js, advance.js, pricing.js, labels.js, contact.js   Copy for each page
   utils/                   cx / rich helpers, asset paths, map projection, motion
 docs/legacy/               The original hand-written pages, kept for reference only
 ```
@@ -60,7 +73,7 @@ Every level has an `index.js` that exports everything in it.
 2. **Content goes in `src/data/`.** Change copy, prices or stats there, not in the components. Titles may contain markup
    (`'Own More <span class="text-red">Of Your Music.</span>'`); components render those with `rich()` from `src/utils/cx.js`.
 3. **Server by default.** Components are React Server Components. Only components with state or event handlers start with
-   `'use client'` (Header, NavMenu, Accordion, BillingToggle, PlanCard, LatestReleases, AdvanceEstimator).
+   `'use client'` (Header, NavMenu, Accordion, BillingToggle, PlanCard, LatestReleases, AdvanceEstimator, ContactForm).
 4. **Icons:** drop a new `name.svg` into `src/components/atoms/Icon/svgs/`, run `npm run icons` (or restart `npm run dev`), then use `<Icon name="name" />`.
 5. **New component:** create `Folder/Folder.jsx` + `Folder/Folder.css`, export it from that level's `index.js`, and add the CSS to `src/styles/index.css`.
 6. **Internal links** use `/route` hrefs (e.g. `/pricing`); the `Anchor` atom turns them into Next.js client-side links.

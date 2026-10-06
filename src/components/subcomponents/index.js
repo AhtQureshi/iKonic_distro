@@ -4,6 +4,7 @@ export { AccordionItem } from './AccordionItem/AccordionItem.jsx';
 export { BillingToggle } from './BillingToggle/BillingToggle.jsx';
 export { BillingProvider, useBilling } from './BillingToggle/BillingContext.jsx';
 export { CheckList } from './CheckList/CheckList.jsx';
+export { ContactForm } from './ContactForm/ContactForm.jsx';
 export { CountryList } from './CountryList/CountryList.jsx';
 export { DashboardMockup } from './DashboardMockup/DashboardMockup.jsx';
 export { DetailRows } from './DetailRows/DetailRows.jsx';

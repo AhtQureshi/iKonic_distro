@@ -4,8 +4,9 @@ import { Heading, Icon, IconButton, Text } from '../../atoms/index.js';
 /**
  * Product feature tile with a glowing icon artwork in the corner.
  * variant: 'glow' (default) | 'plain' (no corner artwork or red glow, compact height)
+ * linkLabel: accessible name for the arrow link (defaults to "Learn more about <title>")
  */
-export function FeatureCard({ icon, title, text, href = '#', art, variant = 'glow', className = '' }) {
+export function FeatureCard({ icon, title, text, href = '#', art, variant = 'glow', linkLabel, className = '' }) {
   const plain = variant === 'plain';
   // The aria-label is plain text, so decode the &amp; entity some titles carry.
   const plainTitle = String(title ?? '').replace(/&amp;/g, '&');
@@ -15,7 +16,7 @@ export function FeatureCard({ icon, title, text, href = '#', art, variant = 'glo
       <span className="feature-card__icon"><Icon name={icon} size={34} /></span>
       <Heading text={title} level={3} size="h3" className="feature-card__title" />
       <Text text={text} size="sm" />
-      <IconButton icon="arrow-right" label={`Learn more about ${plainTitle}`} href={href} className="feature-card__go" />
+      <IconButton icon="arrow-right" label={linkLabel || `Learn more about ${plainTitle}`} href={href} className="feature-card__go" />
     </article>
   );
 }

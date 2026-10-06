@@ -17,4 +17,5 @@ export { PlayButton } from './PlayButton/PlayButton.jsx';
 export { RangeSlider } from './RangeSlider/RangeSlider.jsx';
 export { Sparkline } from './Sparkline/Sparkline.jsx';
 export { Text } from './Text/Text.jsx';
+export { TextField } from './TextField/TextField.jsx';
 export { Trend } from './Trend/Trend.jsx';

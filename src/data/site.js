@@ -9,6 +9,7 @@ export const navigation = [
   { id: 'advance', label: 'Advance', href: '/advance' },
   { id: 'pricing', label: 'Pricing', href: '/pricing' },
   { id: 'labels', label: 'For Labels', href: '/labels' },
+  { id: 'contact', label: 'Contact', href: '/contact' },
 ];
 
 export const headerActions = [
@@ -24,6 +25,7 @@ export const footer = {
     { label: 'Advance', href: '/advance' },
     { label: 'Pricing', href: '/pricing' },
     { label: 'For Labels', href: '/labels' },
+    { label: 'Contact', href: '/contact' },
   ],
   legal: [
     { label: 'Privacy', href: '#' },

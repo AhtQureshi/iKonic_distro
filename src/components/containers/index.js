@@ -6,6 +6,8 @@ export { AdvanceHero } from './AdvanceHero/AdvanceHero.jsx';
 export { AdvanceProcess } from './AdvanceProcess/AdvanceProcess.jsx';
 export { AdvanceTracking } from './AdvanceTracking/AdvanceTracking.jsx';
 export { AdvanceUses } from './AdvanceUses/AdvanceUses.jsx';
+export { ContactChannels } from './ContactChannels/ContactChannels.jsx';
+export { ContactHero } from './ContactHero/ContactHero.jsx';
 export { CtaBanner } from './CtaBanner/CtaBanner.jsx';
 export { DistributionAudience } from './DistributionAudience/DistributionAudience.jsx';
 export { DistributionCta } from './DistributionCta/DistributionCta.jsx';

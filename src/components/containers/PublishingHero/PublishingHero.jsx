@@ -1,11 +1,18 @@
+import { image } from '../../../utils/assets.js';
 import { hero } from '../../../data/publishing.js';
-import { Button, Eyebrow, Heading, Text } from '../../atoms/index.js';
+import { Button, Eyebrow, Heading, Img, Text } from '../../atoms/index.js';
 import { RoyaltyBreakdown } from '../../subcomponents/index.js';
 
-/** Publishing hero: headline + CTAs over a red glow, with the royalty breakdown card on the right. */
+/** Publishing hero over a full-bleed banner: headline + CTAs, with the royalty breakdown card on the right. */
 export function PublishingHero({ content = hero }) {
   return (
     <section className="publishing-hero" aria-labelledby="publishing-hero-title">
+      {content.image && (
+        <div className="publishing-hero__media" aria-hidden="true">
+          {/* Not `eager`: React would add a preload hint that other pages pick up when they prefetch /publishing. */}
+          <Img src={image(content.image.file)} width={content.image.width} height={content.image.height} className="publishing-hero__bg" />
+        </div>
+      )}
       <div className="container publishing-hero__inner">
         <div className="publishing-hero__copy" data-reveal-stagger="up" data-reveal-step="120">
           <Eyebrow text={content.eyebrow} />

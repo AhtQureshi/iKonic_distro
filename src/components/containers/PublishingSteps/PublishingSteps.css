@@ -20,6 +20,30 @@
 .publishing-steps__step .journey-step__title { font-size: 18px; line-height: 1.6; }
 .publishing-steps__step .journey-step__text { max-width: 220px; margin: 10px auto 0; font-size: 14px; line-height: 1.6; color: var(--color-text-muted); }
 
+/* Thin red arrow from each circle to the next (single row only) */
+@media (min-width: 901px) {
+  .publishing-steps__step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 43px;
+    left: calc(50% + 55px);
+    right: calc(-50% + 27px);
+    height: 1px;
+    background: linear-gradient(90deg, rgba(239, 58, 16, 0.2), rgba(239, 58, 16, 0.75));
+  }
+  .publishing-steps__step:not(:last-child)::before {
+    content: '';
+    position: absolute;
+    top: 40px;
+    right: calc(-50% + 27px);
+    width: 7px;
+    height: 7px;
+    border-top: 1px solid rgba(239, 58, 16, 0.85);
+    border-right: 1px solid rgba(239, 58, 16, 0.85);
+    rotate: 45deg;
+  }
+}
+
 @media (max-width: 900px) {
   .publishing-steps__grid { grid-template-columns: 1fr; gap: 44px; }
   .publishing-steps__list { grid-template-columns: repeat(2, 1fr); gap: 36px; }

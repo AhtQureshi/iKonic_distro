@@ -3,6 +3,8 @@
 export const hero = {
   eyebrow: 'Music Publishing',
   title: 'Turn Songs Into <span class="text-red">Long-Term Income.</span>',
+  // Decorative full-bleed background (public/assets/images/), 1983×793. Also used, zoomed, behind the closing CTA.
+  image: { file: 'publishing-hero.webp', width: 1983, height: 793 },
   text: 'Register your songs, collect publishing royalties worldwide, manage splits, and track earnings — all in one place.',
   actions: [
     { label: 'Get Started', href: '#', variant: 'primary', size: 'lg', iconRight: 'arrow-right' },
@@ -93,6 +95,8 @@ export const dashboard = {
 export const network = {
   eyebrow: 'Global Publishing Network',
   title: 'Connected Worldwide.',
+  // Square crop of the globe from the hero banner (public/assets/images/).
+  globe: { file: 'publishing-globe.webp', width: 540, height: 540 },
   text: 'We work with collecting societies in 170+ countries to make sure you get paid everywhere your music is played.',
   action: { label: 'View All Territories', href: '#', variant: 'outline', size: 'lg', iconRight: 'arrow-right' },
   stats: [
@@ -135,6 +139,7 @@ export const faq = {
 export const cta = {
   eyebrow: 'Your Songs. A Bigger Future.',
   title: 'Build Long-Term Income With Your Music.',
+  image: { file: 'publishing-hero.webp', width: 1983, height: 793 },
   text: 'Join thousands of independent artists collecting publishing royalties and owning more of their music.',
   actions: [
     { label: 'Get Started', href: '#', variant: 'primary', size: 'lg', iconRight: 'arrow-right' },

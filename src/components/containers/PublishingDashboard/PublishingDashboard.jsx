@@ -7,7 +7,8 @@ export function PublishingDashboard({ content = dashboard }) {
     <section className="publishing-dashboard">
       <div className="container publishing-dashboard__grid">
         <SectionIntro eyebrow={content.eyebrow} title={content.title} text={content.text} action={content.action} />
-        <div data-reveal="right" data-reveal-delay="150"><RoyaltyDashboard {...content.mockup} /></div>
+        {/* Dashboard shown on a tablet-style device frame */}
+        <div className="publishing-dashboard__device" data-reveal="right" data-reveal-delay="150"><RoyaltyDashboard {...content.mockup} /></div>
       </div>
     </section>
   );

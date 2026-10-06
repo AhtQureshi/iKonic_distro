@@ -5,7 +5,16 @@
 .publishing-partners .section-intro .heading { font-size: clamp(36px, 4vw, 56px); }
 .publishing-partners .section-intro .section-heading .text { margin-top: 18px; font-size: 17px; max-width: 640px; }
 
-.publishing-partners__grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin-top: 44px; }
+.publishing-partners__grid { display: grid; grid-template-columns: repeat(10, 1fr); gap: 12px; margin-top: 40px; }
+.publishing-partners__grid .society-tile { padding: 20px 6px; }
+.publishing-partners__grid .society-tile__name { font-size: 14px; letter-spacing: 0.5px; }
+.publishing-partners__grid .society-tile__region { font-size: 11px; }
+
+@media (max-width: 1240px) {
+  .publishing-partners__grid { grid-template-columns: repeat(5, 1fr); gap: 14px; }
+  .publishing-partners__grid .society-tile { padding: 24px 12px; }
+  .publishing-partners__grid .society-tile__name { font-size: 16px; }
+}
 
 @media (max-width: 1100px) {
   .publishing-partners__grid { grid-template-columns: repeat(3, 1fr); }

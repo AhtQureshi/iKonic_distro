@@ -4,13 +4,31 @@
   overflow: hidden;
   background: radial-gradient(ellipse 600px 480px at 50% 55%, rgba(239, 58, 16, 0.14), transparent 65%), var(--color-bg-raised);
 }
-.publishing-network__grid { display: grid; grid-template-columns: 1fr 1.2fr 1fr; gap: 60px; align-items: center; }
+.publishing-network__grid { display: grid; grid-template-columns: 1fr 1.2fr 1fr; gap: 40px; align-items: center; }
 
 .publishing-network .section-intro .eyebrow { font-size: 12px; letter-spacing: 3.5px; }
 .publishing-network .section-intro .heading { font-size: clamp(36px, 4vw, 56px); }
 .publishing-network .section-intro .section-heading .text { margin-top: 18px; font-size: 17px; max-width: 520px; }
 
-.publishing-network__globe-wrap { display: flex; justify-content: center; }
+.publishing-network__globe-wrap { position: relative; display: flex; justify-content: center; }
+/* Glowing globe artwork, faded out at its edges so it melts into the section */
+.publishing-network__globe-wrap::before {
+  content: '';
+  position: absolute;
+  inset: 8%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(239, 58, 16, 0.35), transparent 70%);
+  filter: blur(30px);
+}
+.publishing-network__globe-img {
+  position: relative;
+  width: 420px;
+  max-width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  -webkit-mask-image: radial-gradient(circle at 50% 48%, #000 52%, transparent 70%);
+  mask-image: radial-gradient(circle at 50% 48%, #000 52%, transparent 70%);
+}
 .publishing-network__globe {
   position: relative;
   display: block;

@@ -118,7 +118,6 @@ export const faq = {
   eyebrow: 'Frequently Asked Questions',
   title: 'Quick answers.',
   text: 'Everything you need to know about Ikonic Advance.',
-  action: { label: 'View All FAQs', href: '#', variant: 'outline', iconRight: 'arrow-right' },
   items: [
     { q: 'Do I need a credit check?', a: 'No — your offer is based on your catalog’s earnings and performance, not your credit score.' },
     { q: 'How much can I get?', a: 'Advance amounts are based on your monthly royalties and catalog history — use the estimator above to see what you could get funded.' },

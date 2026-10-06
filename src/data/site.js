@@ -9,15 +9,6 @@ export const navigation = [
   { id: 'advance', label: 'Advance', href: '/advance' },
   { id: 'pricing', label: 'Pricing', href: '/pricing' },
   { id: 'labels', label: 'For Labels', href: '/labels' },
-  {
-    id: 'resources',
-    label: 'Resources',
-    children: [
-      { label: 'Help Center', href: '/support', description: 'Guides and answers' },
-      { label: 'Blog', href: '#', description: 'News and artist stories' },
-      { label: 'Contact', href: '/support#contact', description: 'Talk to our team' },
-    ],
-  },
 ];
 
 export const headerActions = [
@@ -33,12 +24,10 @@ export const footer = {
     { label: 'Advance', href: '/advance' },
     { label: 'Pricing', href: '/pricing' },
     { label: 'For Labels', href: '/labels' },
-    { label: 'Resources', href: '/support' },
   ],
   legal: [
     { label: 'Privacy', href: '#' },
     { label: 'Terms', href: '#' },
-    { label: 'Contact', href: '/support#contact' },
   ],
   copyright: `© ${new Date().getFullYear()} IKONIC. All rights reserved.`,
 };

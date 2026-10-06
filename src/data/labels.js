@@ -122,7 +122,6 @@ export const labelsFaq = {
   eyebrow: 'Frequently Asked Questions',
   title: 'Quick answers.',
   text: 'Everything you need to know about labels and team management on Ikonic.',
-  action: { label: 'View All FAQs', href: '/support', variant: 'outline', size: 'lg', iconRight: 'arrow-right' },
   items: [
     { question: 'How many artists can I add to my label account?', answer: 'You can create and manage unlimited artist accounts under your label.' },
     { question: 'Can I assign different permissions to my team?', answer: 'Yes, you can assign custom roles and permissions so each team member only accesses what they need.' },

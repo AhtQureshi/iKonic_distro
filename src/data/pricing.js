@@ -87,7 +87,7 @@ export const audience = [
     title: 'Distributor Access<br>Upon Request.',
     text: 'Custom distribution solutions for larger operations, partners, and enterprises.',
     items: ['Custom terms', 'White-label options', 'Dedicated infrastructure', 'Personalized support'],
-    action: { label: 'Request Access', href: '/support#contact' },
+    action: { label: 'Request Access', href: '#' },
   },
 ];
 
@@ -107,7 +107,6 @@ export const faq = {
   eyebrow: 'Frequently asked questions',
   title: 'Quick answers.',
   text: 'Everything you need to know about our pricing.',
-  action: { label: 'View All FAQs', href: '/support' },
   items: [
     { q: 'Can I upgrade or downgrade my plan?', a: 'Yes — you can switch plans at any time from your dashboard, and the change takes effect immediately.' },
     { q: 'Are there any setup fees?', a: 'No — there are no setup fees, ever. You only pay the plan price you see.' },

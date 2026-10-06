@@ -9,7 +9,7 @@ export function AdvanceFaq({ content = faq }) {
       <div className="container advance-faq__grid">
         <div className="advance-faq__copy">
           <SectionHeading eyebrow={content.eyebrow} title={content.title} text={content.text} />
-          <div data-reveal="up" data-reveal-delay="300"><Button {...content.action} /></div>
+          {content.action && <div data-reveal="up" data-reveal-delay="300"><Button {...content.action} /></div>}
         </div>
         <Accordion
           items={content.items.map((item) => ({ question: item.q, answer: item.a }))}

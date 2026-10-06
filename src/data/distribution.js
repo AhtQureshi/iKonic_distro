@@ -132,7 +132,6 @@ export const faq = {
   eyebrow: 'Frequently Asked Questions',
   title: 'Quick <span class="text-red">answers.</span>',
   text: 'Everything you need to know about distribution on Ikonic.',
-  action: { label: 'View All FAQs', href: '/support', variant: 'outline', size: 'md', iconRight: 'arrow-right' },
   items: [
     { question: 'How long does it take to get my music live?', answer: 'Most releases go live within 1–7 days, depending on the store’s review times.' },
     { question: 'Which platforms will my music go to?', answer: 'Your music is delivered to 250+ streaming platforms and stores worldwide, including Spotify, Apple Music, YouTube, TikTok, Amazon Music, TIDAL, Deezer, and Pandora.' },

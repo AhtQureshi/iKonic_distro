@@ -9,7 +9,7 @@ export function DistributionFaq({ content = faq }) {
       <div className="container distribution-faq__grid">
         <div>
           <SectionHeading eyebrow={content.eyebrow} title={content.title} text={content.text} />
-          <div className="distribution-faq__action" data-reveal="up" data-reveal-delay="300"><Button {...content.action} /></div>
+          {content.action && <div className="distribution-faq__action" data-reveal="up" data-reveal-delay="300"><Button {...content.action} /></div>}
         </div>
         <Accordion
           items={content.items.map((item) => ({ question: item.question, answer: item.answer }))}

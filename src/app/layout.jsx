@@ -23,7 +23,13 @@ const caveat = Caveat({
 export const metadata = {
   title: 'IKONIC — Own More Of Your Music.',
   description: 'Distribution, publishing and funding for independent artists. Get your music on 250+ stores in 170+ countries and keep 100% of your rights.',
-  icons: { icon: { url: '/assets/svgs/brand/favicon.svg', type: 'image/svg+xml' } },
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: '48x48' },
+      { url: '/assets/svgs/brand/favicon.svg', type: 'image/svg+xml' },
+    ],
+    apple: '/apple-touch-icon.png',
+  },
 };
 
 // Back / forward: let the browser restore the previous scroll position instantly instead of

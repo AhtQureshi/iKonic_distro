@@ -4,6 +4,8 @@ import { planPrices } from './site.js';
 export const hero = {
   eyebrow: 'Pricing',
   title: 'Simple Plans.<br><span class="text-red">Bigger Opportunities.</span>',
+  // Decorative full-bleed background (public/assets/images/), 1983×793.
+  image: { file: 'pricing-hero.webp', width: 1983, height: 793 },
   text: 'Choose the plan that fits your goals. Distribute, publish, get funded, and manage your entire music business — all in one platform.',
   billing: {
     label: 'Billing period',
@@ -93,7 +95,7 @@ export const audience = [
 
 export const included = {
   eyebrow: 'Included with every plan',
-  title: 'More Value. <span class="text-red">No Hidden Fees.</span>',
+  title: 'More Value. No Hidden Fees.',
   note: 'Transparent pricing. No setup fees. No surprises. Just everything you need to grow.',
   items: [
     { icon: 'bolt-outline', title: '100% Ownership', text: 'You keep your rights.' },
@@ -116,7 +118,7 @@ export const faq = {
 };
 
 export const cta = {
-  variant: 'boxed',
+  variant: 'split',
   eyebrow: 'Your next chapter starts here',
   title: 'Own More. <span class="text-red">Build Bigger.</span>',
   text: 'Join thousands of independent artists using Ikonic to take control of their music business.',

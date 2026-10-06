@@ -53,6 +53,19 @@
   .cta-banner__actions .btn { flex: 1; }
 }
 
+/* variant: 'split' — crowd band, copy left and buttons right */
+.cta-banner--split { padding: 96px 0; }
+.cta-banner--split .cta-banner__crowd { height: 92%; }
+.cta-banner--split .cta-banner__inner { align-items: center; }
+.cta-banner--split .cta-banner__copy .heading { font-size: clamp(36px, 4.6vw, 58px); letter-spacing: -0.01em; line-height: 1.05; }
+.cta-banner--split .cta-banner__copy .text { font-size: 16px; }
+.cta-banner--split .cta-banner__actions .btn { min-width: 170px; }
+@media (max-width: 600px) {
+  .cta-banner--split { padding: 72px 0; }
+  .cta-banner--split .cta-banner__actions { width: 100%; }
+  .cta-banner--split .cta-banner__actions .btn { min-width: 0; }
+}
+
 /* variant: 'boxed' — rounded glowing card */
 .cta-banner-boxed { position: relative; padding: 24px 0 64px; }
 .cta-banner-boxed__card {

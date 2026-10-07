@@ -30,6 +30,73 @@
 .motion [data-reveal] .mini-bars i { scale: 1 0; transform-origin: bottom; transition: scale 0.7s var(--ease) calc(var(--reveal-delay, 0ms) + 300ms + var(--i, 0) * 70ms); }
 .motion [data-reveal][data-visible] .mini-bars i { scale: 1 1; }
 
+/*
+ * Page intro: the first section of each page animates in as soon as its HTML arrives, with CSS alone
+ * (@starting-style), instead of waiting for setupMotion(), which left the hero blank until the page's
+ * JavaScript loaded. Transitions, not animations, so components' own animations (e.g. the floating hero cards) keep running.
+ * Delays come from the same data-reveal-delay / data-reveal-step attributes; add a line below when using a new value.
+ */
+@property --intro-own { syntax: '<time>'; inherits: false; initial-value: 0ms; }
+
+.motion main > :first-child :is([data-reveal], [data-reveal-stagger] > *) {
+  opacity: 1;
+  translate: none;
+  scale: none;
+  transition: opacity 0.8s var(--ease), translate 0.9s var(--ease), scale 0.9s var(--ease);
+  transition-delay: var(--intro-own);
+}
+.motion main > :first-child [data-reveal-stagger] > * {
+  transition-delay: calc(var(--intro-base, 0ms) + var(--intro-i, 0) * var(--intro-step, 90ms));
+}
+@starting-style {
+  .motion main > :first-child :is([data-reveal], [data-reveal-stagger] > *) { opacity: 0; }
+  .motion main > :first-child :is([data-reveal='up'], [data-reveal-stagger='up'] > *) { translate: 0 32px; }
+  .motion main > :first-child :is([data-reveal='down'], [data-reveal-stagger='down'] > *) { translate: 0 -24px; }
+  .motion main > :first-child :is([data-reveal='left'], [data-reveal-stagger='left'] > *) { translate: -48px 0; }
+  .motion main > :first-child :is([data-reveal='right'], [data-reveal-stagger='right'] > *) { translate: 48px 0; }
+  .motion main > :first-child :is([data-reveal='zoom'], [data-reveal-stagger='zoom'] > *) { scale: 0.9; }
+}
+
+[data-reveal-stagger] > :nth-child(2) { --intro-i: 1; }
+[data-reveal-stagger] > :nth-child(3) { --intro-i: 2; }
+[data-reveal-stagger] > :nth-child(4) { --intro-i: 3; }
+[data-reveal-stagger] > :nth-child(5) { --intro-i: 4; }
+[data-reveal-stagger] > :nth-child(6) { --intro-i: 5; }
+[data-reveal-stagger] > :nth-child(7) { --intro-i: 6; }
+[data-reveal-stagger] > :nth-child(8) { --intro-i: 7; }
+
+[data-reveal-step='60'] { --intro-step: 60ms; }
+[data-reveal-step='70'] { --intro-step: 70ms; }
+[data-reveal-step='80'] { --intro-step: 80ms; }
+[data-reveal-step='90'] { --intro-step: 90ms; }
+[data-reveal-step='100'] { --intro-step: 100ms; }
+[data-reveal-step='110'] { --intro-step: 110ms; }
+[data-reveal-step='120'] { --intro-step: 120ms; }
+[data-reveal-step='130'] { --intro-step: 130ms; }
+[data-reveal-step='140'] { --intro-step: 140ms; }
+[data-reveal-step='150'] { --intro-step: 150ms; }
+[data-reveal-step='160'] { --intro-step: 160ms; }
+
+[data-reveal-stagger][data-reveal-delay='120'] { --intro-base: 120ms; }
+[data-reveal-stagger][data-reveal-delay='150'] { --intro-base: 150ms; }
+[data-reveal-stagger][data-reveal-delay='200'] { --intro-base: 200ms; }
+[data-reveal-stagger][data-reveal-delay='250'] { --intro-base: 250ms; }
+[data-reveal-stagger][data-reveal-delay='300'] { --intro-base: 300ms; }
+[data-reveal-stagger][data-reveal-delay='350'] { --intro-base: 350ms; }
+[data-reveal-stagger][data-reveal-delay='400'] { --intro-base: 400ms; }
+[data-reveal-stagger][data-reveal-delay='450'] { --intro-base: 450ms; }
+[data-reveal-stagger][data-reveal-delay='700'] { --intro-base: 700ms; }
+
+[data-reveal][data-reveal-delay='120'] { --intro-own: 120ms; }
+[data-reveal][data-reveal-delay='150'] { --intro-own: 150ms; }
+[data-reveal][data-reveal-delay='200'] { --intro-own: 200ms; }
+[data-reveal][data-reveal-delay='250'] { --intro-own: 250ms; }
+[data-reveal][data-reveal-delay='300'] { --intro-own: 300ms; }
+[data-reveal][data-reveal-delay='350'] { --intro-own: 350ms; }
+[data-reveal][data-reveal-delay='400'] { --intro-own: 400ms; }
+[data-reveal][data-reveal-delay='450'] { --intro-own: 450ms; }
+[data-reveal][data-reveal-delay='700'] { --intro-own: 700ms; }
+
 @media (prefers-reduced-motion: reduce) {
   .motion [data-reveal] { opacity: 1 !important; translate: none !important; scale: none !important; }
 }

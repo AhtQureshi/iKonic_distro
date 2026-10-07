@@ -1,4 +1,4 @@
-import { image } from '../../../utils/assets.js';
+import { image, placeholder } from '../../../utils/assets.js';
 import { hero } from '../../../data/advance.js';
 import { Button, Eyebrow, Heading, Img, Text } from '../../atoms/index.js';
 import { FundingCard, TitledPoint } from '../../subcomponents/index.js';
@@ -12,7 +12,7 @@ export function AdvanceHero({ content = hero }) {
     <section className="advance-hero" aria-labelledby="advance-hero-title">
       {content.image && (
         <div className="advance-hero__media" aria-hidden="true">
-          <Img src={image(content.image.file)} width={content.image.width} height={content.image.height} priority className="advance-hero__bg" />
+          <Img src={image(content.image.file)} placeholder={placeholder(content.image.file)} width={content.image.width} height={content.image.height} priority className="advance-hero__bg" />
         </div>
       )}
       <div className="container">

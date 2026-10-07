@@ -1,1 +1,2 @@
 .img { display: block; max-width: 100%; height: auto; }
+.img--placeholder { background-size: cover; background-position: var(--img-pos, center); background-repeat: no-repeat; }

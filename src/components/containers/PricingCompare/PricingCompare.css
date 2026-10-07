@@ -47,4 +47,12 @@
 
 @media (max-width: 560px) {
   .pricing-compare { padding: 48px 0; }
+  /* Phones: fit the screen instead of scrolling sideways, so all three plans stay in view */
+  .pricing-compare__table { min-width: 0; table-layout: fixed; }
+  .pricing-compare__table thead th { padding: 16px 4px; font-size: 10.5px; letter-spacing: 0.08em; }
+  .pricing-compare__table thead th:first-child { width: 46%; padding-left: 14px; }
+  .pricing-compare__table tbody th,
+  .pricing-compare__table tbody td { padding: 12px 4px; font-size: 13px; }
+  .pricing-compare__table tbody th { display: table-cell; padding-left: 14px; line-height: 1.35; }
+  .pricing-compare__icon { display: none; }
 }

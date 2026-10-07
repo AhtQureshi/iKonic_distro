@@ -20,7 +20,7 @@
 
 /* Full-bleed banner, darkened on the left (behind the copy) and at the top / bottom edges */
 .advance-hero__media { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
-.advance-hero__bg { width: 100%; height: 100%; object-fit: cover; object-position: 62% center; }
+.advance-hero__bg { width: 100%; height: 100%; object-fit: cover; object-position: 62% center; --img-pos: 62% center; }
 .advance-hero__media::after {
   content: '';
   position: absolute;
@@ -53,11 +53,11 @@
   .advance-hero__card .funding-card { margin: 0; }
   /* Stacked layout: keep the banner bright at the top, fade it out behind the copy below */
   .advance-hero__media { bottom: auto; height: 520px; }
-  .advance-hero__bg { object-position: 70% center; }
+  .advance-hero__bg { object-position: 70% center; --img-pos: 70% center; }
   .advance-hero__media::after { background: linear-gradient(180deg, rgba(10, 10, 11, 0.5) 0%, rgba(10, 10, 11, 0.72) 45%, var(--color-bg) 100%); }
   .advance-hero__points { margin-top: 48px; }
 }
 @media (max-width: 480px) {
   .advance-hero__points { grid-template-columns: 1fr; }
-  .advance-hero__actions .btn { flex: 1; }
+  .advance-hero__actions .btn { flex: 1 1 auto; } /* fill the row, wrap rather than squeeze */
 }

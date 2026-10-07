@@ -65,5 +65,5 @@
 }
 @media (max-width: 560px) {
   .advance-cta__stats { grid-template-columns: 1fr; }
-  .advance-cta__actions .btn { flex: 1; }
+  .advance-cta__actions .btn { flex: 1 1 auto; } /* fill the row, wrap rather than squeeze */
 }

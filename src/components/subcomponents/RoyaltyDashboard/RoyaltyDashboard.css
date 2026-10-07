@@ -127,4 +127,13 @@
 @media (max-width: 560px) {
   .royalty-dashboard__stats { grid-template-columns: 1fr; }
   .royalty-dashboard__tip { left: 40%; }
+  /* Top songs: amount above trend in one column, so the song name keeps its width */
+  .royalty-dashboard__table { padding: 6px 14px 10px; }
+  .royalty-dashboard__row { grid-template-columns: 16px minmax(0, 1fr) auto; column-gap: 10px; row-gap: 2px; }
+  .royalty-dashboard__num { grid-row: span 2; }
+  .royalty-dashboard__track { grid-row: span 2; }
+  .royalty-dashboard__track > div { min-width: 0; }
+  .royalty-dashboard__track b,
+  .royalty-dashboard__track small { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .royalty-dashboard__amount { text-align: right; }
 }

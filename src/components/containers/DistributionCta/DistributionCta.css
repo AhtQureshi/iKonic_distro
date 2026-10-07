@@ -71,5 +71,5 @@
   .distribution-cta { padding: 72px 0; }
   .distribution-cta__stat { padding: 16px 8px; }
   .distribution-cta__stat dt { font-size: 22px; }
-  .distribution-cta__actions .btn { flex: 1; }
+  .distribution-cta__actions .btn { flex: 1 1 auto; } /* fill the row, wrap rather than squeeze */
 }

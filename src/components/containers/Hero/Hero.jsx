@@ -1,4 +1,4 @@
-import { image } from '../../../utils/assets.js';
+import { image, placeholder } from '../../../utils/assets.js';
 import { hero } from '../../../data/home.js';
 import { stores } from '../../../data/site.js';
 import { Button, Eyebrow, Heading, Img, Text } from '../../atoms/index.js';
@@ -9,7 +9,7 @@ export function Hero({ content = hero }) {
   return (
     <section className="hero" aria-labelledby="hero-title">
       <div className="hero__media">
-        <Img src={image(content.image.file)} alt={content.image.alt} width={1983} height={793} priority className="hero__photo" />
+        <Img src={image(content.image.file)} placeholder={placeholder(content.image.file)} alt={content.image.alt} width={1983} height={793} priority className="hero__photo" />
         <div className="hero__floats" data-reveal-stagger="zoom" data-reveal-delay="450" data-reveal-step="160">
           <ReleaseStatus {...content.release} className="hero__float hero__float--release" />
           <MetricCard {...content.advance} glass className="hero__float hero__float--advance" />

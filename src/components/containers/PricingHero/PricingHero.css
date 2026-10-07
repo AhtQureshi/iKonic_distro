@@ -20,7 +20,7 @@
 }
 /* Full-bleed banner (plan podiums centre-right), darkened behind the copy and faded into the plan cards below */
 .pricing-hero__media { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
-.pricing-hero__bg { width: 100%; height: 100%; object-fit: cover; object-position: 60% 40%; }
+.pricing-hero__bg { width: 100%; height: 100%; object-fit: cover; object-position: 60% 40%; --img-pos: 60% 40%; }
 .pricing-hero__media::after {
   content: '';
   position: absolute;
@@ -64,7 +64,7 @@
     -webkit-mask-image: linear-gradient(180deg, #000 45%, transparent 100%);
     mask-image: linear-gradient(180deg, #000 45%, transparent 100%);
   }
-  .pricing-hero__bg { object-position: 62% center; }
+  .pricing-hero__bg { object-position: 62% center; --img-pos: 62% center; }
   .pricing-hero__media::after { background: linear-gradient(180deg, rgba(10, 10, 11, 0.55) 0%, rgba(10, 10, 11, 0.75) 100%); }
   .pricing-hero__note { position: static; display: inline-block; margin-top: 36px; transform: rotate(-3deg); }
 }

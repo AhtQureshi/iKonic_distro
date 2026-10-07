@@ -50,7 +50,7 @@
 
 @media (max-width: 600px) {
   .cta-banner { padding: 80px 0 72px; }
-  .cta-banner__actions .btn { flex: 1; }
+  .cta-banner__actions .btn { flex: 1 1 auto; } /* fill the row, wrap rather than squeeze */
 }
 
 /* variant: 'split' — crowd band, copy left and buttons right */

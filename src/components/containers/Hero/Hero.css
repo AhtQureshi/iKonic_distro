@@ -2,7 +2,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  min-height: min(860px, 100vh);
+  min-height: clamp(640px, calc(100svh - 52px), 820px); /* 52px: the ticker below stays in the first screen */
   padding-top: var(--header-h);
   overflow: hidden;
   isolation: isolate;
@@ -23,6 +23,7 @@
   height: 100%;
   object-fit: cover;
   object-position: 47% 30%;
+  --img-pos: 47% 30%;
   -webkit-mask-image: linear-gradient(90deg, transparent 8%, #000 42%), linear-gradient(0deg, transparent 0%, #000 28%);
   -webkit-mask-composite: source-in;
   mask-image: linear-gradient(90deg, transparent 8%, #000 42%), linear-gradient(0deg, transparent 0%, #000 28%);
@@ -42,6 +43,21 @@
   mix-blend-mode: screen;
   animation: hero-glow 6s ease-in-out infinite alternate;
 }
+/* Pull the warm studio light toward the brand red (the mockup's red-lit photo); keeps the photo's light and shade */
+.hero__media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: rgba(210, 24, 12, 0.4);
+  mix-blend-mode: color;
+  /* Same fade as the photo, so the tint doesn't colour the page background beside it */
+  -webkit-mask-image: linear-gradient(90deg, transparent 8%, #000 42%), linear-gradient(0deg, transparent 0%, #000 28%);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(90deg, transparent 8%, #000 42%), linear-gradient(0deg, transparent 0%, #000 28%);
+  mask-composite: intersect;
+}
 .hero__photo { animation: hero-drift 24s ease-in-out infinite alternate; transform-origin: 55% 35%; }
 
 @keyframes hero-glow { from { opacity: 0.65; } to { opacity: 1; } }
@@ -49,24 +65,25 @@
 
 .hero__floats { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
 .hero__float { position: absolute; pointer-events: auto; animation: hero-float 7s ease-in-out infinite; }
-.hero__float--release { top: 17%; left: 12%; }
-.hero__float--advance { top: 35%; left: 20%; animation-delay: -2s; }
-.hero__float--streams { top: 52%; left: 9%; animation-delay: -4s; min-width: 240px; }
-.hero__float--earnings { top: 50%; right: 5%; animation-delay: -1s; min-width: 230px; }
+.hero__float--release { top: 20%; left: 7%; }
+.hero__float--advance { top: 40%; left: 14%; animation-delay: -2s; }
+.hero__float--streams { top: 57%; left: 23%; animation-delay: -4s; min-width: 230px; }
+.hero__float--earnings { top: 55%; right: 5%; animation-delay: -1s; min-width: 230px; }
 
 @keyframes hero-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
 
 .hero__inner { flex: 1; display: flex; align-items: center; padding-top: 48px; padding-bottom: 48px; }
-.hero__copy { display: flex; flex-direction: column; gap: 22px; max-width: 540px; }
-.hero__copy .heading { text-shadow: 0 2px 30px rgba(0, 0, 0, 0.5); }
+.hero__copy { display: flex; flex-direction: column; gap: 22px; max-width: 500px; }
+.hero__copy .heading { font-size: clamp(42px, 4.6vw, 72px); text-shadow: 0 2px 30px rgba(0, 0, 0, 0.5); }
 .hero__text { max-width: 440px; color: rgba(255, 255, 255, 0.86); }
 .hero__actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 8px; }
 
 .hero__stores { padding-bottom: 36px; }
 
 @media (max-width: 1180px) {
-  .hero__float--advance { left: 26%; }
-  .hero__float--streams { left: 14%; }
+  .hero__float--release { left: 4%; }
+  .hero__float--advance { left: 10%; }
+  .hero__float--streams { left: 16%; }
 }
 
 /* Tablet / mobile: stack copy, then the photo as its own block */
@@ -74,10 +91,14 @@
   .hero { min-height: 0; }
   .hero__inner { order: 1; padding-top: 56px; padding-bottom: 32px; }
   .hero__media { position: relative; order: 2; width: 100%; height: 520px; }
-  .hero__photo {
-    object-position: 48% 25%;
+  .hero__photo,
+  .hero__media::after {
     -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 18%, #000 75%, transparent 100%);
     mask-image: linear-gradient(180deg, transparent 0%, #000 18%, #000 75%, transparent 100%);
+  }
+  .hero__photo {
+    object-position: 48% 25%;
+    --img-pos: 48% 25%;
   }
   .hero__float--release { top: 8%; left: var(--gutter); }
   .hero__float--advance { top: 30%; left: auto; right: var(--gutter); }
@@ -87,11 +108,21 @@
 }
 
 @media (max-width: 600px) {
-  .hero__media { height: 460px; }
-  .hero__float { transform-origin: left top; }
-  .hero__float--streams,
-  .hero__float--earnings { min-width: 0; }
-  .hero__float--streams { bottom: 26%; }
-  .hero__float--earnings { bottom: 4%; }
-  .hero__actions .btn { flex: 1; }
+  .hero__media { height: auto; min-height: 560px; }
+  .hero__photo { position: absolute; inset: 0; object-position: 50% 25%; --img-pos: 50% 25%; }
+  /* Phones: cards stack in alternating rows under the artist's face (top right), so they never overlap each other or him */
+  .hero__floats {
+    position: relative;
+    display: grid;
+    grid-template-rows: auto minmax(130px, 1fr) auto auto auto;
+    row-gap: 12px;
+    min-height: 560px;
+    padding: 12px var(--gutter) 28px;
+  }
+  .hero__float { position: relative; inset: auto; max-width: calc(100% - 24px); }
+  .hero__float--release { grid-row: 1; justify-self: start; }
+  .hero__float--advance { grid-row: 3; justify-self: end; }
+  .hero__float--streams { grid-row: 4; justify-self: start; min-width: 0; }
+  .hero__float--earnings { grid-row: 5; justify-self: end; min-width: 0; }
+  .hero__actions .btn { flex: 1 1 auto; } /* fill the row, wrap rather than squeeze */
 }

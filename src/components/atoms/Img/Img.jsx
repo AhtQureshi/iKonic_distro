@@ -9,11 +9,13 @@ import { cx } from '../../../utils/cx.js';
 /**
  * Plain image with sensible defaults (lazy loading, async decoding).
  * eager: load immediately. priority: eager + high fetch priority, for the banner at the top of a page.
+ * placeholder: a tiny inline image (see utils/assets.js `placeholder`) shown blurred until the image arrives.
+ * It follows the image's crop through the --img-pos custom property; set it next to object-position.
  */
-export function Img({ src, alt = '', width, height, eager = false, priority = false, className = '' }) {
+export function Img({ src, alt = '', width, height, eager = false, priority = false, placeholder, className = '' }) {
   return (
     <img
-      className={cx('img', className)}
+      className={cx('img', placeholder && 'img--placeholder', className)}
       src={src}
       alt={alt}
       width={width}
@@ -21,6 +23,7 @@ export function Img({ src, alt = '', width, height, eager = false, priority = fa
       loading={eager || priority ? 'eager' : 'lazy'}
       fetchPriority={priority ? 'high' : undefined}
       decoding="async"
+      style={placeholder ? { backgroundImage: `url(${placeholder})` } : undefined}
     />
   );
 }

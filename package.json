@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "icons": "node scripts/build-icons.mjs",
+    "placeholders": "node scripts/build-placeholders.mjs",
     "predev": "npm run icons",
     "dev": "next dev",
     "prebuild": "npm run icons",

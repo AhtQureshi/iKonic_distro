@@ -33,6 +33,15 @@
   .site-header__actions .btn--outline { display: none; }
 }
 
+@media (max-width: 420px) {
+  .site-header__bar { gap: 12px; }
+  .site-header__actions { gap: 8px; }
+}
+/* Smallest phones: the menu button would be pushed off-screen; Start Free is also in the open menu */
+@media (max-width: 340px) {
+  .site-header__actions .btn { display: none; }
+}
+
 @media (min-width: 1025px) {
   .site-header .mobile-nav { display: none; }
 }

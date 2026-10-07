@@ -11,7 +11,7 @@
 
 /* Full-bleed banner, darkened behind the copy (left) and fading into the highlights row below */
 .publishing-hero__media { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
-.publishing-hero__bg { width: 100%; height: 100%; object-fit: cover; object-position: 55% center; }
+.publishing-hero__bg { width: 100%; height: 100%; object-fit: cover; object-position: 55% center; --img-pos: 55% center; }
 .publishing-hero__media::after {
   content: '';
   position: absolute;
@@ -43,6 +43,6 @@
     -webkit-mask-image: linear-gradient(180deg, #000 55%, transparent 100%);
     mask-image: linear-gradient(180deg, #000 55%, transparent 100%);
   }
-  .publishing-hero__bg { object-position: 62% center; }
+  .publishing-hero__bg { object-position: 62% center; --img-pos: 62% center; }
   .publishing-hero__media::after { background: linear-gradient(180deg, rgba(10, 10, 11, 0.55) 0%, rgba(10, 10, 11, 0.75) 100%); }
 }

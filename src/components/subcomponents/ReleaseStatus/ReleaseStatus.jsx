@@ -3,10 +3,10 @@ import { storeLogo } from '../../../utils/assets.js';
 import { Cover, Icon, Img } from '../../atoms/index.js';
 
 /** Floating "release is live" card: cover, title, artist, status and store logos. */
-export function ReleaseStatus({ title, artist, tone = 1, status = 'Released', stores = [], extra, label, className = '' }) {
+export function ReleaseStatus({ title, artist, tone = 1, src, status = 'Released', stores = [], extra, label, className = '' }) {
   return (
     <div className={cx('release-status', className)}>
-      <div className="release-status__cover"><Cover tone={tone} alt={`${title} cover`} radius="sm" /></div>
+      <div className="release-status__cover"><Cover tone={tone} src={src} alt={`${title} cover`} radius="sm" /></div>
       <div>
         {label && <p className="release-status__label" {...rich(label)} />}
         <p className="release-status__title" {...rich(title)} />

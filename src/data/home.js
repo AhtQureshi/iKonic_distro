@@ -1,5 +1,6 @@
 // Home page content. Edit copy and numbers here; layouts live in the containers.
 import { planPrices } from './site.js';
+import { cover } from '../utils/assets.js';
 
 export const hero = {
   eyebrow: 'Artists Own More Here',
@@ -10,7 +11,7 @@ export const hero = {
     { label: 'Watch Demo', href: '#', variant: 'outline', size: 'lg', iconLeft: 'play-circle' },
   ],
   image: { file: 'hero-studio.webp', alt: 'IKONIC artist in the studio' },
-  release: { title: 'Higher Ground', artist: 'Nova Rae', tone: 1, stores: ['spotify', 'apple-music', 'youtube', 'tiktok'], extra: '+6' },
+  release: { title: 'Hard To Ignore', artist: 'Vory', src: cover('vory-hard-to-ignore'), stores: ['spotify', 'apple-music', 'youtube', 'tiktok'], extra: '+6' },
   advance: { label: 'Advance Approved', value: '$50,000', icon: 'bolt' },
   streams: { label: 'Total Streams', value: '2,483,921', trend: '+12.4%', chart: { type: 'bars', values: [30, 48, 40, 62, 55, 80, 100] } },
   earnings: { label: 'Monthly Earnings', value: '$8,432', trend: '+29%', chart: { type: 'spark', values: [12, 18, 14, 22, 19, 28, 24, 34, 31, 42] } },
@@ -59,10 +60,10 @@ export const platform = {
       labels: ['Aug 1', 'Aug 15', 'Sep 1', 'Sep 15', 'Oct 1'],
     },
     releases: [
-      { title: 'Higher Ground', artist: 'Nova Rae', tone: 1 },
-      { title: 'Different Now', artist: 'Jace Miles', tone: 2 },
-      { title: 'City Lights', artist: 'Tori Vex', tone: 3 },
-      { title: 'No Limits', artist: 'Dre Ruk', tone: 7 },
+      { title: 'Naruto', artist: 'Orio x Bo9al', src: cover('orio-naruto') },
+      { title: 'Boss', artist: 'Kiki Moneh', src: cover('kiki-moneh-boss') },
+      { title: 'Limitless', artist: 'Tricks', src: cover('tricks-limitless') },
+      { title: 'Novacane', artist: 'Urban', src: cover('urban-novacane') },
     ],
   },
 };
@@ -81,21 +82,20 @@ export const features = {
 export const releases = {
   eyebrow: 'Real Music. Real Artists.',
   title: 'Latest Releases on Ikonic.',
-  filters: [
-    { label: 'All', value: 'all' },
-    { label: 'Albums', value: 'album' },
-    { label: 'Singles', value: 'single' },
-  ],
+  // Real catalog covers (public/assets/images/covers/). Add `filters` + a `type` per item to bring back Albums / Singles.
   items: [
-    { title: 'Higher Ground', artist: 'Nova Rae', tone: 1, type: 'single' },
-    { title: 'Different Now', artist: 'Jace Miles', tone: 2, type: 'album' },
-    { title: 'City Lights', artist: 'Tori Vex', tone: 3, type: 'single' },
-    { title: 'No Limits', artist: 'Dre Ruk', tone: 4, type: 'album' },
-    { title: 'Lost Files', artist: 'Kali O', tone: 5, type: 'single' },
-    { title: 'Midnight Run', artist: 'The Phase', tone: 6, type: 'album' },
-    { title: 'Still Here', artist: 'Raylen', tone: 7, type: 'single' },
-    { title: 'Golden Hour', artist: 'Amari J', tone: 8, type: 'album' },
-    { title: 'Afterglow', artist: 'Sienna Cole', tone: 1, type: 'single' },
+    { title: 'Hard To Ignore', artist: 'Vory', src: cover('vory-hard-to-ignore') },
+    { title: 'Samurai', artist: 'Orio x Shootergang', src: cover('orio-samurai') },
+    { title: 'Made Me This Way', artist: 'Vory', src: cover('vory-made-me-this-way') },
+    { title: 'Naruto', artist: 'Orio x Bo9al', src: cover('orio-naruto') },
+    { title: 'Limitless', artist: 'Tricks', src: cover('tricks-limitless') },
+    { title: 'Boss', artist: 'Kiki Moneh', src: cover('kiki-moneh-boss') },
+    { title: 'By Any Means', artist: 'Orio x Malik Montana x M Huncho', src: cover('orio-by-any-means') },
+    { title: 'Heartbreak Anniversary', artist: 'Jersey', src: cover('jersey-heartbreak-anniversary') },
+    { title: 'Body', artist: 'Big Nuni', src: cover('big-nuni-body') },
+    { title: 'Miami', artist: 'DoubleChanel x Tricks', src: cover('doublechanel-tricks-miami') },
+    { title: 'For Me', artist: 'Tússsin', src: cover('tusssin-for-me') },
+    { title: 'Novacane', artist: 'Urban', src: cover('urban-novacane') },
   ],
 };
 

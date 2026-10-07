@@ -41,7 +41,7 @@ export function ReleaseManagerMockup({
         </div>
         {rows.map((r, i) => (
           <div key={`${r.title}-${i}`} className="release-manager__row">
-            <span className="release-manager__thumb"><Cover tone={r.tone} radius="sm" alt={r.title} /></span>
+            <span className="release-manager__thumb"><Cover tone={r.tone} src={r.src} radius="sm" alt={r.title} /></span>
             <div className="release-manager__track"><p {...rich(r.title)} /><span {...rich(r.artist)} /></div>
             <span className="release-manager__status">{status}</span>
             <span className="release-manager__date">{r.date}</span>

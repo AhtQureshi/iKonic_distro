@@ -1,5 +1,6 @@
 // Distribution page content. Edit copy and numbers here; layouts live in the Distribution* containers.
 import { stores as siteStores } from './site.js';
+import { cover } from '../utils/assets.js';
 
 const liveStores = [
   { name: 'Spotify', logo: 'spotify' },
@@ -19,7 +20,7 @@ export const hero = {
     { label: 'Start Free', href: '#', variant: 'primary', size: 'lg', iconRight: 'arrow-right' },
     { label: 'Watch Demo', href: '#', variant: 'outline', size: 'lg', iconLeft: 'play-circle' },
   ],
-  release: { label: 'New Release', title: 'Higher Ground', artist: 'Nova Rae', tone: 1, status: 'Delivered to 250+ stores' },
+  release: { label: 'New Release', title: 'Samurai', artist: 'Orio x Shootergang', src: cover('orio-samurai'), status: 'Delivered to 250+ stores' },
   stores: { items: liveStores.map((s) => ({ ...s, status: 'Live' })), more: '+ 245 more stores' },
   streams: { label: 'Total Streams', value: '2,482,391', trend: '+42%', chart: { type: 'bars', values: [28, 44, 62, 80, 100] } },
   points: [
@@ -49,9 +50,9 @@ export const audience = {
   title: 'Your Music.<br>Everywhere Fans Listen.',
   text: 'From Spotify to TikTok, Apple Music to Amazon, Ikonic gets your music in front of listeners across the world — with one simple release.',
   phone: {
-    title: 'Higher Ground',
-    artist: 'Nova Rae',
-    tone: 1,
+    title: 'Made Me This Way',
+    artist: 'Vory',
+    src: cover('vory-made-me-this-way'),
     live: 'Live on 250+ stores',
     listTitle: 'Distribution Status',
     stores: [
@@ -107,11 +108,11 @@ export const tools = {
     more: '+247',
     status: 'Live',
     rows: [
-      { title: 'Higher Ground', artist: 'Nova Rae', date: 'Oct 12, 2024', tone: 1 },
-      { title: 'Different Now', artist: 'Jace Miles', date: 'Sep 28, 2024', tone: 8 },
-      { title: 'City Lights', artist: 'Tori Vex', date: 'Sep 14, 2024', tone: 5 },
-      { title: 'No Limits', artist: 'Dre Ruk', date: 'Aug 30, 2024', tone: 3 },
-      { title: 'Lost Files', artist: 'Kali O', date: 'Aug 12, 2024', tone: 4 },
+      { title: 'By Any Means', artist: 'Orio x Malik Montana x M Huncho', date: 'Oct 12, 2024', src: cover('orio-by-any-means') },
+      { title: 'Overseas', artist: 'Orio x Bobby Shmurda', date: 'Sep 28, 2024', src: cover('orio-overseas') },
+      { title: 'Heartbreak Anniversary', artist: 'Jersey', date: 'Sep 14, 2024', src: cover('jersey-heartbreak-anniversary') },
+      { title: 'For Me', artist: 'Tússsin', date: 'Aug 30, 2024', src: cover('tusssin-for-me') },
+      { title: 'Oly', artist: 'Orio x Dollypran', date: 'Aug 12, 2024', src: cover('orio-oly') },
     ],
   },
 };
@@ -120,14 +121,14 @@ export const releases = {
   eyebrow: 'Recent Releases',
   title: 'Distributed on <span class="text-red">Ikonic.</span>',
   items: [
-    { title: 'Higher Ground', artist: 'Nova Rae', tone: 1 },
-    { title: 'Different Now', artist: 'Jace Miles', tone: 8 },
-    { title: 'City Lights', artist: 'Tori Vex', tone: 3 },
-    { title: 'No Limits', artist: 'Dre Ruk', tone: 4 },
-    { title: 'Lost Files', artist: 'Kali O', tone: 5 },
-    { title: 'Midnight Run', artist: 'The Phase', tone: 7 },
-    { title: 'Still Here', artist: 'Raylen', tone: 1 },
-    { title: 'One Day', artist: 'Tae Nova', tone: 2 },
+    { title: 'Overseas', artist: 'Orio x Bobby Shmurda', src: cover('orio-overseas') },
+    { title: 'Plata O Plomo', artist: 'Orio x Uncle Murda x Silva', src: cover('orio-plata-o-plomo') },
+    { title: 'Jet Li', artist: 'Orio x Guleed x Kazior', src: cover('orio-jet-li') },
+    { title: 'Oly', artist: 'Orio x Dollypran', src: cover('orio-oly') },
+    { title: 'Lossst', artist: 'Tússsin', src: cover('tusssin-lossst') },
+    { title: 'Miami', artist: 'DoubleChanel x Tricks', src: cover('doublechanel-tricks-miami') },
+    { title: 'Body', artist: 'Big Nuni', src: cover('big-nuni-body') },
+    { title: 'Limitless', artist: 'Tricks', src: cover('tricks-limitless') },
   ],
 };
 

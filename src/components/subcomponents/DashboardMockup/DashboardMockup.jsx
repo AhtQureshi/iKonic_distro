@@ -59,7 +59,7 @@ export function DashboardMockup({
             <div className="dashboard-mockup__releases">
               {releases.map((r) => (
                 <div className="dashboard-mockup__release" key={r.title}>
-                  <Cover tone={r.tone} alt={r.title} radius="sm" />
+                  <Cover tone={r.tone} src={r.src} alt={r.title} radius="sm" />
                   <p className="dashboard-mockup__release-title">{r.title}</p>
                   <p className="dashboard-mockup__release-artist">{r.artist}</p>
                 </div>

@@ -2,7 +2,7 @@ import { included } from '../../../data/pricing.js';
 import { Text } from '../../atoms/index.js';
 import { SectionHeading, ValueCard } from '../../subcomponents/index.js';
 
-/** "More Value. No Hidden Fees." — what every plan includes. */
+/** "More Value. Clear Pricing." — what every plan includes. */
 export function PricingIncluded({ content = included }) {
   return (
     <section className="pricing-included">

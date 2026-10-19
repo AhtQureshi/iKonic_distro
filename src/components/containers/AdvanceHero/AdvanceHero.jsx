@@ -4,7 +4,7 @@ import { Button, Eyebrow, Heading, Img, Text } from '../../atoms/index.js';
 import { FundingCard, TitledPoint } from '../../subcomponents/index.js';
 
 /**
- * Advance hero over a full-bleed banner: headline + CTAs beside the "Advance Approved" card,
+ * Advance hero over a full-bleed banner: headline + CTAs beside the "Advance Application" card,
  * with the four benefit points in a row underneath.
  */
 export function AdvanceHero({ content = hero }) {

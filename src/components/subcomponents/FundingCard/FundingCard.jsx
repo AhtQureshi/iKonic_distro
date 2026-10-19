@@ -2,7 +2,7 @@ import { cx, rich } from '../../../utils/cx.js';
 import { Icon } from '../../atoms/index.js';
 import { DetailRows } from '../DetailRows/DetailRows.jsx';
 
-/** "Advance Approved" summary card: glowing icon, amount, green status and detail rows. */
+/** Advance summary card (e.g. "Advance Application"): glowing icon, amount, green status and detail rows. */
 export function FundingCard({ icon = 'bolt', title, amount, status, rows = [], className = '' }) {
   return (
     <div className={cx('funding-card', className)}>

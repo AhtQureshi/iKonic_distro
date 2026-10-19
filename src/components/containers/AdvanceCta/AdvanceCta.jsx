@@ -3,7 +3,7 @@ import { cta } from '../../../data/advance.js';
 import { Button, Img } from '../../atoms/index.js';
 import { SectionHeading, StatTile } from '../../subcomponents/index.js';
 
-/** "Get Funded. Go Further." — closing call to action over the stage crowd, with three stat tiles beside it. */
+/** "Check Your Eligibility. Go Further." — closing call to action over the stage crowd, with three stat tiles beside it. */
 export function AdvanceCta({ content = cta }) {
   return (
     <section className="advance-cta">

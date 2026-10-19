@@ -3,7 +3,7 @@
 export const hero = {
   eyebrow: 'Ikonic Advance',
   title: 'Turn Your<br>Royalties Into<br><span class="text-red">Momentum.</span>',
-  text: 'Get funding based on your music earnings, not your credit. Keep 100% of your rights and continue to grow your career.',
+  text: 'Pro+ and Label Enterprise members are eligible to apply for Ikonic Advance. Every application is reviewed by our funding partner based on your catalog’s performance — eligibility is not a guarantee of funding.',
   // Decorative full-bleed background (public/assets/images/), 1983×793.
   image: { file: 'advance-hero.webp', width: 1983, height: 793 },
   actions: [
@@ -11,21 +11,21 @@ export const hero = {
     { label: 'See How It Works', href: '#process', variant: 'outline', iconLeft: 'play-circle' },
   ],
   points: [
-    { icon: 'bolt-outline', title: 'No Credit Required', text: 'Based on your catalog performance' },
-    { icon: 'chart-columns', title: 'Keep 100% Ownership', text: 'You keep your rights and royalties' },
-    { icon: 'clock', title: 'Fast Decisions', text: 'Get a response in as little as 24-72 hours' },
-    { icon: 'link', title: 'Keep Earning', text: 'Continue releasing and collecting royalties' },
+    { icon: 'bolt-outline', title: 'Catalog-Based Review', text: 'Applications are reviewed on catalog performance' },
+    { icon: 'chart-columns', title: 'Keep 100% Ownership', text: 'You keep 100% ownership of your music' },
+    { icon: 'clock', title: 'Partner Review', text: 'Each application is reviewed individually' },
+    { icon: 'link', title: 'Keep Releasing', text: 'Continue releasing music while you apply' },
   ],
   offer: {
     icon: 'bolt',
-    title: 'Advance Approved',
-    amount: '$50,000',
-    status: 'Funds Sent',
+    title: 'Advance Application',
+    amount: 'In Review',
+    status: 'Partner Review',
     rows: [
-      { label: 'Monthly Royalties', value: '$7,842' },
-      { label: 'Advance Amount', value: '$50,000' },
-      { label: 'Repayment', value: '12% of monthly royalties' },
-      { label: 'Term', value: '12 months' },
+      { label: 'Eligible Plans', value: 'Pro+, Label Enterprise' },
+      { label: 'Reviewed On', value: 'Catalog performance' },
+      { label: 'Decision By', value: 'Funding partner' },
+      { label: 'Ownership', value: '100% yours' },
     ],
   },
 };
@@ -53,7 +53,7 @@ export const estimator = {
     rows: [
       { label: 'Repayment', value: '12% of monthly royalties' },
       { label: 'Estimated Term', value: '~10-14 months' },
-      { label: 'You Keep', value: '100% of your rights' },
+      { label: 'You Keep', value: '100% ownership of your music' },
     ],
     action: { label: 'Apply Now', href: '#', variant: 'primary', iconRight: 'arrow-right', block: true },
   },
@@ -63,7 +63,7 @@ export const estimator = {
 export const uses = {
   eyebrow: 'Built For Independent Artists',
   title: 'Fuel Your Next Chapter.',
-  text: 'Use your advance to invest in your music, your brand, and your future.',
+  text: 'If your application is approved, use your advance to invest in your music, your brand, and your future.',
   cards: [
     { icon: 'mic', title: 'Create More Music', text: 'Studio time, producers, and recording costs.', tone: 1 },
     { icon: 'megaphone', title: 'Grow Your Audience', text: 'Marketing, content, and promotion.', tone: 2 },
@@ -75,11 +75,10 @@ export const uses = {
 export const tracking = {
   eyebrow: 'Full Transparency',
   title: 'Track Everything<br>In Real Time.',
-  text: 'See your advance amount, repayment progress, upcoming deductions, and more — all inside your Ikonic dashboard.',
+  text: 'If you’re approved, see your advance, repayment progress, upcoming deductions, and more — all inside your Ikonic dashboard.',
   checks: [
     'Real-time repayment tracking',
     'Clear payment history',
-    'No hidden fees',
     'Continue earning and releasing',
     'Full transparency',
   ],
@@ -107,12 +106,12 @@ export const tracking = {
 export const process = {
   id: 'process',
   eyebrow: 'A Simple Process',
-  title: 'Get Funded. Keep Creating.',
+  title: 'Apply. Get Reviewed. Keep Creating.',
   steps: [
-    { number: '01', title: 'Apply', text: 'Submit your catalog for review.' },
-    { number: '02', title: 'Review', text: 'We analyze your earnings and performance.' },
-    { number: '03', title: 'Get Offer', text: 'Receive your custom advance offer.' },
-    { number: '04', title: 'Get Funded', text: 'Funds sent directly to you while you keep earning.' },
+    { number: '01', title: 'Check Eligibility', text: 'Advance applications are open on Pro+ and Label Enterprise.' },
+    { number: '02', title: 'Apply', text: 'Submit your catalog for review.' },
+    { number: '03', title: 'Partner Review', text: 'Our funding partner reviews your earnings and performance.' },
+    { number: '04', title: 'Decide', text: 'If you receive an offer, review the terms and choose whether to accept.' },
   ],
 };
 
@@ -121,25 +120,25 @@ export const faq = {
   title: 'Quick answers.',
   text: 'Everything you need to know about Ikonic Advance.',
   items: [
-    { q: 'Do I need a credit check?', a: 'No — your offer is based on your catalog’s earnings and performance, not your credit score.' },
-    { q: 'How much can I get?', a: 'Advance amounts are based on your monthly royalties and catalog history — use the estimator above to see what you could get funded.' },
-    { q: 'How and when do I get paid?', a: 'Once your offer is accepted, funds are sent directly to you — most artists receive funding within days of approval.' },
-    { q: 'Do I keep 100% of my rights?', a: 'Yes — you keep 100% ownership of your rights and catalog while the advance is repaid from a share of your royalties.' },
-    { q: 'What catalogs are eligible?', a: 'Catalogs with consistent streaming earnings and a verifiable royalty history are eligible for review.' },
+    { q: 'Who can apply?', a: 'Ikonic Pro+ members, and artists on a Label Enterprise roster, are eligible to apply for Ikonic Advance.' },
+    { q: 'Is funding guaranteed?', a: 'No — eligibility means you can apply. Every application is reviewed by our funding partner, and any offer, amount and terms are set by the partner after review.' },
+    { q: 'How are applications reviewed?', a: 'Our funding partner looks at your catalog’s earnings history and performance. Each application is reviewed individually.' },
+    { q: 'Do I keep ownership of my music?', a: 'Yes — you keep 100% ownership of your music, whether or not you apply.' },
+    { q: 'What catalogs are a good fit?', a: 'Catalogs with consistent streaming earnings and a verifiable royalty history are a good fit for review. Meeting these doesn’t guarantee an offer.' },
   ],
 };
 
 export const cta = {
   eyebrow: 'Your Catalog. More Opportunities.',
-  title: 'Get Funded. <span class="text-red">Go Further.</span>',
-  text: 'Turn your royalties into momentum and take your music career to the next level.',
+  title: 'Check Your Eligibility. <span class="text-red">Go Further.</span>',
+  text: 'Apply for Ikonic Advance on Pro+ or Label Enterprise and take your music career to the next level.',
   actions: [
     { label: 'Apply Now', href: '#', variant: 'primary', iconRight: 'arrow-right' },
     { label: 'Learn More', href: '#', variant: 'outline' },
   ],
   stats: [
-    { icon: 'music', value: '$100M+', label: 'Available for Artists' },
+    { icon: 'music', value: 'Pro+', label: 'Eligibility Included' },
     { icon: 'users', value: 'All Genres', label: 'Independent Artists' },
-    { icon: 'globe', value: 'Global', label: 'Catalogs Worldwide' },
+    { icon: 'globe', value: 'Global', label: 'Catalogs Reviewed' },
   ],
 };

@@ -35,7 +35,7 @@ export const labelsFeatures = {
   text: 'From signing new talent to releasing music and tracking revenue &mdash; manage your entire operation in one place.',
   action: getStarted,
   items: [
-    { icon: 'artists', title: 'Multiple Artist Accounts', text: 'Create and manage unlimited artist profiles under one label account.' },
+    { icon: 'artists', title: 'Multiple Artist Accounts', text: 'Manage every artist profile under one label account, with 5, 15 or 50 artist seats included.' },
     { icon: 'shield-check', title: 'Role-Based Access', text: 'Assign custom roles and permissions to your team members.' },
     { icon: 'cube', title: 'Release Management', text: 'Approve, schedule, and manage releases for all artists.' },
     { icon: 'bars', title: 'Revenue Tracking', text: 'View earnings across your entire roster in real time.' },
@@ -123,7 +123,7 @@ export const labelsFaq = {
   title: 'Quick answers.',
   text: 'Everything you need to know about labels and team management on Ikonic.',
   items: [
-    { question: 'How many artists can I add to my label account?', answer: 'You can create and manage unlimited artist accounts under your label.' },
+    { question: 'How many artists can I add to my label account?', answer: 'Label plans include 5 (Starter), 15 (Growth) or 50 (Enterprise) artist seats, and you can add extra seats as your roster grows. For more than 50 artists, talk to us for a custom quote.' },
     { question: 'Can I assign different permissions to my team?', answer: 'Yes, you can assign custom roles and permissions so each team member only accesses what they need.' },
     { question: 'Can artists have their own login under my label?', answer: 'Yes, each artist gets their own login with access limited to their profile, releases, and analytics.' },
     { question: 'Can I view all earnings in one place?', answer: 'Yes, you can track streaming and revenue data across your entire roster in real time from one dashboard.' },
@@ -136,7 +136,7 @@ export const labelsCta = {
   text: 'More artists. More releases. More opportunities &mdash; all in one place.',
   actions: [
     getStarted,
-    { label: 'View Pricing', href: '/pricing', variant: 'outline', size: 'lg' },
+    { label: 'View Label Pricing', href: '/pricing#labels', variant: 'outline', size: 'lg' },
   ],
   stats: [
     { icon: 'music', value: '50K+', label: 'Artists &amp; Labels' },

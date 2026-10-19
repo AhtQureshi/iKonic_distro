@@ -1,7 +1,6 @@
 // Advance page: composed only from containers. Content lives in src/data/advance.js.
 import {
   AdvanceCta,
-  AdvanceEstimator,
   AdvanceFaq,
   AdvanceHero,
   AdvanceProcess,
@@ -13,7 +12,7 @@ import {
 
 export const metadata = {
   title: 'Ikonic Advance — Turn Your Royalties Into Momentum',
-  description: 'Get funding based on your music earnings, not your credit. Keep 100% of your rights and continue to grow your career.',
+  description: 'Pro+ and Label Enterprise members can apply for Ikonic Advance. Every application is reviewed by our funding partner. Keep 100% ownership of your music.',
 };
 
 export default function AdvancePage() {
@@ -22,7 +21,6 @@ export default function AdvancePage() {
       <Header active="advance" />
       <main id="main">
         <AdvanceHero />
-        <AdvanceEstimator />
         <AdvanceUses />
         <AdvanceTracking />
         <AdvanceProcess />

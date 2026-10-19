@@ -1,7 +1,15 @@
 // Site-wide content shared by every page (header, footer, socials).
 
-// Artist plan prices, shared by the home pricing preview and the pricing page.
-export const planPrices = { basic: { monthly: '$4.99', annual: '$3.99' }, pro: { monthly: '$9.99', annual: '$7.99' }, proPlus: { monthly: '$19.99', annual: '$15.99' } };
+// Plan prices (approved 2026-10-12), shared by the home pricing preview and the pricing page.
+// `annual` is the full yearly price (20% off 12 months). Label plans add a per-seat price for extra artist seats.
+export const planPrices = {
+  basic: { monthly: '$4.99', annual: '$47.90' },
+  pro: { monthly: '$9.99', annual: '$95.90' },
+  proPlus: { monthly: '$19.99', annual: '$191.90' },
+  labelStarter: { monthly: '$39', annual: '$374.40', seat: '$6', seatAnnual: '$57.60' },
+  labelGrowth: { monthly: '$99', annual: '$950.40', seat: '$5', seatAnnual: '$48.00' },
+  labelEnterprise: { monthly: '$249', annual: '$2,390.40', seat: '$4', seatAnnual: '$38.40' },
+};
 
 export const navigation = [
   { id: 'distribution', label: 'Distribution', href: '/distribution' },
@@ -14,7 +22,7 @@ export const navigation = [
 
 export const headerActions = [
   { label: 'Log In', href: '#', variant: 'outline', size: 'sm' },
-  { label: 'Start Free', href: '#', variant: 'primary', size: 'sm', iconRight: 'arrow-right' },
+  { label: 'Start Free Trial', href: '#', variant: 'primary', size: 'sm', iconRight: 'arrow-right' },
 ];
 
 export const footer = {

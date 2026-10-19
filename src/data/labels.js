@@ -136,7 +136,7 @@ export const labelsCta = {
   text: 'More artists. More releases. More opportunities &mdash; all in one place.',
   actions: [
     getStarted,
-    { label: 'View Pricing', href: '/pricing', variant: 'outline', size: 'lg' },
+    { label: 'View Label Pricing', href: '/pricing#labels', variant: 'outline', size: 'lg' },
   ],
   stats: [
     { icon: 'music', value: '50K+', label: 'Artists &amp; Labels' },

@@ -17,7 +17,7 @@ export const hero = {
   // Decorative full-bleed background (public/assets/images/), 1983×793.
   image: { file: 'distribution-hero.webp', width: 1983, height: 793 },
   actions: [
-    { label: 'Start Free', href: '#', variant: 'primary', size: 'lg', iconRight: 'arrow-right' },
+    { label: 'Start Free Trial', href: '#', variant: 'primary', size: 'lg', iconRight: 'arrow-right' },
     { label: 'Watch Demo', href: '#', variant: 'outline', size: 'lg', iconLeft: 'play-circle' },
   ],
   release: { label: 'New Release', title: 'Glass Horizon', artist: 'Kairo Vale', src: cover('glass-horizon'), status: 'Delivered to 250+ stores' },
@@ -149,7 +149,7 @@ export const cta = {
   title: 'Release Worldwide.<br><span class="text-red">Build Without Limits.</span>',
   text: 'Join thousands of independent artists releasing, growing, and owning more with Ikonic.',
   actions: [
-    { label: 'Start Free', href: '#', variant: 'primary', size: 'lg', iconRight: 'arrow-right' },
+    { label: 'Start Free Trial', href: '#', variant: 'primary', size: 'lg', iconRight: 'arrow-right' },
     { label: 'View Pricing', href: '/pricing', variant: 'outline', size: 'lg' },
   ],
   stats: [

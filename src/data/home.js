@@ -7,7 +7,7 @@ export const hero = {
   title: 'Own More<br>Of <span class="text-red">Your Music.</span>',
   text: 'Distribution. Publishing. Funding. Everything independent artists need — all in one platform.',
   actions: [
-    { label: 'Start Free', href: '#', variant: 'primary', size: 'lg', iconRight: 'arrow-right' },
+    { label: 'Start Free Trial', href: '#', variant: 'primary', size: 'lg', iconRight: 'arrow-right' },
     { label: 'Watch Demo', href: '#', variant: 'outline', size: 'lg', iconLeft: 'play-circle' },
   ],
   image: { file: 'hero-studio.webp', alt: 'IKONIC artist in the studio' },
@@ -171,9 +171,9 @@ export const pricing = {
   text: 'Start with a 7-day free trial, upgrade when you grow. Keep 100% ownership of your music on every plan.',
   link: { label: 'See All Plans', href: '/pricing' },
   plans: [
-    { name: 'Ikonic Basic', price: planPrices.basic.monthly, features: ['Worldwide distribution', 'Keep 100% ownership of your music', 'Basic analytics'] },
-    { name: 'Ikonic Pro', price: planPrices.pro.monthly, featured: true, badge: 'Most Popular', features: ['Everything in Basic', 'Advanced analytics', 'Priority support'] },
-    { name: 'Ikonic Pro+', price: planPrices.proPlus.monthly, features: ['Everything in Pro', 'Advance eligibility', 'Team accounts'] },
+    { name: 'Ikonic Basic', price: planPrices.basic.monthly, features: ['Worldwide distribution (250+ stores)', 'Keep 100% ownership of your music', 'YouTube Content ID'] },
+    { name: 'Ikonic Pro', price: planPrices.pro.monthly, featured: true, badge: 'Most Popular', features: ['Everything in Basic', 'Publishing administration', 'Playlist pitching access'] },
+    { name: 'Ikonic Pro+', price: planPrices.proPlus.monthly, features: ['Everything in Pro', 'My A&amp;R', 'Advance eligibility'] },
   ],
 };
 
@@ -182,7 +182,7 @@ export const cta = {
   title: 'Own More. <span class="text-red">Build Bigger.</span>',
   text: 'Join thousands of independent artists using Ikonic to take control of their music business.',
   actions: [
-    { label: 'Start Free', href: '#', variant: 'primary', size: 'lg', iconRight: 'arrow-right' },
+    { label: 'Start Free Trial', href: '#', variant: 'primary', size: 'lg', iconRight: 'arrow-right' },
     { label: 'View Pricing', href: '/pricing', variant: 'outline', size: 'lg' },
   ],
   proof: { avatars: [1, 5, 3, 7], value: '50K+', label: 'Artists & Labels' },

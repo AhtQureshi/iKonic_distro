@@ -37,6 +37,7 @@ export { PricingCta } from './PricingCta/PricingCta.jsx';
 export { PricingFaq } from './PricingFaq/PricingFaq.jsx';
 export { PricingHero } from './PricingHero/PricingHero.jsx';
 export { PricingIncluded } from './PricingIncluded/PricingIncluded.jsx';
+export { PricingLabels } from './PricingLabels/PricingLabels.jsx';
 export { PricingPlans } from './PricingPlans/PricingPlans.jsx';
 export { PricingPreview } from './PricingPreview/PricingPreview.jsx';
 export { PublishingCta } from './PublishingCta/PublishingCta.jsx';

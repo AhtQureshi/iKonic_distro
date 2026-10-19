@@ -7,11 +7,13 @@ import { useBilling } from '../BillingToggle/BillingContext.jsx';
 /**
  * Pricing plan. `featured` highlights the card and switches the CTA to primary.
  * Optional: size 'lg' (full pricing page card), tagline, badgeVariant, and annualPrice —
- * with annualPrice the price follows the BillingToggle of the surrounding BillingProvider.
+ * with annualPrice the price follows the BillingToggle of the surrounding BillingProvider
+ * (annualPrice is the yearly total, shown with annualPeriod). Label plans add seats / annualSeats.
  */
-export function PlanCard({ name, price, period = '/mo', features = [], cta = {}, featured = false, badge, className = '', size = 'md', tagline, annualPrice, annualNote = 'billed annually', badgeVariant }) {
+export function PlanCard({ name, price, period = '/mo', features = [], cta = {}, featured = false, badge, className = '', size = 'md', tagline, annualPrice, annualPeriod = '/yr', annualNote = 'billed annually', seats, annualSeats, badgeVariant }) {
   const lg = size === 'lg';
-  const annual = useBilling()?.billing === 'annual';
+  const billing = useBilling();
+  const annual = Boolean(annualPrice) && billing?.billing === 'annual';
 
   return (
     <article className={cx('plan-card', featured && 'plan-card--featured', lg && 'plan-card--lg', className)}>
@@ -20,9 +22,10 @@ export function PlanCard({ name, price, period = '/mo', features = [], cta = {},
       {tagline && <p className="plan-card__tagline">{tagline}</p>}
       <p className="plan-card__price">
         {annualPrice ? <span className="plan-card__amount">{annual ? annualPrice : price}</span> : price}
-        <small>{period}</small>
+        <small>{annual ? annualPeriod : period}</small>
       </p>
       {annualPrice && <p className="plan-card__note">{annual ? annualNote : ''}</p>}
+      {seats && <p className="plan-card__seats">{annual ? annualSeats || seats : seats}</p>}
       <ul className="plan-card__features">
         {features.map((f) => <li key={f}><Icon name="check" size={lg ? 16 : 14} /><span {...rich(f)} /></li>)}
       </ul>

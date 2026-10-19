@@ -8,6 +8,7 @@ import {
   PricingFaq,
   PricingHero,
   PricingIncluded,
+  PricingLabels,
   PricingPlans,
 } from '../../components/containers/index.js';
 import { BillingProvider } from '../../components/subcomponents/index.js';
@@ -22,12 +23,13 @@ export default function PricingPage() {
     <>
       <Header active="pricing" />
       <main id="main">
-        {/* The hero's Monthly / Annual switch drives the plan prices below it. */}
+        {/* The Monthly / Annual switches (hero and label plans) drive every plan price inside. */}
         <BillingProvider>
           <PricingHero />
           <PricingPlans />
+          <PricingCompare />
+          <PricingLabels />
         </BillingProvider>
-        <PricingCompare />
         <PricingAudience />
         <PricingIncluded />
         <PricingFaq />

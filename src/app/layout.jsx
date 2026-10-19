@@ -22,7 +22,7 @@ const caveat = Caveat({
 
 export const metadata = {
   title: 'IKONIC — Own More Of Your Music.',
-  description: 'Distribution, publishing and funding for independent artists. Get your music on 250+ stores in 170+ countries and keep 100% of your rights.',
+  description: 'Distribution, publishing and funding for independent artists. Get your music on 250+ stores in 170+ countries and keep 100% ownership of your music.',
   // ?v= busts browsers' cached copy of the previous icon (same URL); bump it whenever the icon changes.
   icons: {
     icon: [

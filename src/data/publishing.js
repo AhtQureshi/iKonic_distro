@@ -25,7 +25,7 @@ export const highlights = [
   { icon: 'music', text: 'Collect Global Publishing Royalties' },
   { icon: 'users', text: 'Easy Split Management' },
   { icon: 'stat-bars', text: 'Track Performance in Real-Time' },
-  { icon: 'shield-check', text: 'You Keep 100% of Your Rights' },
+  { icon: 'shield-check', text: 'Keep 100% Ownership of Your Music' },
 ];
 
 export const steps = {
@@ -37,7 +37,7 @@ export const steps = {
     { icon: 'file-text', title: 'Register', text: 'Add your songs and song details.' },
     { icon: 'globe', title: 'We Submit', text: 'We register with collecting societies worldwide.' },
     { icon: 'dollar-circle', title: 'You Collect', text: 'Earn publishing royalties from radio, streaming, sync, and more.' },
-    { icon: 'stat-bars', title: 'Track &amp; Grow', text: 'See your earnings in real-time and keep 100% of your rights.' },
+    { icon: 'stat-bars', title: 'Track &amp; Grow', text: 'See your earnings in real-time and keep 100% ownership of your music.' },
   ],
 };
 
@@ -129,7 +129,7 @@ export const faq = {
   title: 'Quick answers.',
   text: 'Everything you need to know about publishing on Ikonic.',
   items: [
-    { question: 'Do I keep 100% of my rights?', answer: 'Yes — you keep full ownership of your songs; Ikonic only collects the publishing royalties on your behalf.' },
+    { question: 'Do I keep ownership of my songs?', answer: 'Yes — you keep full ownership of your songs; Ikonic only collects the publishing royalties on your behalf.' },
     { question: 'What songs can I register?', answer: 'Any original songs you wrote or co-wrote and hold the publishing rights to, including released and unreleased works.' },
     { question: 'How and when do I get paid?', answer: 'Royalties are collected from societies worldwide and added to your Ikonic balance, which you can withdraw once it reaches the payout threshold.' },
     { question: 'Which countries are included?', answer: 'Our network covers 170+ countries through collecting societies worldwide, so you are covered almost everywhere your music is played.' },

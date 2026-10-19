@@ -14,7 +14,7 @@ import { BillingProvider } from '../../components/subcomponents/index.js';
 
 export const metadata = {
   title: 'Pricing — IKONIC | Artists Own More Here.',
-  description: 'Simple plans for independent artists: distribute, publish, get funded and manage your music business on IKONIC. Keep 100% of your rights, no setup fees.',
+  description: 'Simple plans for independent artists and labels: distribute, publish and manage your music business on IKONIC. 7-day free trial. Keep 100% ownership of your music.',
 };
 
 export default function PricingPage() {

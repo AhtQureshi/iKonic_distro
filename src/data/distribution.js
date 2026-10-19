@@ -13,7 +13,7 @@ const liveStores = [
 export const hero = {
   eyebrow: 'Music Without Limits',
   title: 'Distribute Your Music <span class="text-red">Worldwide.</span>',
-  text: 'Get your music on 250+ streaming platforms, keep 100% of your rights, and reach new fans everywhere.',
+  text: 'Get your music on 250+ streaming platforms, keep 100% ownership of your music, and reach new fans everywhere.',
   // Decorative full-bleed background (public/assets/images/), 1983×793.
   image: { file: 'distribution-hero.webp', width: 1983, height: 793 },
   actions: [
@@ -25,7 +25,7 @@ export const hero = {
   streams: { label: 'Total Streams', value: '2,482,391', trend: '+42%', chart: { type: 'bars', values: [28, 44, 62, 80, 100] } },
   points: [
     { icon: 'bolt-outline', title: 'Fast Delivery', text: 'Typically live in 1–7 days' },
-    { icon: 'shield', title: '100% Ownership', text: 'You keep your rights' },
+    { icon: 'shield', title: '100% Ownership', text: 'Your music stays yours' },
     { icon: 'globe', title: '250+ Stores', text: 'Reach every major platform' },
   ],
 };
@@ -40,7 +40,7 @@ export const features = {
   items: [
     { icon: 'globe', title: 'Global Distribution', text: 'Get your music on 250+ streaming platforms worldwide.', href: '#', variant: 'plain' },
     { icon: 'bolt-outline', title: 'Fast &amp; Reliable', text: 'Typically live in 1–7 days with real-time delivery updates.', href: '#', variant: 'plain' },
-    { icon: 'bar-chart-axis', title: 'Keep 100% Ownership', text: 'You keep your masters, your rights, and your revenue.', href: '#', variant: 'plain' },
+    { icon: 'bar-chart-axis', title: 'Keep 100% Ownership', text: 'You keep 100% ownership of your music and your masters.', href: '#', variant: 'plain' },
     { icon: 'users', title: 'For Artists &amp; Labels', text: 'Release as an independent artist or manage multiple artists under one label.', href: '/labels', variant: 'plain' },
   ],
 };
@@ -139,7 +139,7 @@ export const faq = {
   items: [
     { question: 'How long does it take to get my music live?', answer: 'Most releases go live within 1–7 days, depending on the store’s review times.' },
     { question: 'Which platforms will my music go to?', answer: 'Your music is delivered to 250+ streaming platforms and stores worldwide, including Spotify, Apple Music, YouTube, TikTok, Amazon Music, TIDAL, Deezer, and Pandora.' },
-    { question: 'Do I keep 100% of my rights?', answer: 'Yes — you always keep 100% of your masters, your rights, and your revenue with Ikonic.' },
+    { question: 'Do I keep ownership of my music?', answer: 'Yes — you keep 100% ownership of your music and your masters with Ikonic.' },
     { question: 'Can I update my release after it’s live?', answer: 'Yes — you can update your release details anytime, and the changes are pushed out to every store.' },
   ],
 };

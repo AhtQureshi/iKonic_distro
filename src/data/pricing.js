@@ -6,7 +6,7 @@ export const hero = {
   title: 'Simple Plans.<br><span class="text-red">Bigger Opportunities.</span>',
   // Decorative full-bleed background (public/assets/images/), 1983×793.
   image: { file: 'pricing-hero.webp', width: 1983, height: 793 },
-  text: 'Choose the plan that fits your goals. Distribute, publish, get funded, and manage your entire music business — all in one platform.',
+  text: 'Choose the plan that fits your goals. Distribute, publish, and manage your entire music business — all in one platform.',
   billing: {
     label: 'Billing period',
     options: [
@@ -27,7 +27,7 @@ export const plans = {
       tagline: 'Everything you need to get started.',
       price: planPrices.basic.monthly,
       annualPrice: planPrices.basic.annual,
-      features: ['Worldwide distribution (250+ stores)', 'Keep 100% of your rights', 'Unlimited releases', 'Basic analytics', 'Real-time release status', 'Standard support'],
+      features: ['Worldwide distribution (250+ stores)', 'Keep 100% ownership of your music', 'Unlimited releases', 'Basic analytics', 'Real-time release status', 'Standard support'],
       cta: { label: 'Get Started', href: '#' },
     },
     {
@@ -59,7 +59,7 @@ export const compare = {
   rows: [
     { icon: 'globe-lines', label: 'Worldwide Distribution (250+ stores)', values: [true, true, true] },
     { icon: 'infinity', label: 'Unlimited Releases', values: [true, true, true] },
-    { icon: 'shield-check', label: 'Keep 100% of Your Rights', values: [true, true, true] },
+    { icon: 'shield-check', label: 'Keep 100% Ownership of Your Music', values: [true, true, true] },
     { icon: 'chart-columns', label: 'Basic Analytics', values: [true, true, true] },
     { icon: 'chart-line', label: 'Advanced Analytics', values: [false, true, true] },
     { icon: 'document', label: 'Publishing Administration', values: [false, true, true] },
@@ -95,10 +95,10 @@ export const audience = [
 
 export const included = {
   eyebrow: 'Included with every plan',
-  title: 'More Value. No Hidden Fees.',
-  note: 'Transparent pricing. No setup fees. No surprises. Just everything you need to grow.',
+  title: 'More Value. Clear Pricing.',
+  note: 'Transparent plan pricing. No setup fees. Just everything you need to grow.',
   items: [
-    { icon: 'bolt-outline', title: '100% Ownership', text: 'You keep your rights.' },
+    { icon: 'bolt-outline', title: '100% Ownership', text: 'Your music stays yours.' },
     { icon: 'globe-lines', title: 'Global Reach', text: '250+ stores worldwide.' },
     { icon: 'split', title: 'Royalty Splits', text: 'Easy split management.' },
     { icon: 'dollar-outline', title: 'Fast Payouts', text: 'Get paid on time.' },
@@ -111,9 +111,9 @@ export const faq = {
   text: 'Everything you need to know about our pricing.',
   items: [
     { q: 'Can I upgrade or downgrade my plan?', a: 'Yes — you can switch plans at any time from your dashboard, and the change takes effect immediately.' },
-    { q: 'Are there any setup fees?', a: 'No — there are no setup fees, ever. You only pay the plan price you see.' },
-    { q: 'Do I keep 100% of my rights?', a: 'Yes — you always keep 100% ownership of your music and your rights on every plan.' },
-    { q: 'How does the advance eligibility work?', a: "Pro+ members unlock eligibility for Ikonic Advance, our artist funding program based on your catalog's performance." },
+    { q: 'Are there any setup fees?', a: 'No — there are no setup fees. Every plan starts with a 7-day free trial, then bills monthly or annually.' },
+    { q: 'Do I keep ownership of my music?', a: 'Yes — you keep 100% ownership of your music on every plan.' },
+    { q: 'How does the advance eligibility work?', a: "Pro+ members are eligible to apply for Ikonic Advance. Each application is reviewed by our funding partner based on your catalog's performance — eligibility is not a guarantee of funding." },
   ],
 };
 

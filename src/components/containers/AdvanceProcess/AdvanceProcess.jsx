@@ -1,7 +1,7 @@
 import { process } from '../../../data/advance.js';
 import { JourneyStep, SectionHeading } from '../../subcomponents/index.js';
 
-/** "Get Funded. Keep Creating." — four numbered steps on a red connecting line. */
+/** "Apply. Get Reviewed. Keep Creating." — four numbered steps on a red connecting line. */
 export function AdvanceProcess({ content = process }) {
   return (
     <section className="section advance-process" id={content.id}>

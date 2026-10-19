@@ -16,7 +16,7 @@ import { features, releases, steps } from '../../data/distribution.js';
 
 export const metadata = {
   title: 'Distribution — Ikonic Distro',
-  description: 'Distribute your music worldwide. Get your music on 250+ streaming platforms, keep 100% of your rights, and reach new fans everywhere.',
+  description: 'Distribute your music worldwide. Get your music on 250+ streaming platforms, keep 100% ownership of your music, and reach new fans everywhere.',
 };
 
 export default function DistributionPage() {

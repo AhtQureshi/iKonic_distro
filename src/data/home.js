@@ -12,7 +12,7 @@ export const hero = {
   ],
   image: { file: 'hero-studio.webp', alt: 'IKONIC artist in the studio' },
   release: { title: 'Hard To Ignore', artist: 'Vory', src: cover('vory-hard-to-ignore'), stores: ['spotify', 'apple-music', 'youtube', 'tiktok'], extra: '+6' },
-  advance: { label: 'Advance Approved', value: '$50,000', icon: 'bolt' },
+  advance: { label: 'Advance Eligibility', value: 'Pro+', icon: 'bolt' },
   streams: { label: 'Total Streams', value: '2,483,921', trend: '+12.4%', chart: { type: 'bars', values: [30, 48, 40, 62, 55, 80, 100] } },
   earnings: { label: 'Monthly Earnings', value: '$8,432', trend: '+29%', chart: { type: 'spark', values: [12, 18, 14, 22, 19, 28, 24, 34, 31, 42] } },
 };
@@ -20,8 +20,8 @@ export const hero = {
 export const ticker = {
   title: "What's New on Ikonic:",
   items: [
-    'New: Catalog Funding',
-    'New: AI Metadata Assistant',
+    'New: Advance Eligibility on Pro+',
+    'New: My A&amp;R',
     'New: Publishing Dashboard',
     'New: Team Accounts',
     'New: Faster Royalty Withdrawals',
@@ -31,7 +31,7 @@ export const ticker = {
 export const platform = {
   eyebrow: 'The Complete Platform',
   title: 'One Dashboard.<br>Every Opportunity.',
-  text: 'Manage your releases, publishing, royalties, funding, team, and analytics — all in one place.',
+  text: 'Manage your releases, publishing, royalties, advance applications, team, and analytics — all in one place.',
   action: { label: 'Explore Platform', href: '#', iconRight: 'arrow-right' },
   dashboard: {
     user: 'Nova Rae',
@@ -168,10 +168,10 @@ export const reach = {
 export const pricing = {
   eyebrow: 'Simple Pricing',
   title: 'Plans for Every<br>Stage.',
-  text: 'Start free, upgrade when you grow. Keep 100% of your rights on every plan.',
+  text: 'Start with a 7-day free trial, upgrade when you grow. Keep 100% ownership of your music on every plan.',
   link: { label: 'See All Plans', href: '/pricing' },
   plans: [
-    { name: 'Ikonic Basic', price: planPrices.basic.monthly, features: ['Worldwide distribution', 'Keep 100% of your rights', 'Basic analytics'] },
+    { name: 'Ikonic Basic', price: planPrices.basic.monthly, features: ['Worldwide distribution', 'Keep 100% ownership of your music', 'Basic analytics'] },
     { name: 'Ikonic Pro', price: planPrices.pro.monthly, featured: true, badge: 'Most Popular', features: ['Everything in Basic', 'Advanced analytics', 'Priority support'] },
     { name: 'Ikonic Pro+', price: planPrices.proPlus.monthly, features: ['Everything in Pro', 'Advance eligibility', 'Team accounts'] },
   ],

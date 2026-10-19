@@ -20,7 +20,7 @@ export const hero = {
     { label: 'Start Free', href: '#', variant: 'primary', size: 'lg', iconRight: 'arrow-right' },
     { label: 'Watch Demo', href: '#', variant: 'outline', size: 'lg', iconLeft: 'play-circle' },
   ],
-  release: { label: 'New Release', title: 'Samurai', artist: 'Orio x Shootergang', src: cover('orio-samurai'), status: 'Delivered to 250+ stores' },
+  release: { label: 'New Release', title: 'Glass Horizon', artist: 'Kairo Vale', src: cover('glass-horizon'), status: 'Delivered to 250+ stores' },
   stores: { items: liveStores.map((s) => ({ ...s, status: 'Live' })), more: '+ 245 more stores' },
   streams: { label: 'Total Streams', value: '2,482,391', trend: '+42%', chart: { type: 'bars', values: [28, 44, 62, 80, 100] } },
   points: [
@@ -50,9 +50,9 @@ export const audience = {
   title: 'Your Music.<br>Everywhere Fans Listen.',
   text: 'From Spotify to TikTok, Apple Music to Amazon, Ikonic gets your music in front of listeners across the world — with one simple release.',
   phone: {
-    title: 'Made Me This Way',
-    artist: 'Vory',
-    src: cover('vory-made-me-this-way'),
+    title: 'Neon Tides',
+    artist: 'Lumi Asher',
+    src: cover('neon-tides'),
     live: 'Live on 250+ stores',
     listTitle: 'Distribution Status',
     stores: [
@@ -108,11 +108,11 @@ export const tools = {
     more: '+247',
     status: 'Live',
     rows: [
-      { title: 'By Any Means', artist: 'Orio x Malik Montana x M Huncho', date: 'Oct 12, 2024', src: cover('orio-by-any-means') },
-      { title: 'Overseas', artist: 'Orio x Bobby Shmurda', date: 'Sep 28, 2024', src: cover('orio-overseas') },
-      { title: 'Heartbreak Anniversary', artist: 'Jersey', date: 'Sep 14, 2024', src: cover('jersey-heartbreak-anniversary') },
-      { title: 'For Me', artist: 'Tússsin', date: 'Aug 30, 2024', src: cover('tusssin-for-me') },
-      { title: 'Oly', artist: 'Orio x Dollypran', date: 'Aug 12, 2024', src: cover('orio-oly') },
+      { title: 'Velvet Circuit', artist: 'Mira Quill', date: 'Oct 12, 2024', src: cover('velvet-circuit') },
+      { title: 'Northbound Lights', artist: 'Ama Solé', date: 'Sep 28, 2024', src: cover('northbound-lights') },
+      { title: 'Coastline Echoes', artist: 'Dex Halloway', date: 'Sep 14, 2024', src: cover('coastline-echoes') },
+      { title: 'Slow Burn District', artist: 'Rhea Lumen', date: 'Aug 30, 2024', src: cover('slow-burn-district') },
+      { title: 'Sunset Arcade', artist: 'Rhea Lumen', date: 'Aug 12, 2024', src: cover('sunset-arcade') },
     ],
   },
 };
@@ -121,14 +121,14 @@ export const releases = {
   eyebrow: 'Recent Releases',
   title: 'Distributed on <span class="text-red">Ikonic.</span>',
   items: [
-    { title: 'Overseas', artist: 'Orio x Bobby Shmurda', src: cover('orio-overseas') },
-    { title: 'Plata O Plomo', artist: 'Orio x Uncle Murda x Silva', src: cover('orio-plata-o-plomo') },
-    { title: 'Jet Li', artist: 'Orio x Guleed x Kazior', src: cover('orio-jet-li') },
-    { title: 'Oly', artist: 'Orio x Dollypran', src: cover('orio-oly') },
-    { title: 'Lossst', artist: 'Tússsin', src: cover('tusssin-lossst') },
-    { title: 'Miami', artist: 'DoubleChanel x Tricks', src: cover('doublechanel-tricks-miami') },
-    { title: 'Body', artist: 'Big Nuni', src: cover('big-nuni-body') },
-    { title: 'Limitless', artist: 'Tricks', src: cover('tricks-limitless') },
+    { title: 'Northbound Lights', artist: 'Ama Solé', src: cover('northbound-lights') },
+    { title: 'Quiet Voltage', artist: 'Lumi Asher', src: cover('quiet-voltage') },
+    { title: 'Ultraviolet Hours', artist: 'Theo Marlowe x Juno Kade', src: cover('ultraviolet-hours') },
+    { title: 'Sunset Arcade', artist: 'Rhea Lumen', src: cover('sunset-arcade') },
+    { title: 'Second Gravity', artist: 'Ivo Sterling', src: cover('second-gravity') },
+    { title: 'After The Signal', artist: 'Nova Rae x Kairo Vale', src: cover('after-the-signal') },
+    { title: 'Prism Weather', artist: 'Elio Brandt', src: cover('prism-weather') },
+    { title: 'Amber Frequency', artist: 'Sola Reyne', src: cover('amber-frequency') },
   ],
 };
 
